@@ -15,6 +15,8 @@ public class FingerControl : MonoBehaviour
     [SerializeField]
     float maxForce, forceFactor;
 
+    float leftAttack = 0;
+
     [SerializeField]
     Transform leftHead, leftAttackBone, rightMoveBone, rightAttackBone;
 
@@ -29,8 +31,6 @@ public class FingerControl : MonoBehaviour
     public void OnLeftFingerMove(CallbackContext context)
     {
         leftAxes = context.ReadValue<Vector2>();
-
-        //leftMoveBone.rotation = Quaternion.Euler(leftAxes.y * 45f, 0, -leftAxes.x * 45f);
     }
 
     public void OnRightFingerMove(CallbackContext context)
@@ -40,12 +40,7 @@ public class FingerControl : MonoBehaviour
 
     public void OnLeftFingerAttack(CallbackContext context)
     {
-        if (context.ReadValue<float>() >= 0.9 && !leftAttacking)
-        {
-            leftAttacking = true;
-        }
-        else if (leftAttacking && context.ReadValue<float>() <= 0.1)
-            leftAttacking = false;
+        leftAttack = context.ReadValue<float>();
     }
 
     public void OnRightFingerAttack(CallbackContext context)
@@ -79,5 +74,12 @@ public class FingerControl : MonoBehaviour
                 leftHead.position = new Vector3(leftHead.position.x, leftHead.position.y, (lHeadIniPos.z + leftHeadLimits.z) * Mathf.Sign(leftHead.position.z));
             }
         }
+
+        
+    }
+
+    public void Update()
+    {
+        leftHead.position = new Vector3(leftHead.position.x, lHeadIniPos.y - (leftHeadLimits.y * leftAttack), leftHead.position.z);
     }
 }
