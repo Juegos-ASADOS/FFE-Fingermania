@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{75648315-a9e7-4520-b96a-adeb6c620eb7}">
+		<property name="assetPath">
+			<value>Big Hit/Big Impact .wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.25108843537414965</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{c3657d4a-010f-4d18-be03-335d04b2d156}</destination>
+		</relationship>
+	</object>
+</objects>
