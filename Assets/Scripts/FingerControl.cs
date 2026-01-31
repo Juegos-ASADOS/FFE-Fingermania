@@ -13,9 +13,9 @@ public class FingerControl : MonoBehaviour
     Vector3 leftHeadLimits;
 
     [SerializeField]
-    float maxForce, forceFactor;
+    float maxForce;
 
-    float leftAttack = 0, leftAttackCounter = 0;
+    float leftAttack = 0;
 
     [SerializeField]
     Transform leftHead, leftAttackBone, rightMoveBone, rightAttackBone;
@@ -40,7 +40,6 @@ public class FingerControl : MonoBehaviour
 
     public void OnLeftFingerAttack(CallbackContext context)
     {
-        leftAttackCounter += leftAttack - context.ReadValue<float>();
         leftAttack = context.ReadValue<float>();
     }
 
@@ -56,36 +55,31 @@ public class FingerControl : MonoBehaviour
 
     public void FixedUpdate()
     {
-        if (Mathf.Abs(leftAxes.x) >= 0.1 || Mathf.Abs(leftAxes.y) >= 0.1)
-        {
-            Vector3 xForce = leftRB.GetAccumulatedForce();
-            if (Mathf.Abs(xForce.x) < maxForce)
-                leftRB.AddForce(new Vector3(leftAxes.x * forceFactor, 0, 0));
-            if (Mathf.Abs(xForce.z) < maxForce)
-                leftRB.AddForce(new Vector3(0, 0, leftAxes.y * forceFactor));
+        //if (Mathf.Abs(leftAxes.x) >= 0.1 || Mathf.Abs(leftAxes.y) >= 0.1)
+        //{
+        //    Vector3 xForce = leftRB.GetAccumulatedForce();
+        //    if (Mathf.Abs(xForce.x) < maxForce)
+        //        leftRB.AddForce(new Vector3(leftAxes.x * forceFactor, 0, 0));
+        //    if (Mathf.Abs(xForce.z) < maxForce)
+        //        leftRB.AddForce(new Vector3(0, 0, leftAxes.y * forceFactor));
 
-        }
-
-        //if (leftAttackCounter != 0f) {
-        //    Debug.Log(leftAttackCounter);
-        //    leftRB.AddForce(new Vector3(0, 0, leftAttackCounter * forceFactor));
-        //    leftAttackCounter = 0;
         //}
-        if (Mathf.Abs(leftHead.position.x - lHeadIniPos.x) >= leftHeadLimits.x)
-        {
-            leftRB.linearVelocity = new Vector3(0, leftRB.linearVelocity.y, leftRB.linearVelocity.z);
-            leftHead.position = new Vector3((lHeadIniPos.x + leftHeadLimits.x) * Mathf.Sign(leftHead.position.x), leftHead.position.y, leftHead.position.z);
-        }
-        if (Mathf.Abs(leftHead.position.z - lHeadIniPos.z - leftAttack * 2) >= leftHeadLimits.z)
-        {
-            leftRB.linearVelocity = new Vector3(leftRB.linearVelocity.x, leftRB.linearVelocity.y, 0);
-            leftHead.position = new Vector3(leftHead.position.x, leftHead.position.y, (lHeadIniPos.z + leftHeadLimits.z) * Mathf.Sign(leftHead.position.z) + leftAttack * 2);
-        }
+
+        //if (Mathf.Abs(leftHead.position.x - lHeadIniPos.x) >= leftHeadLimits.x)
+        //{
+        //    leftRB.linearVelocity = new Vector3(0, leftRB.linearVelocity.y, leftRB.linearVelocity.z);
+        //    leftHead.position = new Vector3((lHeadIniPos.x + leftHeadLimits.x) * Mathf.Sign(leftHead.position.x), leftHead.position.y, leftHead.position.z);
+        //}
+        //if (Mathf.Abs(leftHead.position.z - lHeadIniPos.z - leftAttack * 2) >= leftHeadLimits.z)
+        //{
+        //    leftRB.linearVelocity = new Vector3(leftRB.linearVelocity.x, leftRB.linearVelocity.y, 0);
+        //    leftHead.position = new Vector3(leftHead.position.x, leftHead.position.y, (lHeadIniPos.z + leftHeadLimits.z) * Mathf.Sign(leftHead.position.z) + leftAttack * 2);
+        //}
     }
 
     public void Update()
     {
-        leftHead.position = new Vector3(leftHead.position.x, lHeadIniPos.y - (leftHeadLimits.y * leftAttack), leftHead.position.z);
+        leftHead.position = new Vector3(lHeadIniPos.x + (leftAxes.x * leftHeadLimits.x), lHeadIniPos.y - (leftHeadLimits.y * leftAttack), lHeadIniPos.z + (leftAxes.y * leftHeadLimits.z) + (leftHeadLimits.y * leftAttack));
     }
 
     private void OnDrawGizmos()
