@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{20bc290f-5669-4033-ba60-fd0a79d2a2bb}">
+		<property name="assetPath">
+			<value>tmp/ytmp3free.cc_pista-corrido-norteo-youtubemp3free.org.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>154.63200000000001</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{c3657d4a-010f-4d18-be03-335d04b2d156}</destination>
+		</relationship>
+	</object>
+</objects>
