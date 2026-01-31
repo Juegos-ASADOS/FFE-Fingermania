@@ -68,18 +68,24 @@ public class FingerControl : MonoBehaviour
                 leftRB.linearVelocity = new Vector3(0, leftRB.linearVelocity.y, leftRB.linearVelocity.z);
                 leftHead.position = new Vector3((lHeadIniPos.x + leftHeadLimits.x) * Mathf.Sign(leftHead.position.x), leftHead.position.y, leftHead.position.z);
             }
-            if (Mathf.Abs(leftHead.position.z - lHeadIniPos.z) >= leftHeadLimits.z)
+            if (Mathf.Abs(leftHead.position.z - lHeadIniPos.z + leftAttack * 2) >= leftHeadLimits.z)
             {
                 leftRB.linearVelocity = new Vector3(leftRB.linearVelocity.x, leftRB.linearVelocity.y, 0);
-                leftHead.position = new Vector3(leftHead.position.x, leftHead.position.y, (lHeadIniPos.z + leftHeadLimits.z) * Mathf.Sign(leftHead.position.z));
+                leftHead.position = new Vector3(leftHead.position.x, leftHead.position.y, (lHeadIniPos.z + leftHeadLimits.z + leftAttack * 2) * Mathf.Sign(leftHead.position.z));
             }
-        }
-
-        
+        }   
     }
 
     public void Update()
     {
         leftHead.position = new Vector3(leftHead.position.x, lHeadIniPos.y - (leftHeadLimits.y * leftAttack), leftHead.position.z);
+    }
+
+    private void OnDrawGizmos()
+    {
+        //Gizmos.DrawCube(lHeadIniPos, leftHeadLimits);
+        //Gizmos.DrawWireCube(lHeadIniPos, leftHeadLimits*2);
+        //Gizmos.color = Color.red;
+        //Gizmos.DrawWireCube(new Vector3(lHeadIniPos.x, lHeadIniPos.y, lHeadIniPos.z + leftAttack * 2), leftHeadLimits*2);
     }
 }
