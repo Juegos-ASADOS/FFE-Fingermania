@@ -68,13 +68,15 @@ public class FingerControl : MonoBehaviour
             if (Mathf.Abs(xForce.z) < maxForce)
                 leftRB.AddForce(new Vector3(0, 0, leftAxes.y * forceFactor));
 
-            if (Mathf.Abs(leftHead.position.x + leftAxes.x - lHeadIniPos.x) >= leftHeadLimits.x)
+            if (Mathf.Abs(leftHead.position.x - lHeadIniPos.x) >= leftHeadLimits.x)
             {
                 leftRB.linearVelocity = new Vector3(0, leftRB.linearVelocity.y, leftRB.linearVelocity.z);
+                leftHead.position = new Vector3((lHeadIniPos.x + leftHeadLimits.x) * Mathf.Sign(leftHead.position.x), leftHead.position.y, leftHead.position.z);
             }
-            if (Mathf.Abs(leftHead.position.z + leftAxes.y - lHeadIniPos.z) >= leftHeadLimits.z)
+            if (Mathf.Abs(leftHead.position.z - lHeadIniPos.z) >= leftHeadLimits.z)
             {
                 leftRB.linearVelocity = new Vector3(leftRB.linearVelocity.x, leftRB.linearVelocity.y, 0);
+                leftHead.position = new Vector3(leftHead.position.x, leftHead.position.y, (lHeadIniPos.z + leftHeadLimits.z) * Mathf.Sign(leftHead.position.z));
             }
         }
     }
