@@ -22,10 +22,11 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: New Material
   m_Shader: {fileID: 4800000, guid: eb2562f10f1980b42a052fb140ea3585, type: 3}
-  m_Parent: {fileID: 2100000, guid: 68da28337c6f1344c96db390b7682528, type: 2}
+  m_Parent: {fileID: 2100000, guid: 6ba0d202ee0474149b09063edbc395e2, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
-  m_InvalidKeywords: []
+  m_InvalidKeywords:
+  - _USEFRESNEL_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
