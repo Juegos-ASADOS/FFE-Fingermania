@@ -51,12 +51,19 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _EdgeDiffuse: 0
-    - _EdgeSpecular: 0
+    - _EdgeDiffuse: 0.83
+    - _EdgeDistanceAttenuation: 0.82
+    - _EdgeRim: 0.32
+    - _EdgeRimOffset: 0
+    - _EdgeShadowAttenuation: 0.34
+    - _EdgeSpecular: 1.44
+    - _EdgeSpecularOffset: 0.08
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _RimThreshold: 0
-    - _Smoothness: 0
+    - _RimPower: 0.49
+    - _RimThreshold: 6.71
+    - _Smoothness: 0.61
+    - _shadowDarknes: 0.12
     m_Colors:
     - _Color: {r: 0.9058824, g: 0.34901962, b: 0.5686275, a: 1}
   m_BuildTextureStacks: []
