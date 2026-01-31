@@ -793,9 +793,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1061792504100455067, guid: e99a1b8f90e7a4442becc6065954d31a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1944410898234587908, guid: e99a1b8f90e7a4442becc6065954d31a, type: 3}
       propertyPath: m_Name
       value: FingerContainer (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1953016730017289955, guid: e99a1b8f90e7a4442becc6065954d31a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.5
       objectReference: {fileID: 0}
     - target: {fileID: 2331870012797664536, guid: e99a1b8f90e7a4442becc6065954d31a, type: 3}
       propertyPath: m_LocalPosition.x
