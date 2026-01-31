@@ -153,7 +153,9 @@ MonoBehaviour:
   looserCooldown: 0.75
   winnerCooldown: 0.15
   tieCooldown: 0.5
+  minForce: 0.01
   timeBetweenColisions: 0.05
+  text: {fileID: 0}
 --- !u!114 &4513112414142710858
 MonoBehaviour:
   m_ObjectHideFlags: 0
