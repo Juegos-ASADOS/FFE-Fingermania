@@ -2,6 +2,8 @@ Shader "Custom/CellShading"
 {
     Properties
 {
+    [Toggle] _UseFresnel("Use Outline", Float) = 1
+
     _LineThickness("Line Thickness", Float) = 0.02
     _LineColor("Line Color", Color) = (0,0,0,1)
 
@@ -80,6 +82,7 @@ Shader "Custom/CellShading"
                 float _EdgeRim;
                 float _EdgeRimOffset;
                 float _ShadowDarknes;
+                float _UseFresnel;
             CBUFFER_END
 
             // ======== TU BLOQUE DE CEL SHADING ========
@@ -132,6 +135,7 @@ Shader "Custom/CellShading"
                 rim = saturate(pow(rim, s.rimThreshold));
                 float rimCel = rim > 0.1 ? 1 : 0;
                 rim = max(rimCel, rim) * diffuse + (rimCel * 0.05 * (1 - diffuse));
+                rim *= _UseFresnel;
 
                 return l.color * (diffuse + max(specular, rim));
             }

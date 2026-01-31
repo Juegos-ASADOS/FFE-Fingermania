@@ -338,6 +338,67 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1719565528
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 172283255610209562, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284996672639619922, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284996672639619922, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.000000023671873
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284996672639619922, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284996672639619922, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284996672639619922, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284996672639619922, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284996672639619922, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284996672639619922, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284996672639619922, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284996672639619922, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5583218940959919817, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+      propertyPath: m_Name
+      value: Pulgar_Base02 (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
 --- !u!1001 &58399202602826633
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -385,6 +446,26 @@ PrefabInstance:
     - target: {fileID: 1139697764508661140, guid: f1f5e03c3c98c7d4790bb42e8f937245, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131083141170355369, guid: f1f5e03c3c98c7d4790bb42e8f937245, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.97681063
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131083141170355369, guid: f1f5e03c3c98c7d4790bb42e8f937245, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.21410514
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131083141170355369, guid: f1f5e03c3c98c7d4790bb42e8f937245, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -1.4210856e-14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131083141170355369, guid: f1f5e03c3c98c7d4790bb42e8f937245, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -1.0658142e-14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131083141170355369, guid: f1f5e03c3c98c7d4790bb42e8f937245, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 24.726
       objectReference: {fileID: 0}
     - target: {fileID: 5317107293205785395, guid: f1f5e03c3c98c7d4790bb42e8f937245, type: 3}
       propertyPath: m_Name
@@ -447,6 +528,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pulgar_Base02
       objectReference: {fileID: 0}
+    - target: {fileID: 5583218940959919817, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -460,3 +545,4 @@ SceneRoots:
   - {fileID: 650323594}
   - {fileID: 58399202602826633}
   - {fileID: 5955596825318856303}
+  - {fileID: 1719565528}
