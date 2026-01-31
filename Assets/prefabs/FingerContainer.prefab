@@ -150,12 +150,13 @@ MonoBehaviour:
   rightHead: {fileID: 1605749728442977196}
   leftRb: {fileID: 1516675993410834579}
   rightRb: {fileID: 5589536356953186261}
-  looserCooldown: 0.75
-  winnerCooldown: 0.15
-  tieCooldown: 0.5
-  minForce: 0.01
+  looserCooldown: 0.3
+  winnerCooldown: 0.1
+  tieCooldown: 0.2
+  loserForce: 50
+  winnerForce: 50
+  tieForce: 50
   timeBetweenColisions: 0.05
-  text: {fileID: 0}
 --- !u!114 &4513112414142710858
 MonoBehaviour:
   m_ObjectHideFlags: 0

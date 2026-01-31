@@ -23,12 +23,14 @@ public class FingerControl : MonoBehaviour
     Rigidbody leftRb, rightRb;
 
     [SerializeField]
-    float looserCooldown, winnerCooldown, tieCooldown, minForce;
+    float looserCooldown, winnerCooldown, tieCooldown;
 
     private bool leftBloqued, rightBloqued;
     private float timerLeft, timerRight;
     private float leftSpeed = 0, rightSpeed = 0;
-    private Vector3 leftPreviousPos = Vector3.zero, rightPreviousPos = Vector3.zero;
+
+    [SerializeField]
+    float hitForce;
 
     private float colCooldown = 0;
     [SerializeField]
@@ -36,8 +38,7 @@ public class FingerControl : MonoBehaviour
 
     bool managingCollision;
 
-    [SerializeField]
-    TextMeshProUGUI text;
+    Vector3 leftPreviousPos = Vector3.zero, rightPreviousPos = Vector3.zero;
 
     private void Start()
     {
@@ -72,7 +73,10 @@ public class FingerControl : MonoBehaviour
 
         if (!leftBloqued)
         {
-            leftHead.position = new Vector3(lHeadIniPos.x - (leftAxes.y * leftHeadLimits.x), lHeadIniPos.y - (leftHeadLimits.y * leftAttack), lHeadIniPos.z + (leftAxes.x * leftHeadLimits.z) + (leftHeadLimits.y * leftAttack));
+            leftHead.position = Vector3.Lerp(leftHead.position, new Vector3(lHeadIniPos.x - (leftAxes.y * leftHeadLimits.x), lHeadIniPos.y - (leftHeadLimits.y * leftAttack), lHeadIniPos.z + (leftAxes.x * leftHeadLimits.z) + (leftHeadLimits.y * leftAttack)), 0.3f);
+            Vector3 posDiff = leftHead.position - leftPreviousPos;
+            leftSpeed = Mathf.Abs(posDiff.magnitude) / Time.deltaTime;
+            leftPreviousPos = leftHead.position;
         }
         else
         {
@@ -83,7 +87,10 @@ public class FingerControl : MonoBehaviour
 
         if (!rightBloqued)
         {
-            rightHead.position = new Vector3(rHeadIniPos.x - (rightAxes.y * rightHeadLimits.x), rHeadIniPos.y - (rightHeadLimits.y * rightAttack), rHeadIniPos.z + (rightAxes.x * rightHeadLimits.z) - (rightHeadLimits.y * rightAttack));
+            rightHead.position = Vector3.Lerp(rightHead.position, new Vector3(rHeadIniPos.x - (rightAxes.y * rightHeadLimits.x), rHeadIniPos.y - (rightHeadLimits.y * rightAttack), rHeadIniPos.z + (rightAxes.x * rightHeadLimits.z) - (rightHeadLimits.y * rightAttack)), 0.3f);
+            Vector3 posDiff = rightHead.position - rightPreviousPos;
+            rightSpeed = Mathf.Abs(posDiff.magnitude) / Time.deltaTime;
+            rightPreviousPos = rightHead.position;
         }
         else
         {
@@ -92,19 +99,6 @@ public class FingerControl : MonoBehaviour
                 rightBloqued = false;
         }
     }
-
-    private void FixedUpdate()
-    {
-        Vector3 posDiff = leftHead.position - leftPreviousPos;
-        leftSpeed = Mathf.Abs(posDiff.magnitude);
-        leftPreviousPos = leftHead.position;
-        text.text = leftSpeed.ToString();
-
-        posDiff = rightHead.position - rightPreviousPos;
-        rightSpeed = Mathf.Abs(posDiff.magnitude);
-        rightPreviousPos = rightHead.position;
-    }
-
     public void DeactiveFinger(bool leftFinger, float time)
     {
         if (leftFinger)
@@ -124,7 +118,7 @@ public class FingerControl : MonoBehaviour
         return isLeft ? leftSpeed : rightSpeed;
     }
 
-    public void ManageFingerColision(Vector3 colPoint)
+    public void ManageFingerColision(Vector3 leftPos, Vector3 rightPos)
     {
         if (colCooldown > 0) return;
 
@@ -135,35 +129,32 @@ public class FingerControl : MonoBehaviour
             return;
         }
 
-        Vector3 leftDir = leftHead.position - colPoint, rightDir = rightHead.position - colPoint;
+        Vector3 leftDir = leftPos - rightPos, rightDir = rightPos - leftPos;
         leftDir.y = rightDir.y = 0;
-        float leftForce, rightForce, leftTime, rightTime;
+        float leftTime, rightTime, leftForce = 0, rightForce = 0;
 
         managingCollision = true;
         if (leftSpeed > rightSpeed)
         {
-            leftForce = Mathf.Max(minForce / 10f, rightSpeed / 10f);
-            rightForce = Mathf.Max(minForce, leftSpeed);
             leftTime = winnerCooldown;
             rightTime = looserCooldown;
+            rightForce = hitForce;
         }
         else if (rightSpeed > leftSpeed)
         {
-            leftForce = Mathf.Max(minForce, rightSpeed);
-            rightForce = Mathf.Max(minForce / 10f, leftSpeed / 10f);
             leftTime = looserCooldown;
             rightTime = winnerCooldown;
+            leftForce = hitForce;
         }
         else
         {
-            leftForce = Mathf.Max(minForce / 5f, rightSpeed / 5f);
-            rightForce = Mathf.Max(minForce / 5f, leftSpeed / 5f);
             leftTime = rightTime = tieCooldown;
+            leftForce = rightForce = hitForce;
         }
         DeactiveFinger(true, leftTime);
         DeactiveFinger(false, rightTime);
-        rightRb.AddForce(rightForce * rightDir.normalized * 100f, ForceMode.Impulse);
-        leftRb.AddForce(leftForce * leftDir.normalized * 100f, ForceMode.Impulse);
+        rightRb.AddForce(rightForce * rightDir.normalized, ForceMode.Impulse);
+        leftRb.AddForce(leftForce * leftDir.normalized, ForceMode.Impulse);
     }
 
     //private void OnDrawGizmos()

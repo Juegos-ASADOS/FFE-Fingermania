@@ -20,7 +20,10 @@ public class HitDetector : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out HitDetector other))
         {
-            fc.ManageFingerColision(collision.contacts[0].point);
+            if (isLeft)
+                fc.ManageFingerColision(transform.position, other.transform.position);
+            else
+                fc.ManageFingerColision(other.transform.position, transform.position);
         }
     }
 
