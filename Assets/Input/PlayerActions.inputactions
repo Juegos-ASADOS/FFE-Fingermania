@@ -89,6 +89,154 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Menu control",
+            "id": "1eec525e-38ff-4939-b258-f61e3f7b899a",
+            "actions": [
+                {
+                    "name": "LeftFingerMove",
+                    "type": "Value",
+                    "id": "c39c62ec-5eda-418e-9024-e5745ed87727",
+                    "expectedControlType": "Vector2",
+                    "processors": "StickDeadzone",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "RightFingerMove",
+                    "type": "Value",
+                    "id": "493ae6e6-9873-4fa0-b052-7e4956ac2eee",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Select_Right",
+                    "type": "Button",
+                    "id": "ed79ab45-a1bd-4939-a13b-1bbf236df99a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Tap",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Select_Left",
+                    "type": "Button",
+                    "id": "8d90dba6-3d36-499f-b610-8f1d94fc4fef",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Back_Right",
+                    "type": "Button",
+                    "id": "c38c1004-e19d-4605-ab6d-cee9fb41d89f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Back_Left",
+                    "type": "Button",
+                    "id": "3f535fa0-71f5-4079-a55a-fb6707f83971",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Start_Buttom",
+                    "type": "Button",
+                    "id": "8a49cc59-7276-4c35-8db2-d073ed69a232",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "16a4ae54-2dc9-449e-a805-36e6daa58b6d",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "LeftFingerMove",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "968347a1-d42d-4291-adef-584f57205ae8",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "StickDeadzone",
+                    "groups": ";Gamepad",
+                    "action": "RightFingerMove",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8350e678-22ef-4080-a00e-bf190999fc80",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "Tap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Select_Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1cec8ea3-9507-40fe-a103-567c28024994",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "Tap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Select_Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bfbe56d9-dd4d-4600-b1a3-873811b3e28d",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Back_Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "88343c0b-f091-4735-8db3-b84dd10f0139",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Back_Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e7c8cc2a-4945-4e98-b918-6a49d8815030",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Start_Buttom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
