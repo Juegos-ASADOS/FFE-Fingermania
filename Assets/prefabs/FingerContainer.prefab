@@ -148,6 +148,12 @@ MonoBehaviour:
   rightHeadLimits: {x: 3, y: 2, z: 3}
   leftHead: {fileID: 5680888142119879914}
   rightHead: {fileID: 1605749728442977196}
+  leftRb: {fileID: 1516675993410834579}
+  rightRb: {fileID: 5589536356953186261}
+  looserCooldown: 0.75
+  winnerCooldown: 0.15
+  tieCooldown: 0.5
+  timeBetweenColisions: 0.05
 --- !u!114 &4513112414142710858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,6 +276,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2320173269595983727, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
   m_PrefabInstance: {fileID: 3925500145019782339}
   m_PrefabAsset: {fileID: 0}
+--- !u!54 &5589536356953186261 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 8928430408609389334, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+  m_PrefabInstance: {fileID: 3925500145019782339}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9160948284551354257 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5284996672639619922, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
@@ -331,11 +342,17 @@ PrefabInstance:
       propertyPath: jiggleRigData.transformCachedData.Array.data[1].normalizedDistanceFromRoot
       value: 0.36004335
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1691685151108861435, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+--- !u!54 &1516675993410834579 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 8928430408609389334, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+  m_PrefabInstance: {fileID: 7990644547034598277}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2863282871373043927 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5284996672639619922, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
