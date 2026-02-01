@@ -77,6 +77,9 @@ public class FingerControl : MonoBehaviour
 
     float rumbleTimer = 0;
 
+    [SerializeField]
+    GameObject leftIcon, rightIcon;
+
     private void Awake()
     {
         GameManager.instance.SetFC(this);
@@ -316,6 +319,12 @@ public class FingerControl : MonoBehaviour
             rightStamina.SetDifficultyTembleke(1);
             GameManager.instance.StopCount();
         }
+    }
+
+    public GameObject GetIcon(bool left)
+    {
+        if (left) return leftIcon;
+        else return rightIcon;
     }
 
     //private void OnDrawGizmos()

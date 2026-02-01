@@ -9,9 +9,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance { get; private set; }
 
-    private float countTime;
-    private bool counting;
-
     public
     int left_dedo_id = 0;
     public
@@ -88,8 +85,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void StartCount()
-    {
-        counting = true;        
+    {       
         winAnim.SetActive(true);
     }
 
@@ -101,8 +97,6 @@ public class GameManager : MonoBehaviour
 
     public void StopCount()
     {
-        counting = false;
-        countTime = 0;
         eventMusic.setParameterByNameWithLabel("Parameter", "Play");
         crowdEffect.setParameterByNameWithLabel("Parameter", "Play");
         winAnim.SetActive(false);
