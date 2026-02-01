@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour
     FingerControl fingerControl;
     
     EventInstance eventMusic, crowdEffect, eventMusicSelection;
+
+    bool victoryStarted;
+
     private void Awake()
     {
         if (instance != null)
@@ -57,6 +60,7 @@ public class GameManager : MonoBehaviour
         else if(name == "CharacterSelection")
         {
             eventMusicSelection.start();
+            victoryStarted = false;
         }
         else
         {
@@ -97,6 +101,9 @@ public class GameManager : MonoBehaviour
 
     public void StopCount()
     {
+        if (victoryStarted)
+            return;
+
         counting = false;
         countTime = 0;
         eventMusic.setParameterByNameWithLabel("Parameter", "Play");
@@ -106,6 +113,7 @@ public class GameManager : MonoBehaviour
 
     public void Victory()
     {
+        victoryStarted = true;
         fingerControl.enabled = false;
         eventMusic.setParameterByNameWithLabel("Parameter", "Win");
         crowdEffect.setParameterByNameWithLabel("Parameter", "Win");

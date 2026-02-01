@@ -252,6 +252,8 @@ MonoBehaviour:
   tieDamage: 4
   timeDamage: 1
   timeToDamage: 2
+  fingerDown: 0
+  rumbleTime: 0.2
 --- !u!114 &4513112414142710858
 MonoBehaviour:
   m_ObjectHideFlags: 0

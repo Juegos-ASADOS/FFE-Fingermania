@@ -72,6 +72,10 @@ public class FingerControl : MonoBehaviour
     [HideInInspector]
     public bool fingerDown;
 
+    [SerializeField]
+    float rumbleTime;
+
+    float rumbleTimer = 0;
 
     private void Awake()
     {
@@ -144,6 +148,13 @@ public class FingerControl : MonoBehaviour
 
     public void Update()
     {
+        if (rumbleTimer > 0)
+        {
+            rumbleTimer -= Time.deltaTime;
+            if (rumbleTimer <= 0)
+                Gamepad.current.SetMotorSpeeds(0f, 0f);
+        }
+
         if(colCooldown > 0)
             colCooldown -= Time.deltaTime; 
 
@@ -266,6 +277,7 @@ public class FingerControl : MonoBehaviour
             rightForce = hitForce;
             leftDamage = winDamage;
             rightDamage = loseDamage;
+            Gamepad.current.SetMotorSpeeds(0.75f, 0.1f);
         }
         else if (rightSpeed > leftSpeed)
         {
@@ -275,6 +287,7 @@ public class FingerControl : MonoBehaviour
             leftForce = hitForce;
             leftDamage = loseDamage;
             rightDamage = winDamage;
+            Gamepad.current.SetMotorSpeeds(0.05f, 0.85f);
         }
         else
         {
@@ -283,6 +296,7 @@ public class FingerControl : MonoBehaviour
             leftForce = rightForce = hitForce;
             leftDamage = tieDamage;
             rightDamage = tieDamage;
+            Gamepad.current.SetMotorSpeeds(0.3f, 0.5f);
         }
         if(!leftBloqued) DeactiveFinger(true, leftTime);
         if(!rightBloqued) DeactiveFinger(false, rightTime);
@@ -290,6 +304,8 @@ public class FingerControl : MonoBehaviour
         leftRb.AddForce(leftForce * leftDir.normalized, ForceMode.Impulse);
         leftStamina.loseStamina(leftDamage);
         rightStamina.loseStamina(rightDamage);
+        rumbleTimer = rumbleTime;
+        Camera.main.GetComponent<CameraShake>().StartShakeDiceGame(0.1f, 0.2f);
     }
 
     public void ManageFingerColisionExit()

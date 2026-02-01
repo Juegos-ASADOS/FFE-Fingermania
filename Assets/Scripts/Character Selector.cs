@@ -50,7 +50,6 @@ public class CharacterSelector : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("0");
     }
     void Start()
     {
@@ -79,17 +78,15 @@ public class CharacterSelector : MonoBehaviour
 
                 player_left_index++;
                 //derecha
-                Debug.Log("p1_right");
             }
             else
             {
                 //izquierda
                 player_left_index--;
-                Debug.Log("p1_left");
 
             }
 
-            RuntimeManager.PlayOneShot("event:/Soft Hit 3D");
+            RuntimeManager.PlayOneShot("event:/Soft Select");
 
             int next = player_left_index % Characters_masks.Length;
             if (next == -1)
@@ -117,13 +114,11 @@ public class CharacterSelector : MonoBehaviour
             if (dir_Right.x > 0)
             {
                 player_right_index++;
-                Debug.Log("p2_right");
 
                 //derecha
             }
             else
             {
-                Debug.Log("p2_left");
                 player_right_index--;
             }
 
@@ -186,7 +181,6 @@ public class CharacterSelector : MonoBehaviour
             if (player_left_block == -1)
             {
                 //volver escena atrás (menu)
-                Debug.LogWarning("Implementar volver hacia atras");
                GameManager.instance.Change_SceneAsync_name("MainTitle_Fin");
                 
             }
@@ -201,11 +195,7 @@ public class CharacterSelector : MonoBehaviour
             {
                 GameManager.instance.left_dedo_id = player_right_block;
                 GameManager.instance.right_dedo_id = player_left_block;
-
-                Debug.LogWarning("Ids puestas a : " + GameManager.instance.left_dedo_id + " y " + GameManager.instance.right_dedo_id);
                 //ir a la pelea
-                Debug.LogWarning("Implementar llevado a la escena");
-
                 SceneManager.LoadScene("Final");
 
                 GameManager.instance.StartCombatMusic();
@@ -242,8 +232,6 @@ public class CharacterSelector : MonoBehaviour
 
     public void OnSelect_Right(CallbackContext context)
     {
-        Debug.Log("select_right");
-
         if(!right_select)
         {
             RuntimeManager.PlayOneShot("event:/Hard Select R");
@@ -253,8 +241,6 @@ public class CharacterSelector : MonoBehaviour
     }
     public void OnSelect_Left(CallbackContext context)
     {
-        Debug.Log("select_left");
-
         if (!left_select)
         {
             RuntimeManager.PlayOneShot("event:/Hard Select L");
@@ -265,22 +251,16 @@ public class CharacterSelector : MonoBehaviour
 
     public void OnBack_Left(CallbackContext context)
     {
-        Debug.Log("back_left");
-
         left_back = true;
     }
 
     public void OnBack_Right(CallbackContext context)
     {
-        Debug.Log("back_right");
-
         right_back = true;
     }
 
     public void OnStart_Buttom(CallbackContext context)
     {
-        Debug.Log("0");
-
         start_button = true;
         //si amabos jugadores tienes elegidos characters, permitir
     }
