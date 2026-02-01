@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -35,6 +36,10 @@ public class GameManager : MonoBehaviour
     {
     }
 
+    public void SelectObject(GameObject ob)
+    {
+        EventSystem.current.SetSelectedGameObject(ob);
+    }
     public void ExitGame()
     {
 
