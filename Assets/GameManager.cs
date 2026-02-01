@@ -1,3 +1,6 @@
+using FMOD.Studio;
+using FMODUnity;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -13,6 +16,8 @@ public class GameManager : MonoBehaviour
     int left_dedo_id = 0;
     public
     int right_dedo_id = 0;
+    
+    EventInstance eventMusic, crowdEffect;
     private void Awake()
     {
         if (instance != null)
@@ -20,8 +25,9 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
-        instance = this;
+        eventMusic = RuntimeManager.CreateInstance("event:/music");
+        crowdEffect = RuntimeManager.CreateInstance("event:/Crowd");
+        instance = this;        
         DontDestroyOnLoad(gameObject);
     }
 
@@ -40,12 +46,25 @@ public class GameManager : MonoBehaviour
     public void Change_SceneAsync_name(string name)
     {
         Debug.LogWarning("receurden bloquear input en la carga asyncrona");
-       //para casos que cargar la escena pueda ser muy lento
+        //para casos que cargar la escena pueda ser muy lento
         SceneManager.LoadSceneAsync(name);
+        if (name == "Oscar1")
+        {   
+            eventMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            eventMusic.setParameterByNameWithLabel("Parameter", "Play");
+            eventMusic.start();
+            crowdEffect.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            crowdEffect.setParameterByNameWithLabel("Parameter", "Play");
+            crowdEffect.start();
+        }
     }
     // Add your game mananger members here
-    public void Pause(bool paused)
+    public void StartCombatMusic()
     {
+        eventMusic.setParameterByNameWithLabel("Parameter", "Play");
+        eventMusic.start();
+        crowdEffect.setParameterByNameWithLabel("Parameter", "Play");
+        crowdEffect.start();
     }
 
     public void SelectObject(GameObject ob)
@@ -54,19 +73,27 @@ public class GameManager : MonoBehaviour
     }
     public void ExitGame()
     {
-
-        //TODO maybe playear una animación.
         Application.Quit();
     }
 
     public void StartCount()
     {
         counting = true;
+        eventMusic.setParameterByNameWithLabel("Parameter", "Sumision");
+        crowdEffect.setParameterByNameWithLabel("Parameter", "Sumision");
     }
 
     public void StopCount()
     {
         counting = false;
         countTime = 0;
+        eventMusic.setParameterByNameWithLabel("Parameter", "Play");
+        crowdEffect.setParameterByNameWithLabel("Parameter", "Play");
+    }
+
+    public void Victory()
+    {
+        eventMusic.setParameterByNameWithLabel("Parameter", "Win");
+        crowdEffect.setParameterByNameWithLabel("Parameter", "Win");
     }
 }
