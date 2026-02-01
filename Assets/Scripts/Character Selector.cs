@@ -11,8 +11,8 @@ public class CharacterSelector : MonoBehaviour
     [SerializeField]
     GameObject[] Characters_masks;
 
-    int player_left_index = -1;
-    int player_right_index = -1;
+    int player_left_index = -2;
+    int player_right_index = -2;
     //personaje block
     int player_left_block = -1;
     int player_right_block = -1;
@@ -69,57 +69,71 @@ public class CharacterSelector : MonoBehaviour
         //mover curosr derecho
         if (!(left_delay > 0) && player_left_block == -1 && Mathf.Abs(dir_Left.x) > movement_range)
         {
-            if (player_left_index != -1 && player_left_index != player_right_index)
+            if (player_left_index == -2)
             {
-                Characters_masks[player_left_index].transform.GetComponentInChildren<Animator>().SetBool("select", false);
-            }
-            if (dir_Left.x > 0)
-            {
-
-                player_left_index++;
-                //derecha
+                player_left_index = 0;
             }
             else
             {
-                //izquierda
-                player_left_index--;
+
+                if (player_left_index != -1 && player_left_index != player_right_index)
+                {
+                    Characters_masks[player_left_index].transform.GetComponentInChildren<Animator>().SetBool("select", false);
+                }
+                if (dir_Left.x > 0)
+                {
+
+                    player_left_index++;
+                    //derecha
+                }
+                else
+                {
+                    //izquierda
+                    player_left_index--;
+
+                }
 
             }
+                RuntimeManager.PlayOneShot("event:/Soft Select");
 
-            RuntimeManager.PlayOneShot("event:/Soft Select");
+                int next = player_left_index % Characters_masks.Length;
+                if (next == -1)
+                {
+                    next = Characters_masks.Length - 1;
+                }
+                player_left_index = next;
+                //posicionar el indicador en el character seleccionado
+                selector_p1.transform.position = Characters_masks[player_left_index].transform.position + Select_dist_f_char;
+                if (player_right_index != player_left_index)
+                {
+                    Characters_masks[player_left_index].transform.GetComponentInChildren<Animator>().SetBool("select", true);
+                }
 
-            int next = player_left_index % Characters_masks.Length;
-            if (next == -1)
-            {
-                next = Characters_masks.Length - 1;
-            }
-            player_left_index = next;
-            //posicionar el indicador en el character seleccionado
-            selector_p1.transform.position = Characters_masks[player_left_index].transform.position + Select_dist_f_char;
-            if (player_right_index != player_left_index)
-            {
-                Characters_masks[player_left_index].transform.GetComponentInChildren<Animator>().SetBool("select", true);
-            }
-
-            left_delay = delay_movement;
+                left_delay = delay_movement;
         }
 
         if (!(right_delay > 0) && player_right_block == -1 && MathF.Abs(dir_Right.x) > movement_range)
         {
-
-            if (player_right_index != -1 && player_left_index != player_right_index)
+            if (player_right_index == -2)
             {
-                Characters_masks[player_right_index].transform.GetComponentInChildren<Animator>().SetBool("select", false);
-            }
-            if (dir_Right.x > 0)
-            {
-                player_right_index++;
-
-                //derecha
+                player_right_index = 1;
             }
             else
             {
-                player_right_index--;
+                if (player_right_index != -1 && player_left_index != player_right_index)
+                {
+                    Characters_masks[player_right_index].transform.GetComponentInChildren<Animator>().SetBool("select", false);
+                }
+                if (dir_Right.x > 0)
+                {
+                    player_right_index++;
+
+                    //derecha
+                }
+                else
+                {
+                    player_right_index--;
+                }
             }
 
             RuntimeManager.PlayOneShot("event:/Soft Hit 3D");
@@ -144,7 +158,7 @@ public class CharacterSelector : MonoBehaviour
         //bloquear selección
         if (right_select)
         {
-            if (player_right_index != player_left_block)
+            if (player_right_index >= 0 && player_right_index != player_left_block)
             {
                 player_right_block = player_right_index;
                 Characters_masks[player_right_index].transform.GetComponentInChildren<Animator>().SetBool("superselect", true);
@@ -153,7 +167,7 @@ public class CharacterSelector : MonoBehaviour
 
         if (left_select)
         {
-            if (player_left_index != player_right_block)
+            if (player_left_index >= 0 && player_left_index != player_right_block)
             {
                 player_left_block = player_left_index;
                 Characters_masks[player_left_index].transform.GetComponentInChildren<Animator>().SetBool("superselect", true);
