@@ -963,6 +963,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4578772405556691949, guid: e99a1b8f90e7a4442becc6065954d31a, type: 3}
+      propertyPath: m_ProjectionAngle
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 4824740630855525141, guid: e99a1b8f90e7a4442becc6065954d31a, type: 3}
       propertyPath: jiggleRigData.transformCachedData.Array.data[0].lossyScale
       value: 100.00001

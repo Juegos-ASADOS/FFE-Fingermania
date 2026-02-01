@@ -6,6 +6,9 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
 
+    private float countTime;
+    private bool counting;
+
     private GameManager()
     {
         // initialize your game manager here. Do not reference to GameObjects here (i.e. GameObject.Find etc.)
@@ -25,6 +28,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (counting) countTime += Time.deltaTime;
+        else if(countTime > 3f) SceneManager.LoadSceneAsync("CharacterSelection");
+    }
     public void Change_SceneAsync_name(string name)
     {
         Debug.LogWarning("receurden bloquear input en la carga asyncrona");
@@ -45,5 +53,16 @@ public class GameManager : MonoBehaviour
 
         //TODO maybe playear una animación.
         Application.Quit();
+    }
+
+    public void StartCount()
+    {
+        counting = true;
+    }
+
+    public void StopCount()
+    {
+        counting = false;
+        countTime = 0;
     }
 }
