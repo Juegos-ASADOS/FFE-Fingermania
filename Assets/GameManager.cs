@@ -89,10 +89,14 @@ public class GameManager : MonoBehaviour
 
     public void StartCount()
     {
-        counting = true;
+        counting = true;        
+        winAnim.SetActive(true);
+    }
+
+    public void StartMusicCount()
+    {
         eventMusic.setParameterByNameWithLabel("Parameter", "Sumision");
         crowdEffect.setParameterByNameWithLabel("Parameter", "Sumision");
-        winAnim.SetActive(true);
     }
 
     public void StopCount()
