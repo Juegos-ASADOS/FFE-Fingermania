@@ -99,7 +99,7 @@
                     "type": "Value",
                     "id": "c39c62ec-5eda-418e-9024-e5745ed87727",
                     "expectedControlType": "Vector2",
-                    "processors": "StickDeadzone",
+                    "processors": "StickDeadzone(min=0.5,max=2)",
                     "interactions": "",
                     "initialStateCheck": true
                 },
@@ -108,7 +108,7 @@
                     "type": "Value",
                     "id": "493ae6e6-9873-4fa0-b052-7e4956ac2eee",
                     "expectedControlType": "Vector2",
-                    "processors": "",
+                    "processors": "StickDeadzone(min=0.5,max=2)",
                     "interactions": "",
                     "initialStateCheck": true
                 },
@@ -195,7 +195,7 @@
                 {
                     "name": "",
                     "id": "1cec8ea3-9507-40fe-a103-567c28024994",
-                    "path": "<Gamepad>/dpad/right",
+                    "path": "<Gamepad>/dpad/down",
                     "interactions": "Tap",
                     "processors": "",
                     "groups": "",

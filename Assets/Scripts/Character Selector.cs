@@ -1,3 +1,4 @@
+using System;
 using System.Diagnostics.CodeAnalysis;
 using Unity.Mathematics;
 using UnityEngine;
@@ -38,8 +39,13 @@ public class CharacterSelector : MonoBehaviour
     bool left_back;
     bool start_button;
 
+    [SerializeField]
+    float delay_movement = 0.2f;
     float right_delay = 0f;
     float left_delay = 0f;
+
+    [SerializeField]
+    float movement_range = 0.2f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -73,17 +79,21 @@ public class CharacterSelector : MonoBehaviour
 
         //hacer cosas
         //mover curosr derecho
-        if (!(left_delay > 0) && player_left_block == -1 && dir_Left.magnitude > 0)
+        if (!(left_delay > 0) && player_left_block == -1 && Mathf.Abs(dir_Left.y) > movement_range)
         {
             if (dir_Left.y > 0)
             {
-                //derecha
-                player_left_index++;
+                //izquierda
+                player_left_index--;
+                Debug.Log("p1_left");
+
             }
             else
             {
-                player_left_index--;
-                //izquierda
+                player_left_index++;
+                //derecha
+                Debug.Log("p1_right");
+
             }
 
             int next = player_left_index % Characters_masks.Length;
@@ -95,16 +105,25 @@ public class CharacterSelector : MonoBehaviour
             //posicionar el indicador en el character seleccionado
             selector_p1.transform.position = Characters_masks[player_left_index].transform.position;
 
-            left_delay = 0.1f;
+            left_delay = delay_movement;
         }
 
-        if (!(right_delay > 0) && player_right_block == -1 && dir_Right.magnitude > 0)
+        if (!(right_delay > 0) && player_right_block == -1 && MathF.Abs(dir_Right.y) > movement_range)
         {
             if (dir_Right.y > 0)
             {
                 player_right_index++;
+                Debug.Log("p2_right");
+
                 //derecha
             }
+            else
+            {
+                Debug.Log("p2_left");
+                player_right_index--;
+            }
+
+
             int next = player_right_index % Characters_masks.Length;
             if (next  == -1)
             {
@@ -114,7 +133,7 @@ public class CharacterSelector : MonoBehaviour
             //player_right_index = player_right_index % Characters_masks.Length;
             selector_p2.transform.position = Characters_masks[player_right_index].transform.position;
 
-            right_delay = 0.1f;
+            right_delay = delay_movement;
         }
 
         //bloquear selección
@@ -172,7 +191,7 @@ public class CharacterSelector : MonoBehaviour
 
     public void OnLeftFingerMove(CallbackContext context)
     {
-        Debug.Log("0");
+      
 
         //leftAxes = context.ReadValue<Vector2>();
         dir_Left = context.ReadValue<Vector2>();
@@ -181,7 +200,7 @@ public class CharacterSelector : MonoBehaviour
 
     public void OnRightFingerMove(CallbackContext context)
     {
-        Debug.Log("0");
+       
 
         //rightAxes = context.ReadValue<Vector2>();
         dir_Right = context.ReadValue<Vector2>();
@@ -190,28 +209,28 @@ public class CharacterSelector : MonoBehaviour
 
     public void OnSelect_Right(CallbackContext context)
     {
-        Debug.Log("0");
+        Debug.Log("select_right");
 
         right_select = true;
         //right_select = context.ReadValue<bool>();
     }
     public void OnSelect_Left(CallbackContext context)
     {
-        Debug.Log("0");
+        Debug.Log("select_left");
 
         left_select = true;
     }
 
     public void OnBack_Left(CallbackContext context)
     {
-        Debug.Log("0");
+        Debug.Log("back_left");
 
         left_back = true;
     }
 
     public void OnBack_Right(CallbackContext context)
     {
-        Debug.Log("0");
+        Debug.Log("back_right");
 
         right_back = true;
     }
