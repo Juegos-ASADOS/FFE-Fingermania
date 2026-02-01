@@ -1,13 +1,17 @@
 using FMODUnity;
+using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
 
 public class ErTembleke : MonoBehaviour
 {
     Vector2 axes = new Vector2();
-    
+
     [SerializeField]
     Transform fingerHead;
+    [SerializeField]
+    [NotNull]
+    GameObject fallpoint;
 
     [SerializeField]
     Vector3 posObjective;
@@ -30,8 +34,7 @@ public class ErTembleke : MonoBehaviour
 
     public void Awake()
     {
-        posObjective = transform.TransformPoint(fingerHead.position + (fingerHead.forward * 0.75f));
-        Debug.LogWarning("objetivo pos en " + posObjective);
+        posObjective = fallpoint.transform.position;
     }
 
     public void OnFingerMove(CallbackContext context)
@@ -62,7 +65,7 @@ public class ErTembleke : MonoBehaviour
         if (falling) {
             // Animacion de tumbarse
             timeFalling += Time.deltaTime;
-            fingerHead.localPosition = Vector3.Lerp(posIni, posObjective, timeFalling/timeToFall);
+            fingerHead.localPosition = Vector3.Lerp(posIni, fallpoint.transform.position, timeFalling/timeToFall);
             if (timeFalling > timeToFall)
             {
                 RuntimeManager.PlayOneShot("event:/Floor Impact 3D");
