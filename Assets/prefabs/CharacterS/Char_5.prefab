@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3245252209936729424, guid: c1a87d7cc5d11444797bfc645a9a591b, type: 3}
       propertyPath: m_Name
-      value: Char_6
+      value: Char_5
       objectReference: {fileID: 0}
     - target: {fileID: 5202575624101867684, guid: c1a87d7cc5d11444797bfc645a9a591b, type: 3}
       propertyPath: 'm_Transforms.Array.data[1]'
@@ -64,6 +64,7 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 9190996267005749085, guid: c1a87d7cc5d11444797bfc645a9a591b, type: 3}
     - {fileID: 8048120248957024522, guid: c1a87d7cc5d11444797bfc645a9a591b, type: 3}
+    - {fileID: 3549178511523844952, guid: c1a87d7cc5d11444797bfc645a9a591b, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1a87d7cc5d11444797bfc645a9a591b, type: 3}
