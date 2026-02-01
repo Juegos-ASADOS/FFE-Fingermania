@@ -69,11 +69,13 @@ public class FingerControl : MonoBehaviour
     bool bDedoDobladoRight = false;
     bool bDedoDobladoLeft = false;
 
+    [HideInInspector]
+    public bool fingerDown;
 
 
     private void Awake()
     {
-        Debug.LogWarning("Ids leiadas a : " + GameManager.instance.left_dedo_id + " y " + GameManager.instance.right_dedo_id);
+        GameManager.instance.SetFC(this);
 
         //instanciate Dedos
         left_info = Instantiate(Characters[GameManager.instance.left_dedo_id], spawnPointLeft).GetComponent<finger_info>();
@@ -215,6 +217,9 @@ public class FingerControl : MonoBehaviour
             timerRight = block ? 1000f : 0f;
         }
         collisionFallen = block;
+
+        fingerDown = block;        
+
         if (!collisionFallen)
         {
             leftStamina.SetDifficultyTembleke(1);

@@ -50,6 +50,7 @@ public class StaminaPlayer : MonoBehaviour
             stamina = 0;
             emptyStamina();
         }
+        Debug.Log(isLeft + " " + stamina);
     }
 
     public void recoverStamina(float amount)
@@ -67,6 +68,12 @@ public class StaminaPlayer : MonoBehaviour
 
     public void emptyStamina()
     {
+        if (fingerCtrl.fingerDown)
+        {
+            stamina = 5;
+            return;
+        }
+
         timesFallen++;
         recovering = true;
         fingerCtrl.SwitchMovement(this, true);
