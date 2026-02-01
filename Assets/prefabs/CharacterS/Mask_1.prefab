@@ -138,6 +138,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mask_1
       objectReference: {fileID: 0}
+    - target: {fileID: 5868025247277090920, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+      propertyPath: m_ConnectedBody
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5868025247277090920, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+      propertyPath: m_ProjectionAngle
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 8398863247598397398, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
       propertyPath: jiggleRigData.excludedTransforms.Array.size
       value: 1
