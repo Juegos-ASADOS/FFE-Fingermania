@@ -308,7 +308,7 @@ public class FingerControl : MonoBehaviour
         leftStamina.loseStamina(leftDamage);
         rightStamina.loseStamina(rightDamage);
         rumbleTimer = rumbleTime;
-        Camera.main.GetComponent<CameraShake>().StartShakeDiceGame(0.1f, 0.2f);
+        Camera.main.GetComponent<CameraShake>().StartShakeDiceGame(0.05f, 0.13f);
     }
 
     public void ManageFingerColisionExit()
