@@ -44,9 +44,9 @@ public class ErTembleke : MonoBehaviour
 
     public void Tumbacion(StaminaPlayer stam)
     {
+        fingerHead.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
         falling = true;
         posIni = fingerHead.localPosition;
-        fingerHead.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
         stPlayer = stam;
     }
 
@@ -57,7 +57,7 @@ public class ErTembleke : MonoBehaviour
             // Animacion de tumbarse
             timeFalling += Time.deltaTime;
             fingerHead.localPosition = Vector3.Lerp(posIni, posObjective, timeFalling/timeToFall);
-            //Debug.Log("INI: " + posIni + " OBJETIVO: " + posObjective + " T: " + timeFalling / timeToFall);
+            Debug.Log("INI: " + posIni + " OBJETIVO: " + posObjective + " ACT: " + fingerHead.localPosition + " T: " + timeFalling / timeToFall + " VEL: " + fingerHead.GetComponent<Rigidbody>().linearVelocity);
             if (timeFalling > timeToFall)
             {
                 timeFalling = 0;

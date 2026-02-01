@@ -215,6 +215,7 @@ public class FingerControl : MonoBehaviour
         if(!rightBloqued) DeactiveFinger(false, rightTime);
         rightRb.AddForce(rightForce * rightDir.normalized, ForceMode.Impulse);
         leftRb.AddForce(leftForce * leftDir.normalized, ForceMode.Impulse);
+        Debug.Log("ACUETATEEEEEEE");
         leftStamina.loseStamina(leftDamage);
         rightStamina.loseStamina(rightDamage);
     }
