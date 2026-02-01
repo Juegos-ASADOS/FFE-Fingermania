@@ -1,3 +1,4 @@
+using FMODUnity;
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Threading;
@@ -228,6 +229,8 @@ public class FingerControl : MonoBehaviour
         managingCollision = true;
         if (leftSpeed > rightSpeed)
         {
+            RuntimeManager.PlayOneShot("event:/Soft Hit 3D", leftStamina.transform.position);
+            RuntimeManager.PlayOneShot("event:/Hard Hit 3D", rightStamina.transform.position);
             leftTime = winnerCooldown;
             rightTime = looserCooldown;
             rightForce = hitForce;
@@ -236,6 +239,8 @@ public class FingerControl : MonoBehaviour
         }
         else if (rightSpeed > leftSpeed)
         {
+            RuntimeManager.PlayOneShot("event:/Soft Hit 3D", rightStamina.transform.position);
+            RuntimeManager.PlayOneShot("event:/Hard Hit 3D", leftStamina.transform.position);
             leftTime = looserCooldown;
             rightTime = winnerCooldown;
             leftForce = hitForce;
@@ -244,6 +249,8 @@ public class FingerControl : MonoBehaviour
         }
         else
         {
+            RuntimeManager.PlayOneShot("event:/Soft Hit 3D", leftStamina.transform.position);
+            RuntimeManager.PlayOneShot("event:/Soft Hit 3D", rightStamina.transform.position);
             leftTime = rightTime = tieCooldown;
             leftForce = rightForce = hitForce;
             leftDamage = tieDamage;

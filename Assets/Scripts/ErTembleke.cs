@@ -1,3 +1,4 @@
+using FMODUnity;
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
 
@@ -59,6 +60,7 @@ public class ErTembleke : MonoBehaviour
             fingerHead.localPosition = Vector3.Lerp(posIni, posObjective, timeFalling/timeToFall);
             if (timeFalling > timeToFall)
             {
+                RuntimeManager.PlayOneShot("event:/Floor Impact 3D");
                 timeFalling = 0;
                 falling = false;
             }
