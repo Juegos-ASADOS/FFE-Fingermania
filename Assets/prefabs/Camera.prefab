@@ -42,8 +42,9 @@ GameObject:
   m_Component:
   - component: {fileID: 9086121157904691222}
   - component: {fileID: 4233848319732765748}
-  - component: {fileID: 6283456493952866771}
   - component: {fileID: 7848711427234459432}
+  - component: {fileID: 5768291165776591001}
+  - component: {fileID: 5060228068124571789}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -117,14 +118,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &6283456493952866771
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2671654129264960139}
-  m_Enabled: 1
 --- !u!114 &7848711427234459432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,6 +162,34 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &5768291165776591001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2671654129264960139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f73044a2ad03ff439583c3e5151cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraShake
+  defDuration: 0
+  defAmount: 0
+--- !u!114 &5060228068124571789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2671654129264960139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioListener
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!1 &5110462601700904732
 GameObject:
   m_ObjectHideFlags: 0
