@@ -1,5 +1,6 @@
 using FMODUnity;
 using System.Diagnostics.CodeAnalysis;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
 
@@ -65,6 +66,7 @@ public class ErTembleke : MonoBehaviour
             {
                 RuntimeManager.PlayOneShot("event:/Floor Impact 3D");
                 particlesSmoke.SetActive(true);
+                particlesSmoke.GetComponent<ParticleSystem>().Play();
                 timeFalling = 0;
                 falling = false;
             }
