@@ -1150,6 +1150,7 @@ GameObject:
   - component: {fileID: 1794534191}
   - component: {fileID: 1794534190}
   - component: {fileID: 1794534193}
+  - component: {fileID: 1794534194}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1275,6 +1276,20 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &1794534194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794534189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f73044a2ad03ff439583c3e5151cbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraShake
+  defDuration: 0
+  defAmount: 0
 --- !u!1 &1846194372
 GameObject:
   m_ObjectHideFlags: 0
@@ -2136,31 +2151,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5854603680225974214, guid: e83d2785b6afed14da147c04811fb581, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.83
+      value: 3.5391874
       objectReference: {fileID: 0}
     - target: {fileID: 5854603680225974214, guid: e83d2785b6afed14da147c04811fb581, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.18
+      value: 20.21
       objectReference: {fileID: 0}
     - target: {fileID: 5854603680225974214, guid: e83d2785b6afed14da147c04811fb581, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.88
+      value: 14.018968
       objectReference: {fileID: 0}
     - target: {fileID: 5854603680225974214, guid: e83d2785b6afed14da147c04811fb581, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.64278764
+      value: 0.9238797
       objectReference: {fileID: 0}
     - target: {fileID: 5854603680225974214, guid: e83d2785b6afed14da147c04811fb581, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5854603680225974214, guid: e83d2785b6afed14da147c04811fb581, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.76604444
+      value: -0.38268316
       objectReference: {fileID: 0}
     - target: {fileID: 5854603680225974214, guid: e83d2785b6afed14da147c04811fb581, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5854603680225974214, guid: e83d2785b6afed14da147c04811fb581, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2168,7 +2183,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5854603680225974214, guid: e83d2785b6afed14da147c04811fb581, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 100
+      value: -45
       objectReference: {fileID: 0}
     - target: {fileID: 5854603680225974214, guid: e83d2785b6afed14da147c04811fb581, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -2180,7 +2195,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8380274645266516971, guid: e83d2785b6afed14da147c04811fb581, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
