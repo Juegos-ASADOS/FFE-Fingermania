@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     int left_dedo_id = 0;
     public
     int right_dedo_id = 0;
+
+    GameObject winAnim;
     
     EventInstance eventMusic, crowdEffect;
     private void Awake()
@@ -31,18 +33,6 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    private void Update()
-    {
-        if (counting)
-            countTime += Time.deltaTime;
-        
-        if (countTime > 3f)
-        {
-            SceneManager.LoadScene("CharacterSelection");
-            counting = false;
-            countTime = 0f;
-        }
-    }
     public void Change_SceneAsync_name(string name)
     {
         Debug.LogWarning("receurden bloquear input en la carga asyncrona");
@@ -81,6 +71,7 @@ public class GameManager : MonoBehaviour
         counting = true;
         eventMusic.setParameterByNameWithLabel("Parameter", "Sumision");
         crowdEffect.setParameterByNameWithLabel("Parameter", "Sumision");
+        winAnim.SetActive(true);
     }
 
     public void StopCount()
@@ -89,11 +80,17 @@ public class GameManager : MonoBehaviour
         countTime = 0;
         eventMusic.setParameterByNameWithLabel("Parameter", "Play");
         crowdEffect.setParameterByNameWithLabel("Parameter", "Play");
+        winAnim.SetActive(false);
     }
 
     public void Victory()
     {
         eventMusic.setParameterByNameWithLabel("Parameter", "Win");
         crowdEffect.setParameterByNameWithLabel("Parameter", "Win");
+    }
+
+    public void SetWinAnim(GameObject anim)
+    {
+        winAnim = anim;
     }
 }
