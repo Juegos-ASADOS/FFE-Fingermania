@@ -655,6 +655,7 @@ GameObject:
   - component: {fileID: 8735728160456578426}
   - component: {fileID: 2851304812184071629}
   - component: {fileID: 1596075466375691840}
+  - component: {fileID: 2797163502612465116}
   m_Layer: 0
   m_Name: Bone.002
   m_TagString: Untagged
@@ -774,6 +775,20 @@ CharacterJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &2797163502612465116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5109794793221326519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00ab9af1c040f5149ba4879689e5ec8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitDetector
+  playerStamina: {fileID: 100336733461245065}
+  isLeft: 0
 --- !u!1 &6307301697075498654
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,6 +801,7 @@ GameObject:
   - component: {fileID: 4710290667964139219}
   - component: {fileID: 5023825435903202716}
   - component: {fileID: 4071011870985798893}
+  - component: {fileID: 101795503643046373}
   m_Layer: 0
   m_Name: Bone.001
   m_TagString: Untagged
@@ -905,6 +921,20 @@ CharacterJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &101795503643046373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6307301697075498654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00ab9af1c040f5149ba4879689e5ec8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitDetector
+  playerStamina: {fileID: 100336733461245065}
+  isLeft: 0
 --- !u!1 &6461171167585319373
 GameObject:
   m_ObjectHideFlags: 0
@@ -916,6 +946,7 @@ GameObject:
   - component: {fileID: 3773582983586110345}
   - component: {fileID: 2951560046908371862}
   - component: {fileID: 2472712875590039418}
+  - component: {fileID: 8931041849619875516}
   m_Layer: 0
   m_Name: Bone.002_end
   m_TagString: Untagged
@@ -1011,6 +1042,20 @@ CharacterJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &8931041849619875516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6461171167585319373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00ab9af1c040f5149ba4879689e5ec8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitDetector
+  playerStamina: {fileID: 100336733461245065}
+  isLeft: 0
 --- !u!1 &6530825597843733562
 GameObject:
   m_ObjectHideFlags: 0
@@ -1022,6 +1067,7 @@ GameObject:
   - component: {fileID: 2124207854899137962}
   - component: {fileID: 3578832263867127841}
   - component: {fileID: 6155643339419346903}
+  - component: {fileID: 9160151623299717895}
   m_Layer: 0
   m_Name: Bone
   m_TagString: Untagged
@@ -1095,6 +1141,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &9160151623299717895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6530825597843733562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00ab9af1c040f5149ba4879689e5ec8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitDetector
+  playerStamina: {fileID: 100336733461245065}
+  isLeft: 0
 --- !u!1 &7712810125849521247
 GameObject:
   m_ObjectHideFlags: 0

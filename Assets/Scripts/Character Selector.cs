@@ -105,7 +105,7 @@ public class CharacterSelector : MonoBehaviour
             {
                 next = Characters_masks.Length - 1;
             }
-                player_left_index = next;
+            player_left_index = next;
             //posicionar el indicador en el character seleccionado
             selector_p1.transform.position = Characters_masks[player_left_index].transform.position + Select_dist_f_char;
 
@@ -129,7 +129,7 @@ public class CharacterSelector : MonoBehaviour
 
 
             int next = player_right_index % Characters_masks.Length;
-            if (next  == -1)
+            if (next == -1)
             {
                 next = Characters_masks.Length - 1;
             }
@@ -179,19 +179,21 @@ public class CharacterSelector : MonoBehaviour
             if (player_left_block != -1 && player_right_block != -1)
             {
                 GameManager.instance.left_dedo_id = player_left_block;
-                GameManager.instance.right_dedo_id=player_right_block;
+                GameManager.instance.right_dedo_id = player_right_block;
 
                 Debug.LogWarning("Ids puestas a : " + GameManager.instance.left_dedo_id + " y " + GameManager.instance.right_dedo_id);
                 //ir a la pelea
                 Debug.LogWarning("Implementar llevado a la escena");
 
                 SceneManager.LoadScene("Oscar1");
+
+                GameManager.instance.StartCombatMusic();
             }
         }
 
         //reseteo de cosas
-        dir_Left = new Vector2(0,0);
-        dir_Right = new Vector2(0,0);
+        dir_Left = new Vector2(0, 0);
+        dir_Right = new Vector2(0, 0);
         right_back = false;
         left_back = false;
         start_button = false;
@@ -201,7 +203,7 @@ public class CharacterSelector : MonoBehaviour
 
     public void OnLeftFingerMove(CallbackContext context)
     {
-      
+
 
         //leftAxes = context.ReadValue<Vector2>();
         dir_Left = context.ReadValue<Vector2>();
@@ -210,7 +212,7 @@ public class CharacterSelector : MonoBehaviour
 
     public void OnRightFingerMove(CallbackContext context)
     {
-       
+
 
         //rightAxes = context.ReadValue<Vector2>();
         dir_Right = context.ReadValue<Vector2>();
@@ -244,7 +246,7 @@ public class CharacterSelector : MonoBehaviour
 
         right_back = true;
     }
-    
+
     public void OnStart_Buttom(CallbackContext context)
     {
         Debug.Log("0");
