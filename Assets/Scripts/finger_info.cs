@@ -11,4 +11,6 @@ public class finger_info : MonoBehaviour
     [SerializeField]
     [NotNull]
     public StaminaPlayer Stamina;
+    [SerializeField]
+    public ErTembleke etblk;
 }

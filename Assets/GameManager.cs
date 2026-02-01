@@ -28,9 +28,8 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         if (counting)
-        {
             countTime += Time.deltaTime;
-        }
+        
         if (countTime > 3f)
         {
             SceneManager.LoadScene("CharacterSelection");

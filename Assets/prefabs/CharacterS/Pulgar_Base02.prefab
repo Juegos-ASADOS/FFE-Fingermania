@@ -856,6 +856,7 @@ MonoBehaviour:
   Rb: {fileID: 8928430408609389334}
   Head: {fileID: 2320173269595983727}
   Stamina: {fileID: 7139605449282924697}
+  etblk: {fileID: 2362237950569384345}
 --- !u!1 &5842853237865340905
 GameObject:
   m_ObjectHideFlags: 0
