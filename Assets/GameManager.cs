@@ -1,6 +1,7 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class GameManager
+public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
 
@@ -23,6 +24,12 @@ public class GameManager
         }
     }
 
+    public void Change_SceneAsync_name(string name)
+    {
+        Debug.LogWarning("receurden bloquear input en la carga asyncrona");
+       //para casos que cargar la escena pueda ser muy lento
+        SceneManager.LoadSceneAsync(name);
+    }
     // Add your game mananger members here
     public void Pause(bool paused)
     {
