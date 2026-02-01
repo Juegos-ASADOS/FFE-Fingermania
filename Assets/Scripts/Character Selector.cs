@@ -178,14 +178,14 @@ public class CharacterSelector : MonoBehaviour
         {
             if (player_left_block != -1 && player_right_block != -1)
             {
-                GameManager.instance.left_dedo_id = player_left_block;
-                GameManager.instance.right_dedo_id = player_right_block;
+                GameManager.instance.left_dedo_id = player_right_block;
+                GameManager.instance.right_dedo_id = player_left_block;
 
                 Debug.LogWarning("Ids puestas a : " + GameManager.instance.left_dedo_id + " y " + GameManager.instance.right_dedo_id);
                 //ir a la pelea
                 Debug.LogWarning("Implementar llevado a la escena");
 
-                SceneManager.LoadScene("Oscar1");
+                SceneManager.LoadScene("Final");
 
                 GameManager.instance.StartCombatMusic();
             }

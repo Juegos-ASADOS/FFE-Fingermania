@@ -47,7 +47,7 @@
                 {
                     "name": "",
                     "id": "57259086-1b8f-4a02-b2d6-cdd3b3d76f49",
-                    "path": "<Gamepad>/leftStick",
+                    "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
@@ -58,7 +58,7 @@
                 {
                     "name": "",
                     "id": "bda0a201-9a29-4146-8919-640e59643d5d",
-                    "path": "<Gamepad>/rightStick",
+                    "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
@@ -69,7 +69,7 @@
                 {
                     "name": "",
                     "id": "13b316ff-44ad-4de1-9179-b9da0fc5d1d8",
-                    "path": "<Gamepad>/leftTrigger",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
@@ -80,7 +80,7 @@
                 {
                     "name": "",
                     "id": "5a84194a-4259-4ab2-81c9-7bb821395e6a",
-                    "path": "<Gamepad>/rightTrigger",
+                    "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
