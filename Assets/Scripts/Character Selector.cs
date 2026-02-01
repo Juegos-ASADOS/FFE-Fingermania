@@ -71,7 +71,7 @@ public class CharacterSelector : MonoBehaviour
         {
             if (player_left_index != -1 && player_left_index != player_right_index)
             {
-                Characters_masks[player_left_index].transform.parent.GetComponent<Animator>().SetBool("select", false);
+                Characters_masks[player_left_index].transform.GetComponentInChildren<Animator>().SetBool("select", false);
             }
             if (dir_Left.x > 0)
             {
@@ -98,7 +98,7 @@ public class CharacterSelector : MonoBehaviour
             selector_p1.transform.position = Characters_masks[player_left_index].transform.position + Select_dist_f_char;
             if (player_right_index != player_left_index)
             {
-                Characters_masks[player_left_index].transform.parent.GetComponent<Animator>().SetBool("select", true);
+                Characters_masks[player_left_index].transform.GetComponentInChildren<Animator>().SetBool("select", true);
             }
 
             left_delay = delay_movement;
@@ -109,7 +109,7 @@ public class CharacterSelector : MonoBehaviour
 
             if (player_right_index != -1 && player_left_index != player_right_index)
             {
-                Characters_masks[player_right_index].transform.parent.GetComponent<Animator>().SetBool("select", false);
+                Characters_masks[player_right_index].transform.GetComponentInChildren<Animator>().SetBool("select", false);
             }
             if (dir_Right.x > 0)
             {
@@ -134,7 +134,7 @@ public class CharacterSelector : MonoBehaviour
             selector_p2.transform.position = Characters_masks[player_right_index].transform.position + Select_dist_f_char;
             if (player_left_index != player_right_index)
             {
-                Characters_masks[player_right_index].transform.parent.GetComponent<Animator>().SetBool("select", true);
+                Characters_masks[player_right_index].transform.GetComponentInChildren<Animator>().SetBool("select", true);
             }
 
 
@@ -147,7 +147,7 @@ public class CharacterSelector : MonoBehaviour
             if (player_right_index != player_left_block)
             {
                 player_right_block = player_right_index;
-                Characters_masks[player_right_index].transform.parent.GetComponent<Animator>().SetBool("superselect", true);
+                Characters_masks[player_right_index].transform.GetComponentInChildren<Animator>().SetBool("superselect", true);
             }
         }
 
@@ -156,7 +156,7 @@ public class CharacterSelector : MonoBehaviour
             if (player_left_index != player_right_block)
             {
                 player_left_block = player_left_index;
-                Characters_masks[player_left_index].transform.parent.GetComponent<Animator>().SetBool("superselect", true);
+                Characters_masks[player_left_index].transform.GetComponentInChildren<Animator>().SetBool("superselect", true);
 
             }
         }
@@ -166,7 +166,7 @@ public class CharacterSelector : MonoBehaviour
         {
             if (player_right_block != -1)
             {
-                Characters_masks[player_right_index].transform.parent.GetComponent<Animator>().SetBool("superselect", false);
+                Characters_masks[player_right_index].transform.GetComponentInChildren<Animator>().SetBool("superselect", false);
             }
             player_right_block = -1;
 
@@ -175,7 +175,7 @@ public class CharacterSelector : MonoBehaviour
         {
             if (player_left_block != -1)
             {
-                Characters_masks[player_left_index].transform.parent.GetComponent<Animator>().SetBool("superselect", false);
+                Characters_masks[player_left_index].transform.GetComponentInChildren<Animator>().SetBool("superselect", false);
 
             }
             if (player_left_block == -1)
