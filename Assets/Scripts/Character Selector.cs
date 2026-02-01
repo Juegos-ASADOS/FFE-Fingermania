@@ -11,9 +11,9 @@ public class CharacterSelector : MonoBehaviour
     [SerializeField]
     GameObject[] Characters_masks;
 
-    int player_left_index = 0;
-    int player_right_index = 0;
-    //personaje blocj
+    int player_left_index = -1;
+    int player_right_index = -1;
+    //personaje block
     int player_left_block = -1;
     int player_right_block = -1;
 
@@ -40,6 +40,7 @@ public class CharacterSelector : MonoBehaviour
     float delay_movement = 0.2f;
     float right_delay = 0f;
     float left_delay = 0f;
+    float left_back_delay = 0f;
 
     [SerializeField]
     float movement_range = 0.2f;
@@ -58,6 +59,8 @@ public class CharacterSelector : MonoBehaviour
 
     private void Update()
     {
+        
+        left_back_delay -= Time.deltaTime;
         right_delay -= Time.deltaTime;
         left_delay -= Time.deltaTime;
         //utilizando el player controller
@@ -66,6 +69,10 @@ public class CharacterSelector : MonoBehaviour
         //mover curosr derecho
         if (!(left_delay > 0) && player_left_block == -1 && Mathf.Abs(dir_Left.x) > movement_range)
         {
+            if (player_left_index != -1 && player_left_index != player_right_index)
+            {
+                Characters_masks[player_left_index].transform.GetComponentInChildren<Animator>().SetBool("select", false);
+            }
             if (dir_Left.x > 0)
             {
 
@@ -89,12 +96,21 @@ public class CharacterSelector : MonoBehaviour
             player_left_index = next;
             //posicionar el indicador en el character seleccionado
             selector_p1.transform.position = Characters_masks[player_left_index].transform.position + Select_dist_f_char;
+            if (player_right_index != player_left_index)
+            {
+                Characters_masks[player_left_index].transform.GetComponentInChildren<Animator>().SetBool("select", true);
+            }
 
             left_delay = delay_movement;
         }
 
         if (!(right_delay > 0) && player_right_block == -1 && MathF.Abs(dir_Right.x) > movement_range)
         {
+
+            if (player_right_index != -1 && player_left_index != player_right_index)
+            {
+                Characters_masks[player_right_index].transform.GetComponentInChildren<Animator>().SetBool("select", false);
+            }
             if (dir_Right.x > 0)
             {
                 player_right_index++;
@@ -116,6 +132,11 @@ public class CharacterSelector : MonoBehaviour
             player_right_index = next;
             //player_right_index = player_right_index % Characters_masks.Length;
             selector_p2.transform.position = Characters_masks[player_right_index].transform.position + Select_dist_f_char;
+            if (player_left_index != player_right_index)
+            {
+                Characters_masks[player_right_index].transform.GetComponentInChildren<Animator>().SetBool("select", true);
+            }
+
 
             right_delay = delay_movement;
         }
@@ -126,6 +147,7 @@ public class CharacterSelector : MonoBehaviour
             if (player_right_index != player_left_block)
             {
                 player_right_block = player_right_index;
+                Characters_masks[player_right_index].transform.GetComponentInChildren<Animator>().SetBool("superselect", true);
             }
         }
 
@@ -134,22 +156,36 @@ public class CharacterSelector : MonoBehaviour
             if (player_left_index != player_right_block)
             {
                 player_left_block = player_left_index;
+                Characters_masks[player_left_index].transform.GetComponentInChildren<Animator>().SetBool("superselect", true);
+
             }
         }
 
         //liberar seleccion e ir para atras, solo si eres jugador left.
         if (right_back)
         {
+            if (player_right_block != -1)
+            {
+                Characters_masks[player_right_index].transform.GetComponentInChildren<Animator>().SetBool("superselect", false);
+            }
             player_right_block = -1;
+
         }
-        if (left_back)
+        if (left_back && left_back_delay < 0)
         {
+            if (player_left_block != -1)
+            {
+                Characters_masks[player_left_index].transform.GetComponentInChildren<Animator>().SetBool("superselect", false);
+
+            }
             if (player_left_block == -1)
             {
                 //volver escena atrás (menu)
-                SceneManager.LoadScene("MainTitle_Fin");
+               GameManager.instance.Change_SceneAsync_name("MainTitle_Fin");
+                
             }
             player_left_block = -1;
+            left_back_delay = delay_movement;
         }
 
 
