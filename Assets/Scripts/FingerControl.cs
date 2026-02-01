@@ -79,6 +79,8 @@ public class FingerControl : MonoBehaviour
 
     [SerializeField]
     GameObject leftIcon, rightIcon;
+    [SerializeField]
+    GameObject leftHint, rightHint;
 
     private void Awake()
     {
@@ -280,7 +282,7 @@ public class FingerControl : MonoBehaviour
             rightForce = hitForce;
             leftDamage = winDamage;
             rightDamage = loseDamage;
-            Gamepad.current.SetMotorSpeeds(0.75f, 0.1f);
+            Gamepad.current.SetMotorSpeeds(0.85f, 0.2f);
         }
         else if (rightSpeed > leftSpeed)
         {
@@ -290,7 +292,7 @@ public class FingerControl : MonoBehaviour
             leftForce = hitForce;
             leftDamage = loseDamage;
             rightDamage = winDamage;
-            Gamepad.current.SetMotorSpeeds(0.05f, 0.85f);
+            Gamepad.current.SetMotorSpeeds(0.15f, 0.95f);
         }
         else
         {
@@ -299,7 +301,7 @@ public class FingerControl : MonoBehaviour
             leftForce = rightForce = hitForce;
             leftDamage = tieDamage;
             rightDamage = tieDamage;
-            Gamepad.current.SetMotorSpeeds(0.3f, 0.5f);
+            Gamepad.current.SetMotorSpeeds(0.4f, 0.6f);
         }
         if(!leftBloqued) DeactiveFinger(true, leftTime);
         if(!rightBloqued) DeactiveFinger(false, rightTime);
@@ -327,6 +329,15 @@ public class FingerControl : MonoBehaviour
         else return rightIcon;
     }
 
+    public GameObject GetHint(bool left)
+    {
+        if (left) return rightHint;
+        else return leftHint;
+    }
+    private void OnDisable()
+    {
+        Gamepad.current.SetMotorSpeeds(0f, 0f);
+    }
     //private void OnDrawGizmos()
     //{
     //    //Gizmos.DrawCube(lHeadIniPos, leftHeadLimits);
