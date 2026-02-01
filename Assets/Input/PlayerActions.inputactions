@@ -184,7 +184,7 @@
                 {
                     "name": "",
                     "id": "8350e678-22ef-4080-a00e-bf190999fc80",
-                    "path": "<Gamepad>/buttonNorth",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "Tap",
                     "processors": "",
                     "groups": "",

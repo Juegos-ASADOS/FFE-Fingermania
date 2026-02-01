@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Animations;
+using UnityEngine.SceneManagement;
 using static UnityEngine.InputSystem.InputAction;
 public class CharacterSelector : MonoBehaviour
 {
@@ -167,6 +168,7 @@ public class CharacterSelector : MonoBehaviour
             {
                 //volver escena atrás (menu)
                 Debug.LogWarning("Implementar volver hacia atras");
+                SceneManager.LoadScene("MainTitle");
             }
             player_left_block = -1;
         }
@@ -179,6 +181,7 @@ public class CharacterSelector : MonoBehaviour
                 //ir a la pelea
                 Debug.LogWarning("Implementar llevado a la escena");
 
+                SceneManager.LoadScene("Oscar");
             }
         }
 
