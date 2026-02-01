@@ -29,6 +29,9 @@ public class ErTembleke : MonoBehaviour
 
     int difficultyMultiplier = 1;
 
+    [SerializeField]
+    GameObject particlesSmoke;
+
     public void OnFingerMove(CallbackContext context)
     {
         if (!enabled || falling) return;
@@ -61,6 +64,7 @@ public class ErTembleke : MonoBehaviour
             if (timeFalling > timeToFall)
             {
                 RuntimeManager.PlayOneShot("event:/Floor Impact 3D");
+                particlesSmoke.SetActive(true);
                 timeFalling = 0;
                 falling = false;
             }
