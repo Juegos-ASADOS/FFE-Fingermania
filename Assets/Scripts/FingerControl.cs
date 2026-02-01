@@ -4,6 +4,7 @@ using System.Threading;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.InputAction;
 
 public class FingerControl : MonoBehaviour
@@ -93,11 +94,13 @@ public class FingerControl : MonoBehaviour
     public void OnLeftFingerMove(CallbackContext context)
     {
         leftAxes = context.ReadValue<Vector2>();
+        left_info.etblk.OnFingerMove(context);
     }
 
     public void OnRightFingerMove(CallbackContext context)
     {
         rightAxes = context.ReadValue<Vector2>();
+        right_info.etblk.OnFingerMove(context);
     }
 
     public void OnLeftFingerAttack(CallbackContext context)
