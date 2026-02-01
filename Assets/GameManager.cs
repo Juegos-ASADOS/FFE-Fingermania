@@ -18,8 +18,13 @@ public class GameManager : MonoBehaviour
     int right_dedo_id = 0;
 
     GameObject winAnim;
+
+    FingerControl fingerControl;
     
     EventInstance eventMusic, crowdEffect, eventMusicSelection;
+
+    bool victoryStarted;
+
     private void Awake()
     {
         if (instance != null)
@@ -55,6 +60,7 @@ public class GameManager : MonoBehaviour
         else if(name == "CharacterSelection")
         {
             eventMusicSelection.start();
+            victoryStarted = false;
         }
     }
     // Add your game mananger members here
@@ -88,6 +94,9 @@ public class GameManager : MonoBehaviour
 
     public void StopCount()
     {
+        if (victoryStarted)
+            return;
+
         counting = false;
         countTime = 0;
         eventMusic.setParameterByNameWithLabel("Parameter", "Play");
@@ -97,6 +106,8 @@ public class GameManager : MonoBehaviour
 
     public void Victory()
     {
+        victoryStarted = true;
+        fingerControl.enabled = false;
         eventMusic.setParameterByNameWithLabel("Parameter", "Win");
         crowdEffect.setParameterByNameWithLabel("Parameter", "Win");
     }
@@ -104,5 +115,10 @@ public class GameManager : MonoBehaviour
     public void SetWinAnim(GameObject anim)
     {
         winAnim = anim;
+    }
+
+    public void SetFC(FingerControl fc)
+    {
+        fingerControl = fc;
     }
 }
