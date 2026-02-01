@@ -5,7 +5,7 @@
 			<value>Light 3D</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{5df3bc22-3c88-4419-823c-e3f18dce7f21}</destination>
@@ -123,7 +123,6 @@
 	<object class="MixerBusEffectChain" id="{fdb1bbbd-b6ef-41a4-8c5f-2d398375dd14}">
 		<relationship name="effects">
 			<destination>{c846a469-8601-4eee-b38d-4393a9e1f3dd}</destination>
-			<destination>{e588f1b8-10eb-4013-b0e4-af7befb30378}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{866f9932-2959-46a4-aaef-a7ad8f3e3957}" />
@@ -163,6 +162,5 @@
 	</object>
 	<object class="MixerBusPanner" id="{b3062f48-c465-4a0c-9c18-29db86374506}" />
 	<object class="MixerBusFader" id="{c846a469-8601-4eee-b38d-4393a9e1f3dd}" />
-	<object class="SpatialiserEffect" id="{e588f1b8-10eb-4013-b0e4-af7befb30378}" />
 	<object class="MixerBusFader" id="{c774a9cc-3f97-4f39-807b-ef4bb71ba4d0}" />
 </objects>

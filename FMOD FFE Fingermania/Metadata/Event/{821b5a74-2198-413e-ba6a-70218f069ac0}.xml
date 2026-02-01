@@ -5,7 +5,7 @@
 			<value>Hard Hit 3D</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{5df3bc22-3c88-4419-823c-e3f18dce7f21}</destination>
@@ -122,7 +122,6 @@
 	<object class="MixerBusEffectChain" id="{b6548ae2-27bd-46b7-87dc-2460c37530cc}">
 		<relationship name="effects">
 			<destination>{8f117c18-c22a-49ae-a3f6-e7dc2ff92622}</destination>
-			<destination>{9080a734-9043-497f-a689-517227dc9c62}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{dc5dd082-084c-4f8c-a020-be03b0bdcdb3}" />
@@ -157,6 +156,5 @@
 	</object>
 	<object class="MixerBusPanner" id="{54a4e0df-9ae8-4c64-98b8-2c645f0c5b0f}" />
 	<object class="MixerBusFader" id="{8f117c18-c22a-49ae-a3f6-e7dc2ff92622}" />
-	<object class="SpatialiserEffect" id="{9080a734-9043-497f-a689-517227dc9c62}" />
 	<object class="MixerBusFader" id="{62cf47d0-eba9-456d-9cdd-9199fac96ea5}" />
 </objects>
