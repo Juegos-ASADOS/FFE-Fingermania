@@ -274,7 +274,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -737, y: -326}
+  m_AnchoredPosition: {x: -737, y: 252}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &85692860
@@ -434,7 +434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3512679576904843740, guid: ddac89978c4f00e4c8c493b9f032f71c, type: 3}
       propertyPath: jiggleRigData.transformCachedData.Array.data[4].normalizedDistanceFromRoot
-      value: 0.7911694
+      value: 0.66497296
       objectReference: {fileID: 0}
     - target: {fileID: 5400736825616768027, guid: ddac89978c4f00e4c8c493b9f032f71c, type: 3}
       propertyPath: etblk
@@ -2147,7 +2147,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -737, y: 377}
+  m_AnchoredPosition: {x: -737, y: -342}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1835299661
