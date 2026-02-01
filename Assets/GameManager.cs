@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     int right_dedo_id = 0;
 
     GameObject winAnim;
+
+    FingerControl fingerControl;
     
     EventInstance eventMusic, crowdEffect, eventMusicSelection;
     private void Awake()
@@ -97,6 +99,7 @@ public class GameManager : MonoBehaviour
 
     public void Victory()
     {
+        fingerControl.enabled = false;
         eventMusic.setParameterByNameWithLabel("Parameter", "Win");
         crowdEffect.setParameterByNameWithLabel("Parameter", "Win");
     }
@@ -104,5 +107,10 @@ public class GameManager : MonoBehaviour
     public void SetWinAnim(GameObject anim)
     {
         winAnim = anim;
+    }
+
+    public void SetFC(FingerControl fc)
+    {
+        fingerControl = fc;
     }
 }

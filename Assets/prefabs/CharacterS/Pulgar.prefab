@@ -440,7 +440,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ErTembleke
   fingerHead: {fileID: 735247200588926329}
   posObjective: {x: -12.3, y: 0.8, z: 10.96}
-  timeToFall: 0.75
+  timeToFall: 0.1
   moveToRecoverStamina: 20
   staminaRecover: 10
 --- !u!114 &4991050628341992770
