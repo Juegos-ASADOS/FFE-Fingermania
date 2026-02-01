@@ -34,19 +34,6 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    private void Update()
-    {
-        if (counting)
-            countTime += Time.deltaTime;
-        
-        if (countTime > 3f)
-        {
-            SceneManager.LoadScene("CharacterSelection");
-            counting = false;
-            countTime = 0f;
-
-        }
-    }
     public void Change_SceneAsync_name(string name)
     {
         Debug.LogWarning("receurden bloquear input en la carga asyncrona");
