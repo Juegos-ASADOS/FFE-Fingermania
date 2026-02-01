@@ -9,9 +9,6 @@ public class ErTembleke : MonoBehaviour
 
     [SerializeField]
     Transform fingerHead;
-    [SerializeField]
-    [NotNull]
-    GameObject fallpoint;
 
     [SerializeField]
     Vector3 posObjective;
@@ -31,11 +28,6 @@ public class ErTembleke : MonoBehaviour
     StaminaPlayer stPlayer;
 
     int difficultyMultiplier = 1;
-
-    public void Awake()
-    {
-        posObjective = fallpoint.transform.position;
-    }
 
     public void OnFingerMove(CallbackContext context)
     {
@@ -65,7 +57,7 @@ public class ErTembleke : MonoBehaviour
         if (falling) {
             // Animacion de tumbarse
             timeFalling += Time.deltaTime;
-            fingerHead.localPosition = Vector3.Lerp(posIni, fallpoint.transform.position, timeFalling/timeToFall);
+            fingerHead.localPosition = Vector3.Lerp(posIni, posObjective, timeFalling/timeToFall);
             if (timeFalling > timeToFall)
             {
                 RuntimeManager.PlayOneShot("event:/Floor Impact 3D");

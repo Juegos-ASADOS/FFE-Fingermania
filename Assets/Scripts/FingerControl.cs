@@ -121,7 +121,7 @@ public class FingerControl : MonoBehaviour
 
         if (!leftBloqued)
         {
-            leftHead.position = Vector3.Lerp(leftHead.position, new Vector3(lHeadIniPos.x - (leftAxes.y * leftHeadLimits.x), lHeadIniPos.y - (leftHeadLimits.y * leftAttack), lHeadIniPos.z + (leftAxes.x * leftHeadLimits.z) + (leftHeadLimits.y * leftAttack)), 0.3f);
+            leftHead.position = Vector3.Lerp(leftHead.position, new Vector3(lHeadIniPos.x + (leftAxes.y * leftHeadLimits.x), lHeadIniPos.y - (leftHeadLimits.y * leftAttack), lHeadIniPos.z - (leftAxes.x * leftHeadLimits.z) + (leftHeadLimits.y * leftAttack)), 0.3f);
             Vector3 posDiff = leftHead.position - leftPreviousPos;
             leftSpeed = Mathf.Abs(posDiff.magnitude) / Time.deltaTime;
             leftPreviousPos = leftHead.position;
@@ -143,7 +143,7 @@ public class FingerControl : MonoBehaviour
 
         if (!rightBloqued)
         {
-            rightHead.position = Vector3.Lerp(rightHead.position, new Vector3(rHeadIniPos.x - (rightAxes.y * rightHeadLimits.x), rHeadIniPos.y - (rightHeadLimits.y * rightAttack), rHeadIniPos.z + (rightAxes.x * rightHeadLimits.z) - (rightHeadLimits.y * rightAttack)), 0.3f);
+            rightHead.position = Vector3.Lerp(rightHead.position, new Vector3(rHeadIniPos.x + (rightAxes.y * rightHeadLimits.x), rHeadIniPos.y - (rightHeadLimits.y * rightAttack), rHeadIniPos.z - (rightAxes.x * rightHeadLimits.z) - (rightHeadLimits.y * rightAttack)), 0.3f);
             Vector3 posDiff = rightHead.position - rightPreviousPos;
             rightSpeed = Mathf.Abs(posDiff.magnitude) / Time.deltaTime;
             rightPreviousPos = rightHead.position;

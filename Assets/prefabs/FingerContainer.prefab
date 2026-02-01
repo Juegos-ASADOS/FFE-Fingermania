@@ -226,19 +226,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInput
   Characters:
-  - {fileID: 5583218940959919817, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
-  - {fileID: 2450243685872749680, guid: aefe90a3fdb3959438bec5a434640abc, type: 3}
+  - {fileID: 8583746879900380093, guid: 2ca24f876663e2642b1f7c2b6f6d9d8f, type: 3}
+  - {fileID: 2502295147363308553, guid: ddac89978c4f00e4c8c493b9f032f71c, type: 3}
+  - {fileID: 8547448899013741797, guid: e92f8a891c4de974081768ab50fe8b7a, type: 3}
+  - {fileID: 1820141433866244112, guid: 339c31b2c327b2f489cd72a49fbe0dd4, type: 3}
+  - {fileID: 1953336172646916039, guid: d984d9462e61d2b4fb10da29ca02afa3, type: 3}
+  - {fileID: 57473747238222934, guid: f00225a379b17ac4fbea616912ee60f1, type: 3}
   spawnPointLeft: {fileID: 166996139547373245}
   spawnPointRight: {fileID: 7300866615721861705}
-  leftHeadLimits: {x: 3.25, y: 2, z: 3.25}
-  rightHeadLimits: {x: 3.25, y: 2, z: 3.25}
+  leftHeadLimits: {x: 3.25, y: 3.25, z: 3.25}
+  rightHeadLimits: {x: 3.25, y: 3.25, z: 3.25}
   leftHead: {fileID: 0}
   rightHead: {fileID: 0}
   leftRb: {fileID: 0}
   rightRb: {fileID: 0}
-  looserCooldown: 0.5
+  looserCooldown: 0.35
   winnerCooldown: 0.1
-  tieCooldown: 0.3
+  tieCooldown: 0.2
   hitForce: 30
   timeBetweenColisions: 0.05
   leftStamina: {fileID: 0}

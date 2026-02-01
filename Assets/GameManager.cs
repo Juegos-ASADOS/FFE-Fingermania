@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
         Debug.LogWarning("receurden bloquear input en la carga asyncrona");
         //para casos que cargar la escena pueda ser muy lento
         SceneManager.LoadSceneAsync(name);
-        if (name == "Oscar1")
+        if (name == "Final")
         {   
             eventMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             eventMusic.setParameterByNameWithLabel("Parameter", "Play");
