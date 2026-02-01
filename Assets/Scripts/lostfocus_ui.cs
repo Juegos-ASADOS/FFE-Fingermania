@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Diagnostics.CodeAnalysis;
 using System.Threading;
 using UnityEngine;
@@ -16,6 +17,15 @@ public class lostfocus_ui : MonoBehaviour
         {
             EventSystem.current.SetSelectedGameObject(default_button.gameObject);
         }
+    }
+
+    public void start_button()
+    {
+        GameManager.instance.Change_SceneAsync_name("CharacterSelection");
+    }
+    public void play_Sound(string ruta)
+    {
+        RuntimeManager.PlayOneShot(ruta);
     }
 
 }
