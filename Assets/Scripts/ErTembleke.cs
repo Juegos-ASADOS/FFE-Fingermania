@@ -27,6 +27,11 @@ public class ErTembleke : MonoBehaviour
 
     int difficultyMultiplier = 1;
 
+    public void Awake()
+    {
+        posObjective = transform.TransformPoint(fingerHead.position + (fingerHead.forward * 0.75f));
+        Debug.LogWarning("objetivo pos en " + posObjective);
+    }
 
     public void OnFingerMove(CallbackContext context)
     {
