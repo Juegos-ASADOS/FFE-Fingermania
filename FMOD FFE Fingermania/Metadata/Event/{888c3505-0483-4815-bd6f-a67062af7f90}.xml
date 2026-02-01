@@ -139,7 +139,7 @@
 	<object class="MixerBusPanner" id="{61171e96-9b9c-4347-8ba6-a18453556acf}" />
 	<object class="SingleSound" id="{d943f96d-0e85-4def-a718-76785827ea33}">
 		<property name="start">
-			<value>28.860812500000002</value>
+			<value>29.360812500000002</value>
 		</property>
 		<property name="length">
 			<value>3.7919999999999998</value>
@@ -152,6 +152,9 @@
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{d467151b-ff02-4592-9bf1-f429302f8886}">
+		<property name="start">
+			<value>0.5</value>
+		</property>
 		<property name="length">
 			<value>27.221729166666663</value>
 		</property>
@@ -164,7 +167,7 @@
 	</object>
 	<object class="SingleSound" id="{b20d2fbc-b856-4952-bcfb-d45c5a727d47}">
 		<property name="start">
-			<value>35.85766367285612</value>
+			<value>36.35766367285612</value>
 		</property>
 		<property name="length">
 			<value>2.1587321604772112</value>
@@ -209,7 +212,7 @@
 	</object>
 	<object class="TempoMarker" id="{67a04ccc-5542-4a58-baeb-e1241fb3222d}">
 		<property name="position">
-			<value>0.72287500000000005</value>
+			<value>1.2228750000000002</value>
 		</property>
 		<property name="tempo">
 			<value>145</value>
@@ -223,7 +226,7 @@
 	</object>
 	<object class="LoopRegion" id="{0ea396fe-bfaa-446a-9e77-ae4d1a76e4fd}">
 		<property name="position">
-			<value>0.72287500000000005</value>
+			<value>1.2228750000000002</value>
 		</property>
 		<property name="length">
 			<value>26.486770833333335</value>
@@ -237,7 +240,7 @@
 	</object>
 	<object class="NamedMarker" id="{0c25b0f4-9ae2-4b69-a358-d3a3f3a17585}">
 		<property name="position">
-			<value>28.907687500000002</value>
+			<value>29.407687500000002</value>
 		</property>
 		<property name="name">
 			<value>Sumision</value>
@@ -251,7 +254,7 @@
 	</object>
 	<object class="NamedMarker" id="{60edd986-a76a-46fd-97a8-da0f065e370d}">
 		<property name="position">
-			<value>35.481499999999997</value>
+			<value>35.981499999999997</value>
 		</property>
 		<property name="name">
 			<value>Winner</value>
@@ -265,7 +268,7 @@
 	</object>
 	<object class="TransitionRegion" id="{dd7153f5-0aa2-4fa5-8158-ce8689c954cd}">
 		<property name="position">
-			<value>0.72287500000000016</value>
+			<value>1.2228750000000002</value>
 		</property>
 		<property name="length">
 			<value>26.486770833333335</value>
@@ -285,7 +288,7 @@
 	</object>
 	<object class="TransitionRegion" id="{c79a5da9-6bf7-412d-9d93-b89a7f8f7ef4}">
 		<property name="position">
-			<value>28.907687500000002</value>
+			<value>29.407687500000002</value>
 		</property>
 		<property name="length">
 			<value>6.0923124999999985</value>
@@ -305,7 +308,7 @@
 	</object>
 	<object class="TransitionRegion" id="{af2fca91-8e32-4510-a59a-e25bbe9cf5bd}">
 		<property name="position">
-			<value>28.907687500000002</value>
+			<value>29.407687500000002</value>
 		</property>
 		<property name="length">
 			<value>3.7451250000000051</value>
@@ -325,7 +328,7 @@
 	</object>
 	<object class="NamedMarker" id="{4bbd4d3a-522b-44b3-abac-16645b1a5b1e}">
 		<property name="position">
-			<value>0.72287500000000005</value>
+			<value>1.2228750000000002</value>
 		</property>
 		<property name="name">
 			<value>Marker B</value>
@@ -339,7 +342,7 @@
 	</object>
 	<object class="NamedMarker" id="{2cf25a4a-8ffc-4101-9044-dfe1368dd287}">
 		<property name="position">
-			<value>7.3152341765339068</value>
+			<value>7.8152341765339077</value>
 		</property>
 		<property name="name">
 			<value>Marker C</value>
@@ -353,7 +356,7 @@
 	</object>
 	<object class="NamedMarker" id="{6a9bda47-8b35-48da-9f7a-803e68f86326}">
 		<property name="position">
-			<value>20.584937499999999</value>
+			<value>21.084937499999999</value>
 		</property>
 		<property name="name">
 			<value>Marker D</value>
@@ -367,7 +370,7 @@
 	</object>
 	<object class="TransitionRegion" id="{f3daf63b-3222-4302-9214-b09619495c87}">
 		<property name="position">
-			<value>28.907687500000002</value>
+			<value>29.407687500000002</value>
 		</property>
 		<property name="length">
 			<value>3.7451250000000051</value>
@@ -393,7 +396,7 @@
 	</object>
 	<object class="TransitionRegion" id="{164ea6ff-86d9-47cd-b31d-db83c9137df3}">
 		<property name="position">
-			<value>28.907687500000002</value>
+			<value>29.407687500000002</value>
 		</property>
 		<property name="length">
 			<value>3.7451250000000051</value>
@@ -502,7 +505,7 @@
 	<object class="MixerBusFader" id="{d9c11247-5b90-49e8-8f26-0cdc3a10ae3f}" />
 	<object class="AutomationPoint" id="{a3a3552b-bebe-4474-af0a-4b9b41aa9592}">
 		<property name="position">
-			<value>32.476297751278267</value>
+			<value>32.976297751278274</value>
 		</property>
 		<property name="value">
 			<value>1</value>
@@ -513,7 +516,7 @@
 	</object>
 	<object class="AutomationPoint" id="{4b605e6d-5b39-43a3-b1db-cdd89f17c462}">
 		<property name="position">
-			<value>32.652812499999996</value>
+			<value>33.152812500000003</value>
 		</property>
 		<property name="value">
 			<value>0</value>
