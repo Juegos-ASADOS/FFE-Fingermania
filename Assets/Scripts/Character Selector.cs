@@ -11,9 +11,9 @@ public class CharacterSelector : MonoBehaviour
     [SerializeField]
     GameObject[] Characters_masks;
 
-    int player_left_index = 0;
-    int player_right_index = 0;
-    //personaje blocj
+    int player_left_index = -1;
+    int player_right_index = -1;
+    //personaje block
     int player_left_block = -1;
     int player_right_block = -1;
 
@@ -40,6 +40,7 @@ public class CharacterSelector : MonoBehaviour
     float delay_movement = 0.2f;
     float right_delay = 0f;
     float left_delay = 0f;
+    float left_back_delay = 0f;
 
     [SerializeField]
     float movement_range = 0.2f;
@@ -49,7 +50,6 @@ public class CharacterSelector : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("0");
     }
     void Start()
     {
@@ -59,6 +59,8 @@ public class CharacterSelector : MonoBehaviour
 
     private void Update()
     {
+        
+        left_back_delay -= Time.deltaTime;
         right_delay -= Time.deltaTime;
         left_delay -= Time.deltaTime;
         //utilizando el player controller
@@ -67,18 +69,20 @@ public class CharacterSelector : MonoBehaviour
         //mover curosr derecho
         if (!(left_delay > 0) && player_left_block == -1 && Mathf.Abs(dir_Left.x) > movement_range)
         {
+            if (player_left_index != -1 && player_left_index != player_right_index)
+            {
+                Characters_masks[player_left_index].transform.parent.GetComponent<Animator>().SetBool("select", false);
+            }
             if (dir_Left.x > 0)
             {
 
                 player_left_index++;
                 //derecha
-                Debug.Log("p1_right");
             }
             else
             {
                 //izquierda
                 player_left_index--;
-                Debug.Log("p1_left");
 
             }
 
@@ -92,22 +96,29 @@ public class CharacterSelector : MonoBehaviour
             player_left_index = next;
             //posicionar el indicador en el character seleccionado
             selector_p1.transform.position = Characters_masks[player_left_index].transform.position + Select_dist_f_char;
+            if (player_right_index != player_left_index)
+            {
+                Characters_masks[player_left_index].transform.parent.GetComponent<Animator>().SetBool("select", true);
+            }
 
             left_delay = delay_movement;
         }
 
         if (!(right_delay > 0) && player_right_block == -1 && MathF.Abs(dir_Right.x) > movement_range)
         {
+
+            if (player_right_index != -1 && player_left_index != player_right_index)
+            {
+                Characters_masks[player_right_index].transform.parent.GetComponent<Animator>().SetBool("select", false);
+            }
             if (dir_Right.x > 0)
             {
                 player_right_index++;
-                Debug.Log("p2_right");
 
                 //derecha
             }
             else
             {
-                Debug.Log("p2_left");
                 player_right_index--;
             }
 
@@ -121,6 +132,11 @@ public class CharacterSelector : MonoBehaviour
             player_right_index = next;
             //player_right_index = player_right_index % Characters_masks.Length;
             selector_p2.transform.position = Characters_masks[player_right_index].transform.position + Select_dist_f_char;
+            if (player_left_index != player_right_index)
+            {
+                Characters_masks[player_right_index].transform.parent.GetComponent<Animator>().SetBool("select", true);
+            }
+
 
             right_delay = delay_movement;
         }
@@ -131,6 +147,7 @@ public class CharacterSelector : MonoBehaviour
             if (player_right_index != player_left_block)
             {
                 player_right_block = player_right_index;
+                Characters_masks[player_right_index].transform.parent.GetComponent<Animator>().SetBool("superselect", true);
             }
         }
 
@@ -139,23 +156,36 @@ public class CharacterSelector : MonoBehaviour
             if (player_left_index != player_right_block)
             {
                 player_left_block = player_left_index;
+                Characters_masks[player_left_index].transform.parent.GetComponent<Animator>().SetBool("superselect", true);
+
             }
         }
 
         //liberar seleccion e ir para atras, solo si eres jugador left.
         if (right_back)
         {
+            if (player_right_block != -1)
+            {
+                Characters_masks[player_right_index].transform.parent.GetComponent<Animator>().SetBool("superselect", false);
+            }
             player_right_block = -1;
+
         }
-        if (left_back)
+        if (left_back && left_back_delay < 0)
         {
+            if (player_left_block != -1)
+            {
+                Characters_masks[player_left_index].transform.parent.GetComponent<Animator>().SetBool("superselect", false);
+
+            }
             if (player_left_block == -1)
             {
                 //volver escena atrás (menu)
-                Debug.LogWarning("Implementar volver hacia atras");
-                SceneManager.LoadScene("MainTitle_Fin");
+               GameManager.instance.Change_SceneAsync_name("MainTitle_Fin");
+                
             }
             player_left_block = -1;
+            left_back_delay = delay_movement;
         }
 
 
@@ -165,11 +195,7 @@ public class CharacterSelector : MonoBehaviour
             {
                 GameManager.instance.left_dedo_id = player_right_block;
                 GameManager.instance.right_dedo_id = player_left_block;
-
-                Debug.LogWarning("Ids puestas a : " + GameManager.instance.left_dedo_id + " y " + GameManager.instance.right_dedo_id);
                 //ir a la pelea
-                Debug.LogWarning("Implementar llevado a la escena");
-
                 SceneManager.LoadScene("Final");
 
                 GameManager.instance.StartCombatMusic();
@@ -206,8 +232,6 @@ public class CharacterSelector : MonoBehaviour
 
     public void OnSelect_Right(CallbackContext context)
     {
-        Debug.Log("select_right");
-
         if(!right_select)
         {
             RuntimeManager.PlayOneShot("event:/Hard Select R");
@@ -217,8 +241,6 @@ public class CharacterSelector : MonoBehaviour
     }
     public void OnSelect_Left(CallbackContext context)
     {
-        Debug.Log("select_left");
-
         if (!left_select)
         {
             RuntimeManager.PlayOneShot("event:/Hard Select L");
@@ -229,22 +251,16 @@ public class CharacterSelector : MonoBehaviour
 
     public void OnBack_Left(CallbackContext context)
     {
-        Debug.Log("back_left");
-
         left_back = true;
     }
 
     public void OnBack_Right(CallbackContext context)
     {
-        Debug.Log("back_right");
-
         right_back = true;
     }
 
     public void OnStart_Buttom(CallbackContext context)
     {
-        Debug.Log("0");
-
         start_button = true;
         //si amabos jugadores tienes elegidos characters, permitir
     }
