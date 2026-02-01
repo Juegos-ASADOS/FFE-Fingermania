@@ -13,6 +13,10 @@ PrefabInstance:
       value: Char_0
       objectReference: {fileID: 0}
     - target: {fileID: 5202575624101867684, guid: c1a87d7cc5d11444797bfc645a9a591b, type: 3}
+      propertyPath: 'm_Transforms.Array.data[1]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5202575624101867684, guid: c1a87d7cc5d11444797bfc645a9a591b, type: 3}
       propertyPath: 'm_Transforms.Array.data[2]'
       value: 
       objectReference: {fileID: 0}
@@ -69,6 +73,7 @@ PrefabInstance:
     - {fileID: 7712810125849521247, guid: c1a87d7cc5d11444797bfc645a9a591b, type: 3}
     - {fileID: 9190996267005749085, guid: c1a87d7cc5d11444797bfc645a9a591b, type: 3}
     - {fileID: 3984550962309419952, guid: c1a87d7cc5d11444797bfc645a9a591b, type: 3}
+    - {fileID: 8048120248957024522, guid: c1a87d7cc5d11444797bfc645a9a591b, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1a87d7cc5d11444797bfc645a9a591b, type: 3}

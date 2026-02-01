@@ -65,6 +65,12 @@ public class FingerControl : MonoBehaviour
     private finger_info left_info;
     private finger_info right_info;
 
+    //sound
+    bool bDedoDobladoRight = false;
+    bool bDedoDobladoLeft = false;
+
+
+
     private void Awake()
     {
         Debug.LogWarning("Ids leiadas a : " + GameManager.instance.left_dedo_id + " y " + GameManager.instance.right_dedo_id);
@@ -107,11 +113,31 @@ public class FingerControl : MonoBehaviour
     public void OnLeftFingerAttack(CallbackContext context)
     {
         leftAttack = context.ReadValue<float>();
+
+        if (leftAttack > 0.8 && !bDedoDobladoLeft)
+        {
+            RuntimeManager.PlayOneShot("event:/Soft Hit 3D", rightStamina.transform.position);
+            bDedoDobladoLeft = true;
+        }
+        else if (leftAttack <= 0.8)
+        {
+            bDedoDobladoLeft = false;
+        }
     }
 
     public void OnRightFingerAttack(CallbackContext context)
     {
         rightAttack = context.ReadValue<float>();
+
+        if(rightAttack > 0.8 && !bDedoDobladoRight)
+        {
+            RuntimeManager.PlayOneShot("event:/Soft Hit 3D", rightStamina.transform.position);
+            bDedoDobladoRight = true;
+        }
+        else if (rightAttack <= 0.8)
+        {
+            bDedoDobladoRight = false;
+        }
     }
 
     public void Update()
@@ -229,7 +255,6 @@ public class FingerControl : MonoBehaviour
         managingCollision = true;
         if (leftSpeed > rightSpeed)
         {
-            RuntimeManager.PlayOneShot("event:/Soft Hit 3D", leftStamina.transform.position);
             RuntimeManager.PlayOneShot("event:/Hard Hit 3D", rightStamina.transform.position);
             leftTime = winnerCooldown;
             rightTime = looserCooldown;
@@ -239,7 +264,6 @@ public class FingerControl : MonoBehaviour
         }
         else if (rightSpeed > leftSpeed)
         {
-            RuntimeManager.PlayOneShot("event:/Soft Hit 3D", rightStamina.transform.position);
             RuntimeManager.PlayOneShot("event:/Hard Hit 3D", leftStamina.transform.position);
             leftTime = looserCooldown;
             rightTime = winnerCooldown;
@@ -249,7 +273,6 @@ public class FingerControl : MonoBehaviour
         }
         else
         {
-            RuntimeManager.PlayOneShot("event:/Soft Hit 3D", leftStamina.transform.position);
             RuntimeManager.PlayOneShot("event:/Soft Hit 3D", rightStamina.transform.position);
             leftTime = rightTime = tieCooldown;
             leftForce = rightForce = hitForce;

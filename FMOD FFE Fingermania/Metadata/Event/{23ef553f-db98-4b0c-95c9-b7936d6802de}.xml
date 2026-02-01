@@ -5,7 +5,7 @@
 			<value>Soft Hit 3D</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{5df3bc22-3c88-4419-823c-e3f18dce7f21}</destination>
@@ -108,7 +108,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{e9793e9a-7f5c-4e3f-9a4d-46a674864a23}">
 		<property name="volume">
-			<value>-6.5</value>
+			<value>-5.5</value>
 		</property>
 		<property name="name">
 			<value>Audio 1</value>
@@ -126,7 +126,6 @@
 	<object class="MixerBusEffectChain" id="{3170e5cf-5c27-42bb-989e-0c0c1a2dfc1c}">
 		<relationship name="effects">
 			<destination>{549ee709-a4c5-4553-950f-075e1880a25d}</destination>
-			<destination>{d04005b9-f621-4827-845a-80851b1aa01d}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{07c6795a-b199-48fd-b9c3-74c678f1241d}" />
@@ -166,6 +165,5 @@
 	</object>
 	<object class="MixerBusPanner" id="{1537d636-8516-4147-b366-2a52d7f27163}" />
 	<object class="MixerBusFader" id="{549ee709-a4c5-4553-950f-075e1880a25d}" />
-	<object class="SpatialiserEffect" id="{d04005b9-f621-4827-845a-80851b1aa01d}" />
 	<object class="MixerBusFader" id="{45afcbff-2ebf-4099-be5e-fbef5f8dc0d2}" />
 </objects>
