@@ -190,7 +190,7 @@
 	</object>
 	<object class="SingleSound" id="{b20d2fbc-b856-4952-bcfb-d45c5a727d47}">
 		<property name="start">
-			<value>36.35766367285612</value>
+			<value>35.476163672856124</value>
 		</property>
 		<property name="length">
 			<value>2.1587321604772112</value>
@@ -303,7 +303,7 @@
 	</object>
 	<object class="NamedMarker" id="{60edd986-a76a-46fd-97a8-da0f065e370d}">
 		<property name="position">
-			<value>35.981499999999997</value>
+			<value>35.100000000000001</value>
 		</property>
 		<property name="name">
 			<value>Winner</value>
@@ -340,7 +340,7 @@
 			<value>29.407687500000002</value>
 		</property>
 		<property name="length">
-			<value>6.0923124999999985</value>
+			<value>5.5923124999999985</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{02e38fd7-c58d-47c7-a7b3-86100e3fe31b}</destination>
