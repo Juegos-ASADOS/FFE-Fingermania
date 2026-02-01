@@ -16,8 +16,10 @@ public class GameManager : MonoBehaviour
     int left_dedo_id = 0;
     public
     int right_dedo_id = 0;
+
+    GameObject winAnim;
     
-    EventInstance eventMusic, crowdEffect;
+    EventInstance eventMusic, crowdEffect, eventMusicSelection;
     private void Awake()
     {
         if (instance != null)
@@ -27,6 +29,7 @@ public class GameManager : MonoBehaviour
         }
         eventMusic = RuntimeManager.CreateInstance("event:/music");
         crowdEffect = RuntimeManager.CreateInstance("event:/Crowd");
+        eventMusicSelection = RuntimeManager.CreateInstance("event:/Selection Music");
         instance = this;        
         DontDestroyOnLoad(gameObject);
     }
@@ -41,6 +44,7 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("CharacterSelection");
             counting = false;
             countTime = 0f;
+
         }
     }
     public void Change_SceneAsync_name(string name)
@@ -50,12 +54,20 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadSceneAsync(name);
         if (name == "Final")
         {   
+            eventMusicSelection.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            RuntimeManager.PlayOneShot("event:/Selection End");
+
+
             eventMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             eventMusic.setParameterByNameWithLabel("Parameter", "Play");
             eventMusic.start();
             crowdEffect.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             crowdEffect.setParameterByNameWithLabel("Parameter", "Play");
             crowdEffect.start();
+        }
+        else if(name == "CharacterSelection")
+        {
+            eventMusicSelection.start();
         }
     }
     // Add your game mananger members here
@@ -65,6 +77,9 @@ public class GameManager : MonoBehaviour
         eventMusic.start();
         crowdEffect.setParameterByNameWithLabel("Parameter", "Play");
         crowdEffect.start();
+
+        eventMusicSelection.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        RuntimeManager.PlayOneShot("event:/Selection End");
     }
 
     public void SelectObject(GameObject ob)
@@ -81,6 +96,7 @@ public class GameManager : MonoBehaviour
         counting = true;
         eventMusic.setParameterByNameWithLabel("Parameter", "Sumision");
         crowdEffect.setParameterByNameWithLabel("Parameter", "Sumision");
+        winAnim.SetActive(true);
     }
 
     public void StopCount()
@@ -89,11 +105,17 @@ public class GameManager : MonoBehaviour
         countTime = 0;
         eventMusic.setParameterByNameWithLabel("Parameter", "Play");
         crowdEffect.setParameterByNameWithLabel("Parameter", "Play");
+        winAnim.SetActive(false);
     }
 
     public void Victory()
     {
         eventMusic.setParameterByNameWithLabel("Parameter", "Win");
         crowdEffect.setParameterByNameWithLabel("Parameter", "Win");
+    }
+
+    public void SetWinAnim(GameObject anim)
+    {
+        winAnim = anim;
     }
 }
