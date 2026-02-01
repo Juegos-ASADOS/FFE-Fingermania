@@ -23,7 +23,10 @@ public class StaminaPlayer : MonoBehaviour
     float staminaToRecover;
 
     [SerializeField]
-    TextMeshProUGUI staminaText;
+    TextMeshProUGUI staminaTextS;
+
+    [SerializeField]
+    public bool isLeft;
 
     int timesFallen;
     bool recovering;
@@ -80,7 +83,7 @@ public class StaminaPlayer : MonoBehaviour
 
     private void Update()
     {
-        staminaText.text = stamina.ToString() + " - " + timesFallen.ToString();
+        //staminaText.text = stamina.ToString() + " - " + timesFallen.ToString();
     }
 
     public void SetDifficultyTembleke(int difficulty)

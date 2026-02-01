@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Scenes/CharacterSelection.unity
     guid: 8818c2b5f0c458c4ea3ae2e3eeafae17
   - enabled: 1
+    path: Assets/Scenes/Oscar1.unity
+    guid: 9b98350317fad5d4b9f5eda828cd8bfb
+  - enabled: 1
     path: Assets/Scenes/Oscar.unity
     guid: e34b211584d5192438ecf6a20eb66328
   - enabled: 1

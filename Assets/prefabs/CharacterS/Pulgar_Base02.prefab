@@ -283,7 +283,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 363206695949970183}
-  - component: {fileID: 802274477249139096}
   m_Layer: 0
   m_Name: Pulgar_Base
   m_TagString: Untagged
@@ -307,23 +306,6 @@ Transform:
   - {fileID: 5713994646003165051}
   m_Father: {fileID: 5284996672639619922}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &802274477249139096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4206260701406392663}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b027fb9acc09e024291bd3c8decac83c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BlendShape
-  fingerBone: {fileID: 8900883861713191695}
-  skinnedMeshRenderer: {fileID: 9093022834693943972}
-  minAngle: 0
-  maxAngle: 70
-  blendValue: 0
 --- !u!1 &4279875740158415927
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,6 +479,7 @@ GameObject:
   - component: {fileID: 7139605449282924697}
   - component: {fileID: 8398863247598397398}
   - component: {fileID: 2362237950569384345}
+  - component: {fileID: 7193322507453661533}
   m_Layer: 0
   m_Name: Pulgar_Base02
   m_TagString: Untagged
@@ -600,7 +583,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StaminaPlayer
   stamina: 100
   staminaToRecover: 25
-  staminaText: {fileID: 0}
+  staminaTextS: {fileID: 0}
+  isLeft: 0
 --- !u!114 &8398863247598397398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -857,6 +841,21 @@ MonoBehaviour:
   timeToFall: 0.75
   moveToRecoverStamina: 20
   staminaRecover: 10
+--- !u!114 &7193322507453661533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5583218940959919817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5a5b9724cadafd4f8ea9e0ac1107aa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  Rb: {fileID: 8928430408609389334}
+  Head: {fileID: 2320173269595983727}
+  Stamina: {fileID: 7139605449282924697}
 --- !u!1 &5842853237865340905
 GameObject:
   m_ObjectHideFlags: 0

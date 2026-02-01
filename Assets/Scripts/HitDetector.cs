@@ -13,6 +13,7 @@ public class HitDetector : MonoBehaviour
     FingerControl fc;
     private void Start()
     {
+        isLeft = playerStamina.isLeft;
         fc = GetComponentsInParent<FingerControl>().First();
     }
 
