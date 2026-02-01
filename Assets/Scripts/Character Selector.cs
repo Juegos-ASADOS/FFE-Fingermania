@@ -1,3 +1,4 @@
+using FMODUnity;
 using System;
 using System.Diagnostics.CodeAnalysis;
 using Unity.Mathematics;
@@ -81,6 +82,8 @@ public class CharacterSelector : MonoBehaviour
 
             }
 
+            RuntimeManager.PlayOneShot("event:/Soft Hit 3D");
+
             int next = player_left_index % Characters_masks.Length;
             if (next == -1)
             {
@@ -108,6 +111,7 @@ public class CharacterSelector : MonoBehaviour
                 player_right_index--;
             }
 
+            RuntimeManager.PlayOneShot("event:/Soft Hit 3D");
 
             int next = player_right_index % Characters_masks.Length;
             if (next == -1)
@@ -204,12 +208,21 @@ public class CharacterSelector : MonoBehaviour
     {
         Debug.Log("select_right");
 
+        if(!right_select)
+        {
+            RuntimeManager.PlayOneShot("event:/Hard Select R");
+        }
+
         right_select = true;
-        //right_select = context.ReadValue<bool>();
     }
     public void OnSelect_Left(CallbackContext context)
     {
         Debug.Log("select_left");
+
+        if (!left_select)
+        {
+            RuntimeManager.PlayOneShot("event:/Hard Select L");
+        }
 
         left_select = true;
     }
