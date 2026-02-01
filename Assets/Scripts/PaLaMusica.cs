@@ -17,4 +17,9 @@ public class PaLaMusica : MonoBehaviour
     {
         GameManager.instance.Change_SceneAsync_name("CharacterSelection");
     }
+
+    public void Sumission()
+    {
+        GameManager.instance.StartMusicCount();
+    }
 }
