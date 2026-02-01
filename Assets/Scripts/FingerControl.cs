@@ -290,6 +290,8 @@ public class FingerControl : MonoBehaviour
         leftRb.AddForce(leftForce * leftDir.normalized, ForceMode.Impulse);
         leftStamina.loseStamina(leftDamage);
         rightStamina.loseStamina(rightDamage);
+
+        Camera.main.GetComponent<CameraShake>().StartShakeDiceGame(0.1f, 0.2f);
     }
 
     public void ManageFingerColisionExit()
