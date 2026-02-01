@@ -149,7 +149,7 @@ public class CharacterSelector : MonoBehaviour
             {
                 //volver escena atrás (menu)
                 Debug.LogWarning("Implementar volver hacia atras");
-                SceneManager.LoadScene("MainTitle");
+                SceneManager.LoadScene("MainTitle_Fin");
             }
             player_left_block = -1;
         }
