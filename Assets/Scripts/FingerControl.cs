@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Threading;
 using TMPro;
 using Unity.VisualScripting;
@@ -7,6 +8,16 @@ using static UnityEngine.InputSystem.InputAction;
 
 public class FingerControl : MonoBehaviour
 {
+    [SerializeField]
+    [NotNull]
+    GameObject[] Characters;
+    [SerializeField]
+    [NotNull]
+    Transform spawnPointLeft;
+    [SerializeField]
+    [NotNull]
+    Transform spawnPointRight;
+
     Vector2 leftAxes = new Vector2(), rightAxes = new Vector2();
 
     Vector3 lHeadIniPos, rHeadIniPos;
@@ -48,8 +59,31 @@ public class FingerControl : MonoBehaviour
 
     float timeLeftMoving = 0, timeRightMoving = 0;
 
+    //para instanciar fingers
+    private finger_info left_info;
+    private finger_info right_info;
+
+    private void Awake()
+    {
+        Debug.LogWarning("Ids leiadas a : " + GameManager.instance.left_dedo_id + " y " + GameManager.instance.right_dedo_id);
+
+        //instanciate Dedos
+        left_info = Instantiate(Characters[GameManager.instance.left_dedo_id], spawnPointLeft).GetComponent<finger_info>();
+        right_info = Instantiate(Characters[GameManager.instance.right_dedo_id], spawnPointRight).GetComponent<finger_info>();
+        left_info.Stamina.isLeft = true;
+    }
+
     private void Start()
     {
+        //get important info from the fingers
+        leftHead = left_info.Head;
+        rightHead = right_info.Head;
+        leftRb = left_info.Rb;
+        rightRb = right_info.Rb;
+        leftStamina = left_info.Stamina;
+        rightStamina = right_info.Stamina;
+
+        //DO the rest
         lHeadIniPos = leftHead.position;
         rHeadIniPos = rightHead.position;
         leftStamina.SetFingerControler(this);

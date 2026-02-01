@@ -9,6 +9,10 @@ public class GameManager : MonoBehaviour
     private float countTime;
     private bool counting;
 
+    public
+    int left_dedo_id = 0;
+    public
+    int right_dedo_id = 0;
     private void Awake()
     {
         if (instance != null)
