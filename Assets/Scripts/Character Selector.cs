@@ -57,6 +57,19 @@ public class CharacterSelector : MonoBehaviour
      
 
     }
+    void SetOutline(GameObject character, Color color, float thickness)
+    {
+            var renderer = character.GetComponentInChildren<Renderer>();
+            if (renderer == null) return;
+
+            MaterialPropertyBlock mpb = new MaterialPropertyBlock();
+            renderer.GetPropertyBlock(mpb);
+
+            mpb.SetColor("_LineColor", color);
+            mpb.SetFloat("_LineThickness", thickness);
+
+            renderer.SetPropertyBlock(mpb);
+    }
 
     private void Update()
     {
@@ -166,6 +179,11 @@ public class CharacterSelector : MonoBehaviour
                 if (player_right_block != -1)
                 {
                     Characters_masks[player_right_index].transform.GetComponentInChildren<Animator>().SetBool("superselect", false);
+                    SetOutline(
+                    Characters_masks[player_right_block],
+                    Color.clear,
+                    0f
+                );
                 }
                 player_right_block = -1;
             }
@@ -174,6 +192,15 @@ public class CharacterSelector : MonoBehaviour
                 //seleccionar
                 player_right_block = player_right_index;
                 Characters_masks[player_right_index].transform.GetComponentInChildren<Animator>().SetBool("superselect", true);
+
+
+
+
+                SetOutline(
+            Characters_masks[player_right_index],
+            Color.red,
+            0.2f
+        );
             }
             right_select_delay = delay_movement;
         }
@@ -186,7 +213,11 @@ public class CharacterSelector : MonoBehaviour
                 if (player_left_block != -1)
                 {
                     Characters_masks[player_left_index].transform.GetComponentInChildren<Animator>().SetBool("superselect", false);
-
+                    SetOutline(
+                    Characters_masks[player_left_block],
+                    Color.clear,
+                    0f
+                );
                 }
                 player_left_block = -1;
             }
@@ -196,6 +227,13 @@ public class CharacterSelector : MonoBehaviour
                 player_left_block = player_left_index;
                 Characters_masks[player_left_index].transform.GetComponentInChildren<Animator>().SetBool("superselect", true);
 
+
+                SetOutline(
+                   Characters_masks[player_left_index],
+                   Color.blue,
+                   0.2f
+               );
+
             }
             left_select_delay = delay_movement;
         }
@@ -204,6 +242,8 @@ public class CharacterSelector : MonoBehaviour
         if (right_back)
         {
            GameManager.instance.Change_SceneAsync_name("MainTitle_Fin");
+            
+
         }
         //if (left_back && left_back_delay < 0)
         //{
