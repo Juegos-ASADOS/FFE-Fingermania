@@ -58,6 +58,13 @@ public class GameManager : MonoBehaviour
         {
             eventMusicSelection.start();
         }
+        else
+        {
+            eventMusicSelection.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            eventMusic.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            crowdEffect.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+
+        }
     }
     // Add your game mananger members here
     public void StartCombatMusic()
