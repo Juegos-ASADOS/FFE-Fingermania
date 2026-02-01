@@ -202,7 +202,7 @@ Shader "Custom/CellShading"
 {
     Name "Outline"
     Tags { "LightMode"="SRPDefaultUnlit" }
-    Cull Front
+    Cull Back
 
     HLSLPROGRAM
     #pragma vertex vert
