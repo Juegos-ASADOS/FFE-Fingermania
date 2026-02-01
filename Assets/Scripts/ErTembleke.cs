@@ -46,18 +46,17 @@ public class ErTembleke : MonoBehaviour
     {
         falling = true;
         posIni = fingerHead.localPosition;
-        fingerHead.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
         stPlayer = stam;
     }
 
     // Update is called once per frame
     void Update()
     {
+        fingerHead.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
         if (falling) {
             // Animacion de tumbarse
             timeFalling += Time.deltaTime;
             fingerHead.localPosition = Vector3.Lerp(posIni, posObjective, timeFalling/timeToFall);
-            //Debug.Log("INI: " + posIni + " OBJETIVO: " + posObjective + " T: " + timeFalling / timeToFall);
             if (timeFalling > timeToFall)
             {
                 timeFalling = 0;

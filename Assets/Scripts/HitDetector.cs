@@ -18,7 +18,7 @@ public class HitDetector : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.TryGetComponent(out HitDetector other))
+        if (collision.gameObject.TryGetComponent(out HitDetector other) && other.isLeft != this.isLeft)
         {
             if (isLeft)
                 fc.ManageFingerColision(transform.position, other.transform.position);

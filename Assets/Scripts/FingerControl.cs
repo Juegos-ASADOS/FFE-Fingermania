@@ -170,6 +170,7 @@ public class FingerControl : MonoBehaviour
         {
             leftStamina.SetDifficultyTembleke(2);
             rightStamina.SetDifficultyTembleke(2);
+            GameManager.instance.StartCount();
             return;
         }
 
@@ -225,6 +226,7 @@ public class FingerControl : MonoBehaviour
         {
             leftStamina.SetDifficultyTembleke(1);
             rightStamina.SetDifficultyTembleke(1);
+            GameManager.instance.StopCount();
         }
     }
 

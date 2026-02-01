@@ -4,27 +4,36 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private static GameManager instance;
+    public static GameManager instance { get; private set; }
 
-    private GameManager()
+    private float countTime;
+    private bool counting;
+
+    private void Awake()
     {
-        // initialize your game manager here. Do not reference to GameObjects here (i.e. GameObject.Find etc.)
-        // because the game manager will be created before the objects
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
-    public static GameManager Instance
+    private void Update()
     {
-        get
+        if (counting)
         {
-            if (instance == null)
-            {
-                instance = new GameManager();
-            }
-
-            return instance;
+            countTime += Time.deltaTime;
+        }
+        if (countTime > 3f)
+        {
+            SceneManager.LoadScene("CharacterSelection");
+            counting = false;
+            countTime = 0f;
         }
     }
-
     public void Change_SceneAsync_name(string name)
     {
         Debug.LogWarning("receurden bloquear input en la carga asyncrona");
@@ -45,5 +54,16 @@ public class GameManager : MonoBehaviour
 
         //TODO maybe playear una animación.
         Application.Quit();
+    }
+
+    public void StartCount()
+    {
+        counting = true;
+    }
+
+    public void StopCount()
+    {
+        counting = false;
+        countTime = 0;
     }
 }
