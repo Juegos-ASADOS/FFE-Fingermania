@@ -50,7 +50,6 @@ public class StaminaPlayer : MonoBehaviour
             stamina = 0;
             emptyStamina();
         }
-        Debug.Log(isLeft + " " + stamina);
     }
 
     public void recoverStamina(float amount)
