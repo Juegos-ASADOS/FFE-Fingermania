@@ -170,7 +170,7 @@ public class FingerControl : MonoBehaviour
         {
             leftStamina.SetDifficultyTembleke(2);
             rightStamina.SetDifficultyTembleke(2);
-            GameManager.Instance.StartCount();
+            GameManager.instance.StartCount();
             return;
         }
 
@@ -216,7 +216,6 @@ public class FingerControl : MonoBehaviour
         if(!rightBloqued) DeactiveFinger(false, rightTime);
         rightRb.AddForce(rightForce * rightDir.normalized, ForceMode.Impulse);
         leftRb.AddForce(leftForce * leftDir.normalized, ForceMode.Impulse);
-        Debug.Log("ACUETATEEEEEEE");
         leftStamina.loseStamina(leftDamage);
         rightStamina.loseStamina(rightDamage);
     }
@@ -227,7 +226,7 @@ public class FingerControl : MonoBehaviour
         {
             leftStamina.SetDifficultyTembleke(1);
             rightStamina.SetDifficultyTembleke(1);
-            GameManager.Instance.StopCount();
+            GameManager.instance.StopCount();
         }
     }
 

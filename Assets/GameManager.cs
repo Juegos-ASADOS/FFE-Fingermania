@@ -4,34 +4,35 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private static GameManager instance;
+    public static GameManager instance { get; private set; }
 
     private float countTime;
     private bool counting;
 
-    private GameManager()
+    private void Awake()
     {
-        // initialize your game manager here. Do not reference to GameObjects here (i.e. GameObject.Find etc.)
-        // because the game manager will be created before the objects
-    }
-
-    public static GameManager Instance
-    {
-        get
+        if (instance != null)
         {
-            if (instance == null)
-            {
-                instance = new GameManager();
-            }
-
-            return instance;
+            Destroy(gameObject);
+            return;
         }
+
+        instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Update()
     {
-        if (counting) countTime += Time.deltaTime;
-        else if(countTime > 3f) SceneManager.LoadSceneAsync("CharacterSelection");
+        if (counting)
+        {
+            countTime += Time.deltaTime;
+        }
+        if (countTime > 3f)
+        {
+            SceneManager.LoadScene("CharacterSelection");
+            counting = false;
+            countTime = 0f;
+        }
     }
     public void Change_SceneAsync_name(string name)
     {
