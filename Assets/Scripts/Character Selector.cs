@@ -9,14 +9,6 @@ public class CharacterSelector : MonoBehaviour
 {
     [SerializeField]
     GameObject[] Characters_masks;
-    [SerializeField]
-    int rows = 1;
-    [SerializeField]
-    int cols = 1;
-    [SerializeField]
-    float separation_hor = 1f;
-    [SerializeField]
-    float separation_ver = 1f;
 
     int player_left_index = 0;
     int player_right_index = 0;
@@ -60,18 +52,7 @@ public class CharacterSelector : MonoBehaviour
     }
     void Start()
     {
-        int index = 0;
-        foreach (var character in Characters_masks)
-        {
-            float x = (index % rows) * separation_hor;
-            float y = -(index / rows) * separation_ver;
-
-            character.transform.position = this.transform.position + new Vector3(x, y, 0);
-
-            index++;
-        }
-
-        Debug.Log("1");
+     
 
     }
 
