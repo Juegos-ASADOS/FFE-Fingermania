@@ -675,7 +675,7 @@ MonoBehaviour:
   sourceProjectPath: FMOD FFE Fingermania/FMOD FFE Fingermania.fspro
   sourceBankPath: FMOD FFE Fingermania/Build
   sourceBankPathUnformatted: 
-  BankRefreshCooldown: 5
+  BankRefreshCooldown: 1
   ShowBankRefreshWindow: 1
   AutomaticEventLoading: 1
   BankLoadType: 0

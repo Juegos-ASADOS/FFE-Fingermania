@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{23ef553f-db98-4b0c-95c9-b7936d6802de}">
 		<property name="name">
-			<value>Soft Hit</value>
+			<value>Soft Hit 3D</value>
 		</property>
 		<property name="outputFormat">
 			<value>2</value>
