@@ -95,24 +95,36 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4543860357826629765, guid: c1a87d7cc5d11444797bfc645a9a591b, type: 3}
-      propertyPath: jiggleRigData.transformCachedData.Array.data[4].bone
+      propertyPath: 'jiggleRigData.excludedTransforms.Array.data[0]'
       value: 
       objectReference: {fileID: 6952096142097722439}
     - target: {fileID: 4543860357826629765, guid: c1a87d7cc5d11444797bfc645a9a591b, type: 3}
+      propertyPath: jiggleRigData.transformCachedData.Array.data[4].bone
+      value: 
+      objectReference: {fileID: 5881658665121915556}
+    - target: {fileID: 4543860357826629765, guid: c1a87d7cc5d11444797bfc645a9a591b, type: 3}
+      propertyPath: jiggleRigData.transformCachedData.Array.data[5].bone
+      value: 
+      objectReference: {fileID: 5881658665121915556}
+    - target: {fileID: 4543860357826629765, guid: c1a87d7cc5d11444797bfc645a9a591b, type: 3}
       propertyPath: jiggleRigData.transformCachedData.Array.data[4].lossyScale
-      value: 1.0999999
+      value: 99.99999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4543860357826629765, guid: c1a87d7cc5d11444797bfc645a9a591b, type: 3}
+      propertyPath: jiggleRigData.transformCachedData.Array.data[5].lossyScale
+      value: 99.99999
       objectReference: {fileID: 0}
     - target: {fileID: 4543860357826629765, guid: c1a87d7cc5d11444797bfc645a9a591b, type: 3}
       propertyPath: jiggleRigData.transformCachedData.Array.data[4].restLocalPosition.x
-      value: 0.00016999998
+      value: 0.0008
       objectReference: {fileID: 0}
     - target: {fileID: 4543860357826629765, guid: c1a87d7cc5d11444797bfc645a9a591b, type: 3}
       propertyPath: jiggleRigData.transformCachedData.Array.data[4].restLocalPosition.y
-      value: 0.016499976
+      value: 0.0277
       objectReference: {fileID: 0}
     - target: {fileID: 4543860357826629765, guid: c1a87d7cc5d11444797bfc645a9a591b, type: 3}
       propertyPath: jiggleRigData.transformCachedData.Array.data[4].restLocalPosition.z
-      value: 0.0064100027
+      value: 0.0008
       objectReference: {fileID: 0}
     - target: {fileID: 4543860357826629765, guid: c1a87d7cc5d11444797bfc645a9a591b, type: 3}
       propertyPath: jiggleRigData.transformCachedData.Array.data[4].restLocalRotation.w
@@ -120,19 +132,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4543860357826629765, guid: c1a87d7cc5d11444797bfc645a9a591b, type: 3}
       propertyPath: jiggleRigData.transformCachedData.Array.data[4].restLocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4543860357826629765, guid: c1a87d7cc5d11444797bfc645a9a591b, type: 3}
       propertyPath: jiggleRigData.transformCachedData.Array.data[4].restLocalRotation.y
-      value: 0.00000011920929
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4543860357826629765, guid: c1a87d7cc5d11444797bfc645a9a591b, type: 3}
       propertyPath: jiggleRigData.transformCachedData.Array.data[4].restLocalRotation.z
-      value: -0
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4543860357826629765, guid: c1a87d7cc5d11444797bfc645a9a591b, type: 3}
+      propertyPath: jiggleRigData.transformCachedData.Array.data[5].restLocalPosition.x
+      value: 0.0008
+      objectReference: {fileID: 0}
+    - target: {fileID: 4543860357826629765, guid: c1a87d7cc5d11444797bfc645a9a591b, type: 3}
+      propertyPath: jiggleRigData.transformCachedData.Array.data[5].restLocalPosition.y
+      value: 0.0277
+      objectReference: {fileID: 0}
+    - target: {fileID: 4543860357826629765, guid: c1a87d7cc5d11444797bfc645a9a591b, type: 3}
+      propertyPath: jiggleRigData.transformCachedData.Array.data[5].restLocalPosition.z
+      value: 0.0008
+      objectReference: {fileID: 0}
+    - target: {fileID: 4543860357826629765, guid: c1a87d7cc5d11444797bfc645a9a591b, type: 3}
+      propertyPath: jiggleRigData.transformCachedData.Array.data[5].restLocalRotation.w
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4543860357826629765, guid: c1a87d7cc5d11444797bfc645a9a591b, type: 3}
       propertyPath: jiggleRigData.transformCachedData.Array.data[4].normalizedDistanceFromRoot
-      value: 0.88673276
+      value: 0.66497296
+      objectReference: {fileID: 0}
+    - target: {fileID: 4543860357826629765, guid: c1a87d7cc5d11444797bfc645a9a591b, type: 3}
+      propertyPath: jiggleRigData.transformCachedData.Array.data[5].normalizedDistanceFromRoot
+      value: 0.66497296
       objectReference: {fileID: 0}
     - target: {fileID: 5202575624101867684, guid: c1a87d7cc5d11444797bfc645a9a591b, type: 3}
       propertyPath: 'm_Transforms.Array.data[1]'
@@ -198,6 +230,11 @@ PrefabInstance:
       addedObject: {fileID: 6952096142097722439}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1a87d7cc5d11444797bfc645a9a591b, type: 3}
+--- !u!4 &5881658665121915556 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7461635766656858163, guid: c1a87d7cc5d11444797bfc645a9a591b, type: 3}
+  m_PrefabInstance: {fileID: 3896413394183314071}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6385840746645975189 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7966242143705672194, guid: c1a87d7cc5d11444797bfc645a9a591b, type: 3}
