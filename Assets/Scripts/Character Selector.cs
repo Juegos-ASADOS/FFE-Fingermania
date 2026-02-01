@@ -29,6 +29,9 @@ public class CharacterSelector : MonoBehaviour
     [SerializeField]
     [NotNull]
     GameObject selector_p2;
+    [SerializeField]
+    [NotNull]
+    Vector3 Select_dist_f_char;
 
     //privates
     Vector2 dir_Right;
@@ -47,6 +50,7 @@ public class CharacterSelector : MonoBehaviour
     [SerializeField]
     float movement_range = 0.2f;
 
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private void Awake()
@@ -62,7 +66,6 @@ public class CharacterSelector : MonoBehaviour
             float y = -(index / rows) * separation_ver;
 
             character.transform.position = this.transform.position + new Vector3(x, y, 0);
-            //Instantiate(character, this.transform.position + new Vector3(x, y, 0), this.transform.rotation);
 
             index++;
         }
@@ -79,20 +82,20 @@ public class CharacterSelector : MonoBehaviour
 
         //hacer cosas
         //mover curosr derecho
-        if (!(left_delay > 0) && player_left_block == -1 && Mathf.Abs(dir_Left.y) > movement_range)
+        if (!(left_delay > 0) && player_left_block == -1 && Mathf.Abs(dir_Left.x) > movement_range)
         {
-            if (dir_Left.y > 0)
+            if (dir_Left.x > 0)
+            {
+
+                player_left_index++;
+                //derecha
+                Debug.Log("p1_right");
+            }
+            else
             {
                 //izquierda
                 player_left_index--;
                 Debug.Log("p1_left");
-
-            }
-            else
-            {
-                player_left_index++;
-                //derecha
-                Debug.Log("p1_right");
 
             }
 
@@ -103,14 +106,14 @@ public class CharacterSelector : MonoBehaviour
             }
                 player_left_index = next;
             //posicionar el indicador en el character seleccionado
-            selector_p1.transform.position = Characters_masks[player_left_index].transform.position;
+            selector_p1.transform.position = Characters_masks[player_left_index].transform.position + Select_dist_f_char;
 
             left_delay = delay_movement;
         }
 
-        if (!(right_delay > 0) && player_right_block == -1 && MathF.Abs(dir_Right.y) > movement_range)
+        if (!(right_delay > 0) && player_right_block == -1 && MathF.Abs(dir_Right.x) > movement_range)
         {
-            if (dir_Right.y > 0)
+            if (dir_Right.x > 0)
             {
                 player_right_index++;
                 Debug.Log("p2_right");
@@ -131,7 +134,7 @@ public class CharacterSelector : MonoBehaviour
             }
             player_right_index = next;
             //player_right_index = player_right_index % Characters_masks.Length;
-            selector_p2.transform.position = Characters_masks[player_right_index].transform.position;
+            selector_p2.transform.position = Characters_masks[player_right_index].transform.position + Select_dist_f_char;
 
             right_delay = delay_movement;
         }
