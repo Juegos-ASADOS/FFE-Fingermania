@@ -40,7 +40,8 @@ public class CharacterSelector : MonoBehaviour
     float delay_movement = 0.2f;
     float right_delay = 0f;
     float left_delay = 0f;
-    float left_back_delay = 0f;
+    float left_select_delay = 0f;
+    float right_select_delay = 0f;
 
     [SerializeField]
     float movement_range = 0.2f;
@@ -73,7 +74,8 @@ public class CharacterSelector : MonoBehaviour
     private void Update()
     {
         
-        left_back_delay -= Time.deltaTime;
+        left_select_delay -= Time.deltaTime;
+        right_select_delay -= Time.deltaTime;
         right_delay -= Time.deltaTime;
         left_delay -= Time.deltaTime;
         //utilizando el player controller
@@ -169,73 +171,84 @@ public class CharacterSelector : MonoBehaviour
         }
 
         //bloquear selección
-        if (right_select)
+        if (right_select_delay <= 0 && right_select)
         {
-            if (player_right_index >= 0 && player_right_index != player_left_block)
+            if (player_right_index == player_right_block)
             {
+                //deseleccionar en ese caso
+                if (player_right_block != -1)
+                {
+                    Characters_masks[player_right_index].transform.GetComponentInChildren<Animator>().SetBool("superselect", false);
+                    SetOutline(
+                    Characters_masks[player_right_block],
+                    Color.clear,
+                    0f
+                );
+                }
+                player_right_block = -1;
+            }
+            else if (player_right_index >= 0 && player_right_index != player_left_block)
+            {
+                //seleccionar
                 player_right_block = player_right_index;
                 Characters_masks[player_right_index].transform.GetComponentInChildren<Animator>().SetBool("superselect", true);
-            }
-              SetOutline(
+
+
+
+
+                SetOutline(
             Characters_masks[player_right_index],
             Color.red,
             0.2f
         );
+            }
+            right_select_delay = delay_movement;
         }
 
-        if (left_select)
+        if (left_select_delay <= 0 && left_select)
         {
-            if (player_left_index >= 0 && player_left_index != player_right_block)
+            if (player_left_index == player_left_block)
             {
+                //deseleccionar
+                if (player_left_block != -1)
+                {
+                    Characters_masks[player_left_index].transform.GetComponentInChildren<Animator>().SetBool("superselect", false);
+                    SetOutline(
+                    Characters_masks[player_left_block],
+                    Color.clear,
+                    0f
+                );
+                }
+                player_left_block = -1;
+            }
+            else if (player_left_index >= 0 && player_left_index != player_right_block)
+            {
+                //seleccionar
                 player_left_block = player_left_index;
                 Characters_masks[player_left_index].transform.GetComponentInChildren<Animator>().SetBool("superselect", true);
-                       SetOutline(
-                    Characters_masks[player_left_index],
-                    Color.blue,
-                    0.2f
-                );
-            
+
+
+                SetOutline(
+                   Characters_masks[player_left_index],
+                   Color.blue,
+                   0.2f
+               );
+
             }
+            left_select_delay = delay_movement;
         }
 
         //liberar seleccion e ir para atras, solo si eres jugador left.
         if (right_back)
         {
-            if (player_right_block != -1)
-            {
-                SetOutline(
-                    Characters_masks[player_right_block],
-                    Color.clear,
-                    0f
-                );
-                Characters_masks[player_right_index].transform.GetComponentInChildren<Animator>().SetBool("superselect", false);
-            }
-            player_right_block = -1;
+           GameManager.instance.Change_SceneAsync_name("MainTitle_Fin");
             
 
         }
-        if (left_back && left_back_delay < 0)
-        {
-            if (player_left_block != -1)
-            {
-                 
-                 SetOutline(
-            Characters_masks[player_left_block],
-            Color.clear,
-            0f
-        );
-                Characters_masks[player_left_index].transform.GetComponentInChildren<Animator>().SetBool("superselect", false);
-
-            }
-            if (player_left_block == -1)
-            {
-                //volver escena atrás (menu)
-               GameManager.instance.Change_SceneAsync_name("MainTitle_Fin");
-                
-            }
-            player_left_block = -1;
-            left_back_delay = delay_movement;
-        }
+        //if (left_back && left_back_delay < 0)
+        //{
+        //   GameManager.instance.Change_SceneAsync_name("MainTitle_Fin");
+        //}
 
 
         if (start_button)

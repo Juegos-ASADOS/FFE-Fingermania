@@ -34,6 +34,8 @@ public class StaminaPlayer : MonoBehaviour
     private FingerControl fingerCtrl;
     private ErTembleke ertbk;
 
+    GameObject icon;
+
     private void Start()
     {
         maxStamina = stamina;
@@ -61,6 +63,7 @@ public class StaminaPlayer : MonoBehaviour
             ertbk.enabled = false;
             stamina = maxStamina - staminaToRecover * timesFallen;
             fingerCtrl.SwitchMovement(this, false);
+            icon.SetActive(false);
             // Llama al manager de la cuenta pa pararla
         }
     }
@@ -80,11 +83,13 @@ public class StaminaPlayer : MonoBehaviour
         // ELTEMBLEKE
         ertbk.enabled = true;
         ertbk.Tumbacion(this);
+        icon.SetActive(true);
     }
 
     public void SetFingerControler(FingerControl fg)
     {
         fingerCtrl = fg;
+        icon = fingerCtrl.GetIcon(isLeft);
     }
 
     private void Update()

@@ -42,7 +42,6 @@ GameObject:
   m_Component:
   - component: {fileID: 22460875225316802}
   - component: {fileID: 366373915813184756}
-  - component: {fileID: 6724458311529459057}
   m_Layer: 0
   m_Name: Container
   m_TagString: Untagged
@@ -88,18 +87,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6724458311529459057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4781095301650465615}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21c187016224fe04088df1e0255f402b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PaLaMusica
 --- !u!1 &5505530046803905332
 GameObject:
   m_ObjectHideFlags: 0
