@@ -8,9 +8,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2362237950569384345, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+      propertyPath: fingerHead
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4139674247533561486, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+      propertyPath: m_RigLayers.Array.data[0].m_Rig
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5284996672639619922, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -7.1
       objectReference: {fileID: 0}
     - target: {fileID: 5284996672639619922, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
       propertyPath: m_LocalPosition.y
@@ -52,6 +60,62 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterSelect
       objectReference: {fileID: 0}
+    - target: {fileID: 7193322507453661533, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+      propertyPath: Rb
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7193322507453661533, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+      propertyPath: Head
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7193322507453661533, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+      propertyPath: Stamina
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7927561765402660899, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+      propertyPath: 'm_Transforms.Array.data[1]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7927561765402660899, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+      propertyPath: 'm_Transforms.Array.data[2]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7927561765402660899, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+      propertyPath: 'm_Transforms.Array.data[3]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7927561765402660899, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+      propertyPath: 'm_Transforms.Array.data[4]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7927561765402660899, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+      propertyPath: 'm_Transforms.Array.data[5]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7927561765402660899, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+      propertyPath: 'm_Transforms.Array.data[6]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398863247598397398, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+      propertyPath: jiggleRigData.rootBone
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398863247598397398, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+      propertyPath: jiggleRigData.transformCachedData.Array.data[0].bone
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398863247598397398, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+      propertyPath: jiggleRigData.transformCachedData.Array.data[1].bone
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398863247598397398, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+      propertyPath: jiggleRigData.transformCachedData.Array.data[2].bone
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398863247598397398, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+      propertyPath: jiggleRigData.transformCachedData.Array.data[3].bone
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7139605449282924697, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
     - {fileID: 802274477249139096, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
@@ -59,7 +123,36 @@ PrefabInstance:
     - {fileID: 752023545185409702, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
     - {fileID: 7985459809932930808, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
     - {fileID: 6807166172414297938, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
-    m_RemovedGameObjects: []
+    - {fileID: 8398863247598397398, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+    - {fileID: 2362237950569384345, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+    - {fileID: 7193322507453661533, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 6837924889048433944, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+    - {fileID: 4206260701406392663, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+    - {fileID: 2384059774591182288, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5583218940959919817, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6495276595973347156}
   m_SourcePrefab: {fileID: 100100000, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+--- !u!1 &1971665746989699342 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5583218940959919817, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+  m_PrefabInstance: {fileID: 6208026850263195591}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6495276595973347156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971665746989699342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c0a4f4d3c2ac554d8db0f45e0db71a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: com.gator-dragon-games.jigglephysics::GatorDragonGames.JigglePhysics.JiggleUpdateExample
+  debugDraw: 0
+  proceduralMaterial: {fileID: 0}
+  sphereMesh: {fileID: 0}

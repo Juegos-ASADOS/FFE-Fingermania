@@ -819,6 +819,18 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5947487750862870445, guid: e99a1b8f90e7a4442becc6065954d31a, type: 3}
+      propertyPath: Characters.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5947487750862870445, guid: e99a1b8f90e7a4442becc6065954d31a, type: 3}
+      propertyPath: 'Characters.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2502295147363308553, guid: ddac89978c4f00e4c8c493b9f032f71c, type: 3}
+    - target: {fileID: 5947487750862870445, guid: e99a1b8f90e7a4442becc6065954d31a, type: 3}
+      propertyPath: 'Characters.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2502295147363308553, guid: e92f8a891c4de974081768ab50fe8b7a, type: 3}
     - target: {fileID: 6156091667621721178, guid: e99a1b8f90e7a4442becc6065954d31a, type: 3}
       propertyPath: staminaText
       value: 
