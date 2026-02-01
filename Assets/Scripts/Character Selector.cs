@@ -82,7 +82,7 @@ public class CharacterSelector : MonoBehaviour
 
             }
 
-            RuntimeManager.PlayOneShot("event:/Soft Hit 3D");
+            RuntimeManager.PlayOneShot("event:/Soft Select");
 
             int next = player_left_index % Characters_masks.Length;
             if (next == -1)
