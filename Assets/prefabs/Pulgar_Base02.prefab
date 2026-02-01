@@ -496,6 +496,7 @@ GameObject:
   - component: {fileID: 4139674247533561486}
   - component: {fileID: 7139605449282924697}
   - component: {fileID: 8398863247598397398}
+  - component: {fileID: 2362237950569384345}
   m_Layer: 0
   m_Name: Pulgar_Base02
   m_TagString: Untagged
@@ -598,6 +599,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StaminaPlayer
   stamina: 100
+  staminaToRecover: 25
+  staminaText: {fileID: 0}
 --- !u!114 &8398863247598397398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -837,6 +840,23 @@ MonoBehaviour:
       restLocalRotation: {x: 0, y: -0, z: -0, w: 1}
     jiggleColliders: []
   animatedParameters: 0
+--- !u!114 &2362237950569384345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5583218940959919817}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da62fae76967b4146a3ca26e8f7794f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ErTembleke
+  fingerHead: {fileID: 2320173269595983727}
+  posObjective: {x: 0.2, y: -0.61, z: 4.97}
+  timeToFall: 0.75
+  moveToRecoverStamina: 20
+  staminaRecover: 10
 --- !u!1 &5842853237865340905
 GameObject:
   m_ObjectHideFlags: 0

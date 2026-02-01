@@ -25,7 +25,7 @@ public class FingerControl : MonoBehaviour
     [SerializeField]
     float looserCooldown, winnerCooldown, tieCooldown;
 
-    private bool leftBloqued, rightBloqued;
+    private bool leftBloqued, rightBloqued, collisionFallen;
     private float timerLeft, timerRight;
     private float leftSpeed = 0, rightSpeed = 0;
 
@@ -40,10 +40,20 @@ public class FingerControl : MonoBehaviour
 
     Vector3 leftPreviousPos = Vector3.zero, rightPreviousPos = Vector3.zero;
 
+    [SerializeField]
+    StaminaPlayer leftStamina, rightStamina;
+
+    [SerializeField]
+    float winDamage, loseDamage, tieDamage, timeDamage, timeToDamage;
+
+    float timeLeftMoving = 0, timeRightMoving = 0;
+
     private void Start()
     {
         lHeadIniPos = leftHead.position;
         rHeadIniPos = rightHead.position;
+        leftStamina.SetFingerControler(this);
+        rightStamina.SetFingerControler(this);
     }
 
     public void OnLeftFingerMove(CallbackContext context)
@@ -77,10 +87,18 @@ public class FingerControl : MonoBehaviour
             Vector3 posDiff = leftHead.position - leftPreviousPos;
             leftSpeed = Mathf.Abs(posDiff.magnitude) / Time.deltaTime;
             leftPreviousPos = leftHead.position;
+            if (leftSpeed > 0) timeLeftMoving += Time.deltaTime;
+            else timeLeftMoving = 0;
+
+            if(timeLeftMoving > timeToDamage)
+            {
+                timeLeftMoving = 0;
+                leftStamina.loseStamina(timeDamage);
+            }
         }
         else
         {
-            timerLeft -= Time.deltaTime;
+            timerLeft -= Time.deltaTime;            
             if (timerLeft <= 0f)
                 leftBloqued = false;
         }
@@ -91,6 +109,14 @@ public class FingerControl : MonoBehaviour
             Vector3 posDiff = rightHead.position - rightPreviousPos;
             rightSpeed = Mathf.Abs(posDiff.magnitude) / Time.deltaTime;
             rightPreviousPos = rightHead.position;
+            if (rightSpeed > 0) timeRightMoving += Time.deltaTime;
+            else timeRightMoving = 0;
+
+            if (timeRightMoving > timeToDamage)
+            {
+                timeRightMoving = 0;
+                rightStamina.loseStamina(timeDamage);
+            }
         }
         else
         {
@@ -112,14 +138,41 @@ public class FingerControl : MonoBehaviour
             timerRight = time;
         }
     }
+    public void SwitchMovement(StaminaPlayer stamin, bool block)
+    {
+        if (stamin == leftStamina)
+        {
+            leftBloqued = block;
+            timerLeft = block ? 1000f : 0f;
+        }
+        else
+        {
+            rightBloqued = block;
+            timerRight = block ? 1000f : 0f;
+        }
+        collisionFallen = block;
+        if (!collisionFallen)
+        {
+            leftStamina.SetDifficultyTembleke(1);
+            rightStamina.SetDifficultyTembleke(1);
+        }
+    }
 
     public float GetFingerSpeed(bool isLeft)
     {
         return isLeft ? leftSpeed : rightSpeed;
     }
 
+
     public void ManageFingerColision(Vector3 leftPos, Vector3 rightPos)
     {
+        if (collisionFallen)
+        {
+            leftStamina.SetDifficultyTembleke(2);
+            rightStamina.SetDifficultyTembleke(2);
+            return;
+        }
+
         if (colCooldown > 0) return;
 
         if (managingCollision)
@@ -132,6 +185,7 @@ public class FingerControl : MonoBehaviour
         Vector3 leftDir = leftPos - rightPos, rightDir = rightPos - leftPos;
         leftDir.y = rightDir.y = 0;
         float leftTime, rightTime, leftForce = 0, rightForce = 0;
+        float leftDamage, rightDamage;
 
         managingCollision = true;
         if (leftSpeed > rightSpeed)
@@ -139,22 +193,39 @@ public class FingerControl : MonoBehaviour
             leftTime = winnerCooldown;
             rightTime = looserCooldown;
             rightForce = hitForce;
+            leftDamage = winDamage;
+            rightDamage = loseDamage;
         }
         else if (rightSpeed > leftSpeed)
         {
             leftTime = looserCooldown;
             rightTime = winnerCooldown;
             leftForce = hitForce;
+            leftDamage = loseDamage;
+            rightDamage = winDamage;
         }
         else
         {
             leftTime = rightTime = tieCooldown;
             leftForce = rightForce = hitForce;
+            leftDamage = tieDamage;
+            rightDamage = tieDamage;
         }
-        DeactiveFinger(true, leftTime);
-        DeactiveFinger(false, rightTime);
+        if(!leftBloqued) DeactiveFinger(true, leftTime);
+        if(!rightBloqued) DeactiveFinger(false, rightTime);
         rightRb.AddForce(rightForce * rightDir.normalized, ForceMode.Impulse);
         leftRb.AddForce(leftForce * leftDir.normalized, ForceMode.Impulse);
+        leftStamina.loseStamina(leftDamage);
+        rightStamina.loseStamina(rightDamage);
+    }
+
+    public void ManageFingerColisionExit()
+    {
+        if (collisionFallen)
+        {
+            leftStamina.SetDifficultyTembleke(1);
+            rightStamina.SetDifficultyTembleke(1);
+        }
     }
 
     //private void OnDrawGizmos()

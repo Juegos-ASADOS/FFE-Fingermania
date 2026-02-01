@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 4248457099734774520}
   - component: {fileID: 5947487750862870445}
   - component: {fileID: 4513112414142710858}
-  - component: {fileID: 6031188190154476455}
-  - component: {fileID: 8649660823644786018}
   m_Layer: 0
   m_Name: FingerContainer
   m_TagString: Untagged
@@ -77,6 +75,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5632914649118294556}
+        m_TargetAssemblyTypeName: ErTembleke, Assembly-CSharp
+        m_MethodName: OnFingerMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 6f42ca5b-adcf-4904-be08-17911ce609fd
     m_ActionName: 'Player/LeftFingerMove[/XInputControllerWindows/leftStick]'
   - m_PersistentCalls:
@@ -84,6 +94,18 @@ MonoBehaviour:
       - m_Target: {fileID: 5947487750862870445}
         m_TargetAssemblyTypeName: FingerControl, Assembly-CSharp
         m_MethodName: OnRightFingerMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1635500950812921178}
+        m_TargetAssemblyTypeName: ErTembleke, Assembly-CSharp
+        m_MethodName: OnFingerMove
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -144,19 +166,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8b0ed33ae7999e4a9b8126524a460a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInput
-  leftHeadLimits: {x: 3, y: 2, z: 3}
-  rightHeadLimits: {x: 3, y: 2, z: 3}
+  leftHeadLimits: {x: 3.25, y: 2, z: 3.25}
+  rightHeadLimits: {x: 3.25, y: 2, z: 3.25}
   leftHead: {fileID: 5680888142119879914}
   rightHead: {fileID: 1605749728442977196}
   leftRb: {fileID: 1516675993410834579}
   rightRb: {fileID: 5589536356953186261}
-  looserCooldown: 0.3
+  looserCooldown: 0.5
   winnerCooldown: 0.1
-  tieCooldown: 0.2
-  loserForce: 50
-  winnerForce: 50
-  tieForce: 50
+  tieCooldown: 0.3
+  hitForce: 30
   timeBetweenColisions: 0.05
+  leftStamina: {fileID: 1004445331973962524}
+  rightStamina: {fileID: 6156091667621721178}
+  winDamage: 2
+  loseDamage: 10
+  tieDamage: 4
+  timeDamage: 1
+  timeToDamage: 2
 --- !u!114 &4513112414142710858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,32 +214,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
---- !u!114 &6031188190154476455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1944410898234587908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2299bff97d74b647bcec774ceff8a46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::StaminaPlayer
-  stamina: 100
---- !u!114 &8649660823644786018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1944410898234587908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2299bff97d74b647bcec774ceff8a46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::StaminaPlayer
-  stamina: 100
 --- !u!1001 &3925500145019782339
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -279,11 +280,33 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2320173269595983727, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
   m_PrefabInstance: {fileID: 3925500145019782339}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1635500950812921178 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2362237950569384345, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+  m_PrefabInstance: {fileID: 3925500145019782339}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da62fae76967b4146a3ca26e8f7794f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ErTembleke
 --- !u!54 &5589536356953186261 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 8928430408609389334, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
   m_PrefabInstance: {fileID: 3925500145019782339}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6156091667621721178 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7139605449282924697, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+  m_PrefabInstance: {fileID: 3925500145019782339}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2299bff97d74b647bcec774ceff8a46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StaminaPlayer
 --- !u!4 &9160948284551354257 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5284996672639619922, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
@@ -351,6 +374,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+--- !u!114 &1004445331973962524 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7139605449282924697, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+  m_PrefabInstance: {fileID: 7990644547034598277}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2299bff97d74b647bcec774ceff8a46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StaminaPlayer
 --- !u!54 &1516675993410834579 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 8928430408609389334, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
@@ -361,6 +395,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5284996672639619922, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
   m_PrefabInstance: {fileID: 7990644547034598277}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5632914649118294556 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2362237950569384345, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}
+  m_PrefabInstance: {fileID: 7990644547034598277}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da62fae76967b4146a3ca26e8f7794f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ErTembleke
 --- !u!4 &5680888142119879914 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2320173269595983727, guid: 3b28990e31193fa44a0f37bc8c6257cc, type: 3}

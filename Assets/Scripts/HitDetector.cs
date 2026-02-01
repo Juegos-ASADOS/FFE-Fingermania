@@ -39,7 +39,7 @@ public class HitDetector : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out HitDetector other))
         {
-            //Debug.Log("ya no se quieren!");
+            fc.ManageFingerColisionExit();
         }
     }
 }
