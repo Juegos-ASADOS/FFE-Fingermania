@@ -1,3 +1,4 @@
+using FMODUnity;
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
 
@@ -27,6 +28,11 @@ public class ErTembleke : MonoBehaviour
 
     int difficultyMultiplier = 1;
 
+    public void Awake()
+    {
+        posObjective = transform.TransformPoint(fingerHead.position + (fingerHead.forward * 0.75f));
+        Debug.LogWarning("objetivo pos en " + posObjective);
+    }
 
     public void OnFingerMove(CallbackContext context)
     {
@@ -59,6 +65,7 @@ public class ErTembleke : MonoBehaviour
             fingerHead.localPosition = Vector3.Lerp(posIni, posObjective, timeFalling/timeToFall);
             if (timeFalling > timeToFall)
             {
+                RuntimeManager.PlayOneShot("event:/Floor Impact 3D");
                 timeFalling = 0;
                 falling = false;
             }
