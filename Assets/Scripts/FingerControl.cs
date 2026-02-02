@@ -127,7 +127,10 @@ public class FingerControl : MonoBehaviour
 
         if (leftAttack > 0.8 && !bDedoDobladoLeft)
         {
-            RuntimeManager.PlayOneShot("event:/Soft Hit 3D", rightStamina.transform.position);
+            if (!leftBloqued)
+            {
+                RuntimeManager.PlayOneShot("event:/Soft Hit 3D", rightStamina.transform.position);
+            }
             bDedoDobladoLeft = true;
         }
         else if (leftAttack <= 0.8)
@@ -142,7 +145,10 @@ public class FingerControl : MonoBehaviour
 
         if(rightAttack > 0.8 && !bDedoDobladoRight)
         {
-            RuntimeManager.PlayOneShot("event:/Soft Hit 3D", rightStamina.transform.position);
+            if(!rightBloqued)
+            {
+                RuntimeManager.PlayOneShot("event:/Soft Hit 3D", rightStamina.transform.position);
+            }
             bDedoDobladoRight = true;
         }
         else if (rightAttack <= 0.8)
