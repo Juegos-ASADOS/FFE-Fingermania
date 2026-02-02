@@ -40,7 +40,6 @@ public class GameManager : MonoBehaviour
 
     public void Change_SceneAsync_name(string name)
     {
-        Debug.LogWarning("receurden bloquear input en la carga asyncrona");
         //para casos que cargar la escena pueda ser muy lento
         SceneManager.LoadScene(name);
         if (name == "Final")

@@ -66,6 +66,7 @@ public class StaminaPlayer : MonoBehaviour
             icon.SetActive(false);
             hint.SetActive(false);
             // Llama al manager de la cuenta pa pararla
+            GameManager.instance.StopCount();
         }
     }
 

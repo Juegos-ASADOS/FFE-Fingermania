@@ -8,7 +8,6 @@ public class PlaySoundOnSelect : MonoBehaviour, ISelectHandler
 
     public void OnSelect(BaseEventData eventData)
     {
-        Debug.Log("Pasa por encima, o selecciona");
         RuntimeManager.PlayOneShot(rutaAudio);
     }
 }

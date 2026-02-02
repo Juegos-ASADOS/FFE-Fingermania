@@ -54,26 +54,26 @@ public class CharacterSelector : MonoBehaviour
     }
     void Start()
     {
-     
+
 
     }
     void SetOutline(GameObject character, Color color, float thickness)
     {
-            var renderer = character.GetComponentInChildren<Renderer>();
-            if (renderer == null) return;
+        var renderer = character.GetComponentInChildren<Renderer>();
+        if (renderer == null) return;
 
-            MaterialPropertyBlock mpb = new MaterialPropertyBlock();
-            renderer.GetPropertyBlock(mpb);
+        MaterialPropertyBlock mpb = new MaterialPropertyBlock();
+        renderer.GetPropertyBlock(mpb);
 
-            mpb.SetColor("_LineColor", color);
-            mpb.SetFloat("_LineThickness", thickness);
+        mpb.SetColor("_LineColor", color);
+        mpb.SetFloat("_LineThickness", thickness);
 
-            renderer.SetPropertyBlock(mpb);
+        renderer.SetPropertyBlock(mpb);
     }
 
     private void Update()
     {
-        
+
         left_select_delay -= Time.deltaTime;
         right_select_delay -= Time.deltaTime;
         right_delay -= Time.deltaTime;
@@ -109,22 +109,22 @@ public class CharacterSelector : MonoBehaviour
                 }
 
             }
-                RuntimeManager.PlayOneShot("event:/Soft Select");
+            RuntimeManager.PlayOneShot("event:/Soft Select");
 
-                int next = player_left_index % Characters_masks.Length;
-                if (next == -1)
-                {
-                    next = Characters_masks.Length - 1;
-                }
-                player_left_index = next;
-                //posicionar el indicador en el character seleccionado
-                selector_p1.transform.position = Characters_masks[player_left_index].transform.position + Select_dist_f_char;
-                if (player_right_index != player_left_index)
-                {
-                    Characters_masks[player_left_index].transform.GetComponentInChildren<Animator>().SetBool("select", true);
-                }
+            int next = player_left_index % Characters_masks.Length;
+            if (next == -1)
+            {
+                next = Characters_masks.Length - 1;
+            }
+            player_left_index = next;
+            //posicionar el indicador en el character seleccionado
+            selector_p1.transform.position = Characters_masks[player_left_index].transform.position + Select_dist_f_char;
+            if (player_right_index != player_left_index)
+            {
+                Characters_masks[player_left_index].transform.GetComponentInChildren<Animator>().SetBool("select", true);
+            }
 
-                left_delay = delay_movement;
+            left_delay = delay_movement;
         }
 
         if (!(right_delay > 0) && player_right_block == -1 && MathF.Abs(dir_Right.x) > movement_range)
@@ -241,15 +241,8 @@ public class CharacterSelector : MonoBehaviour
         //liberar seleccion e ir para atras, solo si eres jugador left.
         if (right_back)
         {
-           GameManager.instance.Change_SceneAsync_name("MainTitle_Fin");
-            
-
+            GameManager.instance.Change_SceneAsync_name("MainTitle_Fin");
         }
-        //if (left_back && left_back_delay < 0)
-        //{
-        //   GameManager.instance.Change_SceneAsync_name("MainTitle_Fin");
-        //}
-
 
         if (start_button)
         {
@@ -294,7 +287,7 @@ public class CharacterSelector : MonoBehaviour
 
     public void OnSelect_Right(CallbackContext context)
     {
-        if(!right_select)
+        if (!right_select)
         {
             RuntimeManager.PlayOneShot("event:/Hard Select R");
         }
