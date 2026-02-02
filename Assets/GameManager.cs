@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     FingerControl fingerControl;
     
-    EventInstance eventMusic, crowdEffect, eventMusicSelection;
+    EventInstance eventMusic, crowdEffect, eventMusicSelection, crowdTittle;
     private void Awake()
     {
         if (instance != null)
@@ -26,10 +26,15 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
         eventMusic = RuntimeManager.CreateInstance("event:/music");
         crowdEffect = RuntimeManager.CreateInstance("event:/Crowd");
         eventMusicSelection = RuntimeManager.CreateInstance("event:/Selection Music");
-        instance = this;        
+        crowdTittle = RuntimeManager.CreateInstance("event:/Crowd Title");
+
+        crowdTittle.start();
+
+        instance = this;
         DontDestroyOnLoad(gameObject);
     }
 
@@ -43,10 +48,10 @@ public class GameManager : MonoBehaviour
             eventMusicSelection.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             RuntimeManager.PlayOneShot("event:/Selection End");
 
-
             eventMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             eventMusic.setParameterByNameWithLabel("Parameter", "Play");
             eventMusic.start();
+
             crowdEffect.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             crowdEffect.setParameterByNameWithLabel("Parameter", "Play");
             crowdEffect.start();
@@ -61,11 +66,15 @@ public class GameManager : MonoBehaviour
             eventMusic.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             crowdEffect.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
 
+            crowdTittle.start();
+
         }
     }
     // Add your game mananger members here
     public void StartCombatMusic()
     {
+        crowdTittle.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+
         eventMusic.setParameterByNameWithLabel("Parameter", "Play");
         eventMusic.start();
         crowdEffect.setParameterByNameWithLabel("Parameter", "Play");
