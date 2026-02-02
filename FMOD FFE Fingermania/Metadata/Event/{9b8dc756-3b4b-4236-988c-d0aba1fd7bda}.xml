@@ -5,7 +5,7 @@
 			<value>Soft Select</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{5df3bc22-3c88-4419-823c-e3f18dce7f21}</destination>
@@ -58,7 +58,7 @@
 	</object>
 	<object class="EventAutomatableProperties" id="{c07b5916-eacb-4d57-9207-5a3d9a2c389d}">
 		<property name="maximumDistance">
-			<value>50</value>
+			<value>90</value>
 		</property>
 	</object>
 	<object class="MarkerTrack" id="{f0815664-b4e4-4638-ba36-7c13a20be511}" />
@@ -125,10 +125,15 @@
 	</object>
 	<object class="MixerBusEffectChain" id="{94e86ecb-4982-4891-ad7c-f8cdc85fc8b9}">
 		<relationship name="effects">
+			<destination>{a6b51300-6b66-44ca-9abb-96ac9273e8b9}</destination>
 			<destination>{4ab9fb0a-5b45-4ba3-b05c-54e78eac12e2}</destination>
 		</relationship>
 	</object>
-	<object class="MixerBusPanner" id="{97eccfb8-aff7-43b6-861f-c99553a0c073}" />
+	<object class="MixerBusPanner" id="{97eccfb8-aff7-43b6-861f-c99553a0c073}">
+		<property name="surroundPanExtent">
+			<value>150</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{05edcd94-0b4f-469e-a47e-8b813872501f}" />
 	<object class="RandomizerModulator" id="{b07d87f1-1631-441a-8b8c-7f01f2e0cbdb}">
 		<property name="nameOfPropertyBeingModulated">
@@ -164,6 +169,11 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{d5358119-9fde-4e32-bd76-f1068996c591}" />
+	<object class="SpatialiserEffect" id="{a6b51300-6b66-44ca-9abb-96ac9273e8b9}">
+		<property name="panBlend">
+			<value>0.394999981</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{4ab9fb0a-5b45-4ba3-b05c-54e78eac12e2}" />
 	<object class="MixerBusFader" id="{ca80515b-7120-4373-a9fc-df2af47b6978}" />
 </objects>

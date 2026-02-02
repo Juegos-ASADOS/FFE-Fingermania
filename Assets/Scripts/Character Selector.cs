@@ -98,8 +98,9 @@ public class CharacterSelector : MonoBehaviour
                 if (dir_Left.x > 0)
                 {
 
-                    player_left_index++;
                     //derecha
+                    player_left_index++;
+
                 }
                 else
                 {
@@ -107,9 +108,9 @@ public class CharacterSelector : MonoBehaviour
                     player_left_index--;
 
                 }
-
+                RuntimeManager.PlayOneShot("event:/Soft Select", Characters_masks[player_left_index].transform.position);
             }
-            RuntimeManager.PlayOneShot("event:/Soft Select");
+            
 
             int next = player_left_index % Characters_masks.Length;
             if (next == -1)
@@ -149,9 +150,9 @@ public class CharacterSelector : MonoBehaviour
                 {
                     player_right_index--;
                 }
+                RuntimeManager.PlayOneShot("event:/Soft Select", Characters_masks[player_right_index].transform.position);
             }
 
-            RuntimeManager.PlayOneShot("event:/Soft Hit 3D");
 
             int next = player_right_index % Characters_masks.Length;
             if (next == -1)
