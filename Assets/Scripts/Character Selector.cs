@@ -108,16 +108,16 @@ public class CharacterSelector : MonoBehaviour
                     player_left_index--;
 
                 }
-                RuntimeManager.PlayOneShot("event:/Soft Select", Characters_masks[player_left_index].transform.position);
             }
             
 
             int next = player_left_index % Characters_masks.Length;
-            if (next == -1)
+            if (next < 0)
             {
                 next = Characters_masks.Length - 1;
             }
             player_left_index = next;
+            RuntimeManager.PlayOneShot("event:/Soft Select", Characters_masks[player_left_index].transform.position);
             //posicionar el indicador en el character seleccionado
             selector_p1.transform.position = Characters_masks[player_left_index].transform.position + Select_dist_f_char;
             if (player_right_index != player_left_index)
@@ -150,16 +150,19 @@ public class CharacterSelector : MonoBehaviour
                 {
                     player_right_index--;
                 }
-                RuntimeManager.PlayOneShot("event:/Soft Select", Characters_masks[player_right_index].transform.position);
             }
 
 
             int next = player_right_index % Characters_masks.Length;
-            if (next == -1)
+            if (next < 0)
             {
                 next = Characters_masks.Length - 1;
             }
+            //Debug.LogWarning("player " + player_right_index + " length " + Characters_masks.Length + " next " + next);
+
+            //A partir de aqui el index esat correcto, utilizar solamente a partir de aqui!!!!
             player_right_index = next;
+            RuntimeManager.PlayOneShot("event:/Soft Select", Characters_masks[player_right_index].transform.position);
             //player_right_index = player_right_index % Characters_masks.Length;
             selector_p2.transform.position = Characters_masks[player_right_index].transform.position + Select_dist_f_char;
             if (player_left_index != player_right_index)
