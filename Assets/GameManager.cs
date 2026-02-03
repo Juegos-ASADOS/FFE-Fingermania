@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     FingerControl fingerControl;
     
-    EventInstance eventMusic, crowdEffect, eventMusicSelection, crowdTittle;
+    EventInstance eventMusic, crowdEffect, eventMusicSelection, crowdTittle, countSound;
     private void Awake()
     {
         if (instance != null)
@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
         crowdEffect = RuntimeManager.CreateInstance("event:/Crowd");
         eventMusicSelection = RuntimeManager.CreateInstance("event:/Selection Music");
         crowdTittle = RuntimeManager.CreateInstance("event:/Crowd Title");
+        countSound = RuntimeManager.CreateInstance("event:/Cuenta UI");
 
         crowdTittle.start();
 
@@ -103,10 +104,16 @@ public class GameManager : MonoBehaviour
         crowdEffect.setParameterByNameWithLabel("Parameter", "Sumision");
     }
 
+    public void StartCountUI()
+    {
+        countSound.start();
+    }
+
     public void StopCount()
     {
         eventMusic.setParameterByNameWithLabel("Parameter", "Play");
         crowdEffect.setParameterByNameWithLabel("Parameter", "Play");
+        countSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         winAnim.SetActive(false);
     }
 

@@ -1,3 +1,4 @@
+using FMODUnity;
 using UnityEngine;
 
 public class PaLaMusica : MonoBehaviour
@@ -11,6 +12,7 @@ public class PaLaMusica : MonoBehaviour
     public void Victory()
     {
         GameManager.instance.Victory();
+        RuntimeManager.PlayOneShot("event:/Bell");
     }
 
     public void EndCombat()
@@ -21,5 +23,10 @@ public class PaLaMusica : MonoBehaviour
     public void Sumission()
     {
         GameManager.instance.StartMusicCount();
+    }
+
+    public void StartCountUI()
+    { 
+        GameManager.instance.StartCountUI();
     }
 }
