@@ -84,6 +84,7 @@ public class CharacterSelector : MonoBehaviour
         //mover curosr derecho
         if (!(left_delay > 0) && player_left_block == -1 && Mathf.Abs(dir_Left.x) > movement_range)
         {
+            bool leftmove = false;
             if (player_left_index == -2)
             {
                 player_left_index = 0;
@@ -111,6 +112,7 @@ public class CharacterSelector : MonoBehaviour
                 {
                     //izquierda
                     player_left_index--;
+                    leftmove = true;
 
                 }
             }
@@ -122,6 +124,23 @@ public class CharacterSelector : MonoBehaviour
                 next = Characters_masks.Length - 1;
             }
             player_left_index = next;
+
+
+            //evitar que caigan en el mismo sitio
+            if (player_left_index == player_right_index)
+            {
+                player_left_index += leftmove ? -1 : 1;
+                if (player_left_index < 0)
+                {
+                    player_left_index = Characters_masks.Length - 1;
+                }
+                if (player_left_index > Characters_masks.Length - 1)
+                {
+                    player_left_index = 0;
+                }
+            }
+
+
             RuntimeManager.PlayOneShot("event:/Soft Select", Characters_masks[player_left_index].transform.position);
             //posicionar el indicador en el character seleccionado
             selector_p1.transform.position = Characters_masks[player_left_index].transform.position + Select_dist_f_char;
@@ -140,6 +159,7 @@ public class CharacterSelector : MonoBehaviour
 
         if (!(right_delay > 0) && player_right_block == -1 && MathF.Abs(dir_Right.x) > movement_range)
         {
+            bool leftmove = false;
             if (player_right_index == -2)
             {
                 player_right_index = 1;
@@ -164,6 +184,7 @@ public class CharacterSelector : MonoBehaviour
                 else
                 {
                     player_right_index--;
+                    leftmove = true;
                 }
             }
 
@@ -175,8 +196,24 @@ public class CharacterSelector : MonoBehaviour
             }
             //Debug.LogWarning("player " + player_right_index + " length " + Characters_masks.Length + " next " + next);
 
-            //A partir de aqui el index esat correcto, utilizar solamente a partir de aqui!!!!
+            //A partir de aqui el index esta correcto, utilizar solamente a partir de aqui!!!!
             player_right_index = next;
+
+            //evitar que caigan en el mismo sitio
+            if (player_left_index == player_right_index)
+            {
+                player_right_index += leftmove ? -1 : 1;
+                if (player_right_index < 0)
+                {
+                    player_right_index = Characters_masks.Length - 1;
+                }
+                if (player_right_index > Characters_masks.Length - 1)
+                {
+                    player_right_index = 0;
+                }
+            }
+
+
             RuntimeManager.PlayOneShot("event:/Soft Select", Characters_masks[player_right_index].transform.position);
             //player_right_index = player_right_index % Characters_masks.Length;
             selector_p2.transform.position = Characters_masks[player_right_index].transform.position + Select_dist_f_char;
@@ -184,10 +221,10 @@ public class CharacterSelector : MonoBehaviour
             {
                 Characters_masks[player_right_index].transform.GetComponentInChildren<Animator>().SetBool("select", true);
                 SetOutline(
-                       Characters_masks[player_right_index],
-                       Color.red,
-                       0.2f
-                   );
+                    Characters_masks[player_right_index],
+                    Color.red,
+                    0.2f
+                );
             }
 
 
@@ -204,8 +241,8 @@ public class CharacterSelector : MonoBehaviour
                 {
                     Characters_masks[player_right_index].transform.GetComponentInChildren<Animator>().SetBool("superselect", false);
                     SetOutline(
-                    Characters_masks[player_right_block],
-                    Color.clear,
+                    Characters_masks[player_right_index],
+                    Color.red,
                     0.2f
                 );
                 }
@@ -221,10 +258,10 @@ public class CharacterSelector : MonoBehaviour
 
 
                 SetOutline(
-            Characters_masks[player_right_index],
-            Color.red,
-            0.5f
-        );
+                Characters_masks[player_right_index],
+                Color.red,
+                0.5f
+                );
             }
             right_select_delay = delay_movement;
         }
@@ -237,12 +274,12 @@ public class CharacterSelector : MonoBehaviour
                 if (player_left_block != -1)
                 {
                     Characters_masks[player_left_index].transform.GetComponentInChildren<Animator>().SetBool("superselect", false);
-                    SetOutline(
-                    Characters_masks[player_left_block],
-                    Color.clear,
+                }
+                SetOutline(
+                    Characters_masks[player_left_index],
+                    Color.blue,
                     0.2f
                 );
-                }
                 player_left_block = -1;
             }
             else if (player_left_index >= 0 && player_left_index != player_right_block)
@@ -290,6 +327,7 @@ public class CharacterSelector : MonoBehaviour
         right_select = false;
         left_select = false;
     }
+
 
     public void OnLeftFingerMove(CallbackContext context)
     {
