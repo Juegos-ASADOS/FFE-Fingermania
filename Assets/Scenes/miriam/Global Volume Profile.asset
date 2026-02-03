@@ -31,13 +31,13 @@ MonoBehaviour:
   active: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 42.78
   tintColor:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 0, b: 0, a: 1}
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
   bloomMip:
-    m_OverrideState: 0
-    m_Value: 1
+    m_OverrideState: 1
+    m_Value: 2
   firstFlareIntensity:
     m_OverrideState: 0
     m_Value: 1
@@ -57,7 +57,7 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0.5
   vignetteEffect:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   startingPosition:
     m_OverrideState: 0
@@ -66,11 +66,11 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 1.5
   streaksIntensity:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 0.66
   streaksLength:
-    m_OverrideState: 0
-    m_Value: 0.5
+    m_OverrideState: 1
+    m_Value: 0.978
   streaksOrientation:
     m_OverrideState: 0
     m_Value: 0
@@ -82,7 +82,7 @@ MonoBehaviour:
     m_Value: 4
   chromaticAbberationIntensity:
     m_OverrideState: 1
-    m_Value: 0.5
+    m_Value: 0.144
 --- !u!114 &-5042238297457124699
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -106,7 +106,7 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 2.5
   scatter:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0.7
   clamp:
     m_OverrideState: 0
@@ -127,12 +127,12 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 6
   dirtTexture:
-    m_OverrideState: 0
-    m_Value: {fileID: 2800000, guid: 4fb37a68edfcae94fb2eed080a8cba55, type: 3}
+    m_OverrideState: 1
+    m_Value: {fileID: 2800000, guid: 835b33592414ba44eb447d48ddf17a4d, type: 3}
     dimension: 1
   dirtIntensity:
-    m_OverrideState: 1
-    m_Value: 6.71
+    m_OverrideState: 0
+    m_Value: 23.32
 --- !u!114 &-2361924692411606371
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -150,17 +150,63 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0
   contrast:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 9.9
   colorFilter:
     m_OverrideState: 0
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_Value: {r: 0.4824215, g: 0.7735849, b: 0.20799215, a: 1}
   hueShift:
     m_OverrideState: 0
     m_Value: 0
   saturation:
     m_OverrideState: 1
     m_Value: 22
+--- !u!114 &-2071261399609231071
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c01700fd266d6914ababb731e09af2eb, type: 3}
+  m_Name: DepthOfField
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DepthOfField
+  active: 1
+  mode:
+    m_OverrideState: 1
+    m_Value: 2
+  gaussianStart:
+    m_OverrideState: 1
+    m_Value: 1000.65
+  gaussianEnd:
+    m_OverrideState: 1
+    m_Value: 203.31
+  gaussianMaxRadius:
+    m_OverrideState: 1
+    m_Value: 1
+  highQualitySampling:
+    m_OverrideState: 1
+    m_Value: 1
+  focusDistance:
+    m_OverrideState: 1
+    m_Value: 2.6
+  aperture:
+    m_OverrideState: 0
+    m_Value: 5.6
+  focalLength:
+    m_OverrideState: 1
+    m_Value: 51.8
+  bladeCount:
+    m_OverrideState: 0
+    m_Value: 5
+  bladeCurvature:
+    m_OverrideState: 0
+    m_Value: 1
+  bladeRotation:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,6 +230,7 @@ MonoBehaviour:
   - {fileID: -6508198127395829127}
   - {fileID: 7738339038112760747}
   - {fileID: 90807387677099618}
+  - {fileID: -2071261399609231071}
 --- !u!114 &90807387677099618
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -285,8 +332,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.Tonemapping
   active: 0
   mode:
-    m_OverrideState: 1
-    m_Value: 2
+    m_OverrideState: 0
+    m_Value: 0
   neutralHDRRangeReductionMode:
     m_OverrideState: 0
     m_Value: 2
@@ -326,12 +373,12 @@ MonoBehaviour:
   active: 0
   shadows:
     m_OverrideState: 0
-    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
   highlights:
     m_OverrideState: 0
     m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   balance:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
 --- !u!114 &8195373280820034149
 MonoBehaviour:
