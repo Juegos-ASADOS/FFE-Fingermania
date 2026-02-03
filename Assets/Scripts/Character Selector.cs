@@ -94,6 +94,11 @@ public class CharacterSelector : MonoBehaviour
                 if (player_left_index != -1 && player_left_index != player_right_index)
                 {
                     Characters_masks[player_left_index].transform.GetComponentInChildren<Animator>().SetBool("select", false);
+                    SetOutline(
+                   Characters_masks[player_left_index],
+                   Color.blue,
+                   0f
+                    );
                 }
                 if (dir_Left.x > 0)
                 {
@@ -123,6 +128,11 @@ public class CharacterSelector : MonoBehaviour
             if (player_right_index != player_left_index)
             {
                 Characters_masks[player_left_index].transform.GetComponentInChildren<Animator>().SetBool("select", true);
+                SetOutline(
+                   Characters_masks[player_left_index],
+                   Color.blue,
+                   0.2f
+               );
             }
 
             left_delay = delay_movement;
@@ -139,6 +149,11 @@ public class CharacterSelector : MonoBehaviour
                 if (player_right_index != -1 && player_left_index != player_right_index)
                 {
                     Characters_masks[player_right_index].transform.GetComponentInChildren<Animator>().SetBool("select", false);
+                    SetOutline(
+                   Characters_masks[player_right_index],
+                   Color.red,
+                   0f
+                    );
                 }
                 if (dir_Right.x > 0)
                 {
@@ -168,6 +183,11 @@ public class CharacterSelector : MonoBehaviour
             if (player_left_index != player_right_index)
             {
                 Characters_masks[player_right_index].transform.GetComponentInChildren<Animator>().SetBool("select", true);
+                SetOutline(
+                       Characters_masks[player_right_index],
+                       Color.red,
+                       0.2f
+                   );
             }
 
 
@@ -186,7 +206,7 @@ public class CharacterSelector : MonoBehaviour
                     SetOutline(
                     Characters_masks[player_right_block],
                     Color.clear,
-                    0f
+                    0.2f
                 );
                 }
                 player_right_block = -1;
@@ -203,7 +223,7 @@ public class CharacterSelector : MonoBehaviour
                 SetOutline(
             Characters_masks[player_right_index],
             Color.red,
-            0.2f
+            0.5f
         );
             }
             right_select_delay = delay_movement;
@@ -220,7 +240,7 @@ public class CharacterSelector : MonoBehaviour
                     SetOutline(
                     Characters_masks[player_left_block],
                     Color.clear,
-                    0f
+                    0.2f
                 );
                 }
                 player_left_block = -1;
@@ -235,7 +255,7 @@ public class CharacterSelector : MonoBehaviour
                 SetOutline(
                    Characters_masks[player_left_index],
                    Color.blue,
-                   0.2f
+                   0.5f
                );
 
             }
