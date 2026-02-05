@@ -2954,6 +2954,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5873116977647394570, guid: f00225a379b17ac4fbea616912ee60f1, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5970127133238927873, guid: f00225a379b17ac4fbea616912ee60f1, type: 3}
       propertyPath: m_Enabled
       value: 0
