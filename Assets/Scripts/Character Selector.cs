@@ -11,8 +11,8 @@ public class CharacterSelector : MonoBehaviour
     [SerializeField]
     GameObject[] Characters_masks;
 
-    int player_left_index = -2;
-    int player_right_index = -2;
+    int player_left_index = 0;
+    int player_right_index = 1;
     //personaje block
     int player_left_block = -1;
     int player_right_block = -1;
@@ -54,7 +54,16 @@ public class CharacterSelector : MonoBehaviour
     }
     void Start()
     {
-
+        SetOutline(
+                   Characters_masks[player_left_index],
+                   Color.blue,
+                   0.2f
+                    );
+        SetOutline(
+                   Characters_masks[player_right_index],
+                   Color.red,
+                   0.2f
+                    );
 
     }
     void SetOutline(GameObject character, Color color, float thickness)
