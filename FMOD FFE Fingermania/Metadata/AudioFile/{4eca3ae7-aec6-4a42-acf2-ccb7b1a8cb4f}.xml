@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{4eca3ae7-aec6-4a42-acf2-ccb7b1a8cb4f}">
+		<property name="assetPath">
+			<value>music/FFE Finger Mania Selection music v1.2.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>5.016</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{c3657d4a-010f-4d18-be03-335d04b2d156}</destination>
+		</relationship>
+	</object>
+</objects>
