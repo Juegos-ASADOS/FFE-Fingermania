@@ -67,6 +67,8 @@ public class CharacterSelector : MonoBehaviour
                    0.2f
                     );
 
+        Characters_masks[player_left_index].transform.GetComponentInChildren<Animator>().SetBool("select", true);
+        Characters_masks[player_right_index].transform.GetComponentInChildren<Animator>().SetBool("select", true);
     }
     void SetOutline(GameObject character, Color color, float thickness)
     {
