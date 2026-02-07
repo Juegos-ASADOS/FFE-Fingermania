@@ -46,6 +46,8 @@ public class CharacterSelector : MonoBehaviour
     [SerializeField]
     float movement_range = 0.2f;
 
+    [SerializeField]
+    GameObject startIndicator;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -313,6 +315,11 @@ public class CharacterSelector : MonoBehaviour
         {
             GameManager.instance.Change_SceneAsync_name("MainTitle_Fin");
         }
+
+        if(player_left_block != -1 && player_right_block != -1)        
+            startIndicator.SetActive(true);
+        else
+            startIndicator.SetActive(false);
 
         if (start_button)
         {

@@ -343,6 +343,8 @@ public class FingerControl : MonoBehaviour
     private void OnDisable()
     {
         Gamepad.current.SetMotorSpeeds(0f, 0f);
+        left_info.etblk.enabled = false;
+        right_info.etblk.enabled = false;
     }
     //private void OnDrawGizmos()
     //{
