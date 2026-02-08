@@ -123,6 +123,7 @@ public class FingerControl : MonoBehaviour
 
     public void OnLeftFingerAttack(CallbackContext context)
     {
+        if(!enabled) return;
         leftAttack = context.ReadValue<float>();
 
         if (leftAttack > 0.8 && !bDedoDobladoLeft)
@@ -141,6 +142,7 @@ public class FingerControl : MonoBehaviour
 
     public void OnRightFingerAttack(CallbackContext context)
     {
+        if(!enabled) return;
         rightAttack = context.ReadValue<float>();
 
         if(rightAttack > 0.8 && !bDedoDobladoRight)
