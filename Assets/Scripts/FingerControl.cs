@@ -321,7 +321,7 @@ public class FingerControl : MonoBehaviour
 
     public void ManageFingerColisionExit()
     {
-        if (collisionFallen)
+        if (enabled && collisionFallen)
         {
             leftStamina.SetDifficultyTembleke(1);
             rightStamina.SetDifficultyTembleke(1);
@@ -340,8 +340,17 @@ public class FingerControl : MonoBehaviour
         if (left) return rightHint;
         else return leftHint;
     }
+
+    public bool LeftLoose()
+    {
+        return leftStamina.IsDead();
+    }
     private void OnDisable()
     {
+        if(leftStamina.IsDead())
+            rightHead.position = rHeadIniPos;
+        else
+            leftHead.position = lHeadIniPos;
         Gamepad.current.SetMotorSpeeds(0f, 0f);
         left_info.etblk.enabled = false;
         right_info.etblk.enabled = false;

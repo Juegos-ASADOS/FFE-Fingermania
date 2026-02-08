@@ -44,3 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccc5088e09afab14a8fcfb9e890907f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  left_dedo_id: 0
+  right_dedo_id: 0
+  totalRounds: 3

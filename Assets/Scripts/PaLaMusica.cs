@@ -17,7 +17,7 @@ public class PaLaMusica : MonoBehaviour
 
     public void EndCombat()
     {
-        GameManager.instance.Change_SceneAsync_name("CharacterSelection");
+        GameManager.instance.IncreeseRound();
     }
 
     public void Sumission()

@@ -3,20 +3,8 @@ using UnityEngine;
 
 public class StaminaPlayer : MonoBehaviour
 {
-    // QUITA
-    // Te golpean (mucha) x
-    // Golpeas (menos, la mitad yoquese) x
-    // Moverte (minimo) x
-    
-    // SE ACABA
-    // En 0, tiramos la bola (el head), empieza eltembleke (va subiendo cuando te mueves y cuando llegue a x se pone dura de nuevo)
-
-    // ESTAS TIRAO
-    // Si te aplastan, eltembleke recupera menos
-    // Empieza la cuenta, si no has recuperao suficiente pa el final cagaste
-
     [SerializeField]
-    public float stamina = 100f;
+    float stamina = 100f;
     float maxStamina;
 
     [SerializeField]
@@ -25,7 +13,6 @@ public class StaminaPlayer : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI staminaTextS;
 
-    [SerializeField]
     public bool isLeft;
 
     int timesFallen;
@@ -96,13 +83,13 @@ public class StaminaPlayer : MonoBehaviour
         hint = fingerCtrl.GetHint(isLeft);
     }
 
-    private void Update()
-    {
-        //staminaText.text = stamina.ToString() + " - " + timesFallen.ToString();
-    }
-
     public void SetDifficultyTembleke(int difficulty)
     {
         ertbk.SetDifficultyTembleke(difficulty);
+    }
+
+    public bool IsDead()
+    {
+        return stamina <= 0;
     }
 }

@@ -20,6 +20,11 @@ public class GameManager : MonoBehaviour
     
     EventInstance eventMusic, crowdEffect, eventMusicSelection, crowdTittle, countSound;
 
+    [SerializeField]
+    int totalRounds;
+
+    private int round = 0, leftWins = 0;
+
     private void Awake()
     {
         if (instance != null)
@@ -125,6 +130,11 @@ public class GameManager : MonoBehaviour
         crowdEffect.setParameterByNameWithLabel("Parameter", "Win");
     }
 
+    public void StartRound()
+    {
+        fingerControl.enabled = true;
+    }
+
     public void SetWinAnim(GameObject anim)
     {
         winAnim = anim;
@@ -133,5 +143,19 @@ public class GameManager : MonoBehaviour
     public void SetFC(FingerControl fc)
     {
         fingerControl = fc;
+    }
+
+    public void IncreeseRound()
+    {
+        round++;
+        if (!fingerControl.LeftLoose()) leftWins++;
+        if(round >= totalRounds || leftWins > totalRounds / 2 || round - leftWins > totalRounds / 2)
+        {
+            round = 0;
+            leftWins = 0;
+            Change_SceneAsync_name("CharacterSelection");        
+        } 
+        else        
+            Change_SceneAsync_name("Final");        
     }
 }
