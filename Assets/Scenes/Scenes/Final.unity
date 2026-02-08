@@ -4226,7 +4226,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &454689532249517080
 GameObject:
   m_ObjectHideFlags: 0
@@ -4768,6 +4768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21c187016224fe04088df1e0255f402b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaLaMusica
+  win: 1
 --- !u!1 &6338217530645701805
 GameObject:
   m_ObjectHideFlags: 0
@@ -4914,7 +4915,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8380274645266516971, guid: e83d2785b6afed14da147c04811fb581, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -28,14 +28,6 @@ public class HitDetector : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay(Collision collision)
-    {
-        if (collision.gameObject.TryGetComponent(out HitDetector other))
-        {
-            //Debug.Log("se estan pegado!");
-        }
-    }
-
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.TryGetComponent(out HitDetector other))

@@ -3,9 +3,11 @@ using UnityEngine;
 
 public class PaLaMusica : MonoBehaviour
 {
+    [SerializeField]
+    bool win;
     private void Awake()
     {
-        GameManager.instance.SetWinAnim(transform.parent.gameObject);
+        GameManager.instance.SetWinAnim(transform.parent.gameObject, win);
         transform.parent.gameObject.SetActive(false);
     }
 

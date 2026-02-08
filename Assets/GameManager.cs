@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public
     int right_dedo_id = 0;
 
-    GameObject winAnim;
+    GameObject winAnim, roundAnim;
 
     FingerControl fingerControl;
     
@@ -100,8 +100,11 @@ public class GameManager : MonoBehaviour
     }
 
     public void StartCount()
-    {       
-        winAnim.SetActive(true);
+    {
+        if (round + 1 >= totalRounds || (!fingerControl.LeftLoose() && leftWins + 1 > totalRounds / 2) || (fingerControl.LeftLoose() && round + 1 - leftWins > totalRounds / 2))
+            winAnim.SetActive(true);
+        else
+            roundAnim.SetActive(true);
     }
 
     public void StartMusicCount()
@@ -121,6 +124,7 @@ public class GameManager : MonoBehaviour
         crowdEffect.setParameterByNameWithLabel("Parameter", "Play");
         countSound.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         winAnim.SetActive(false);
+        roundAnim.SetActive(false);
     }
 
     public void Victory()
@@ -135,9 +139,12 @@ public class GameManager : MonoBehaviour
         fingerControl.enabled = true;
     }
 
-    public void SetWinAnim(GameObject anim)
+    public void SetWinAnim(GameObject anim, bool win)
     {
-        winAnim = anim;
+        if(win)
+            winAnim = anim;
+        else
+            roundAnim = anim;
     }
 
     public void SetFC(FingerControl fc)
@@ -158,4 +165,6 @@ public class GameManager : MonoBehaviour
         else        
             Change_SceneAsync_name("Final");        
     }
+
+    public int GetRound() { return round; }
 }
