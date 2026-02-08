@@ -428,7 +428,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StaminaPlayer
   stamina: 100
-  staminaToRecover: 25
+  staminaToRecover: 20
+  staminaIncrementToRecover: 10
   staminaTextS: {fileID: 0}
   isLeft: 0
 --- !u!114 &2150175620550889872
@@ -446,8 +447,8 @@ MonoBehaviour:
   fingerHead: {fileID: 735247200588926329}
   posObjective: {x: -12.3, y: 0.8, z: 10.96}
   timeToFall: 0.1
-  moveToRecoverStamina: 10
-  staminaRecover: 10
+  moveToRecoverStamina: 5
+  staminaRecover: 5
   particlesSmoke: {fileID: 7721020973659431501}
 --- !u!114 &4991050628341992770
 MonoBehaviour:

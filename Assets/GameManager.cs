@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     FingerControl fingerControl;
     
     EventInstance eventMusic, crowdEffect, eventMusicSelection, crowdTittle, countSound;
+
     private void Awake()
     {
         if (instance != null)

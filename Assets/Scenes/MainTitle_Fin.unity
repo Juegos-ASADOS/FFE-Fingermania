@@ -205,7 +205,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1975561963}
         m_TargetAssemblyTypeName: lostfocus_ui, Assembly-CSharp
-        m_MethodName: start_button
+        m_MethodName: TutorialStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1563,6 +1563,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1694708972}
   - component: {fileID: 1694708973}
+  - component: {fileID: 1694708974}
   m_Layer: 5
   m_Name: ContainerTutorial
   m_TagString: Untagged
@@ -1615,6 +1616,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1694708974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694708971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da39c5aa2ffe3104c9dec129443b9efa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tutorial
+  ui: {fileID: 1975561963}
 --- !u!114 &1728638760 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1096158902024965685, guid: 60fd93f2511d9a64da863534118fd0da, type: 3}
@@ -1694,6 +1708,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   default_button: {fileID: 31073922}
   warningNotController: {fileID: 2109350588}
+  tutorialObject: {fileID: 1694708971}
+  tutorialEnd: 0
 --- !u!4 &1975561964
 Transform:
   m_ObjectHideFlags: 0
@@ -1832,10 +1848,10 @@ MonoBehaviour:
     m_ActionName: Menu control/RightFingerMove
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CharacterSelector, Assembly-CSharp
-        m_MethodName: OnSelect_Right
-        m_Mode: 0
+      - m_Target: {fileID: 1975561963}
+        m_TargetAssemblyTypeName: lostfocus_ui, Assembly-CSharp
+        m_MethodName: start_button
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

@@ -14,7 +14,11 @@ public class lostfocus_ui : MonoBehaviour
     [SerializeField]
     GameObject warningNotController;
 
+    [SerializeField]
+    GameObject tutorialObject;
+
     private bool notController = false;
+    public bool tutorialEnd = false;
 
     private void Update()
     {
@@ -27,6 +31,7 @@ public class lostfocus_ui : MonoBehaviour
         {
             notController = true;
             warningNotController.SetActive(true);
+            return;
         }
     }
 
@@ -40,13 +45,19 @@ public class lostfocus_ui : MonoBehaviour
     }
 
     public void start_button()
-    {
-        if(Gamepad.all.Count > 0)
+    {        
+        if(tutorialEnd)
             GameManager.instance.Change_SceneAsync_name("CharacterSelection");
     }
+
+    public void TutorialStart()
+    {
+        if (Gamepad.all.Count > 0)
+            tutorialObject.SetActive(true);
+    }
+
     public void play_Sound(string ruta)
     {
         RuntimeManager.PlayOneShot(ruta);
     }
-
 }

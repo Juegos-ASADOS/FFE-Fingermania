@@ -20,7 +20,7 @@ public class StaminaPlayer : MonoBehaviour
     float maxStamina;
 
     [SerializeField]
-    float staminaToRecover;
+    float staminaToRecover, staminaIncrementToRecover;
 
     [SerializeField]
     TextMeshProUGUI staminaTextS;
@@ -57,11 +57,11 @@ public class StaminaPlayer : MonoBehaviour
     public void recoverStamina(float amount)
     {
         stamina = Mathf.Min(stamina + amount, 100f);
-        if (recovering && stamina > staminaToRecover * timesFallen)
+        if (recovering && stamina > staminaToRecover + staminaIncrementToRecover * timesFallen)
         {
             recovering = false;
             ertbk.enabled = false;
-            stamina = maxStamina - staminaToRecover * timesFallen;
+            stamina = maxStamina - staminaToRecover + staminaIncrementToRecover * timesFallen;
             fingerCtrl.SwitchMovement(this, false);
             icon.SetActive(false);
             hint.SetActive(false);
