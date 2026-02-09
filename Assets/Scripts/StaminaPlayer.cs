@@ -90,6 +90,6 @@ public class StaminaPlayer : MonoBehaviour
 
     public bool IsDead()
     {
-        return stamina <= 0;
+        return ertbk.enabled;
     }
 }

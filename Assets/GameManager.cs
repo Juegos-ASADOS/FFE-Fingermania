@@ -131,12 +131,12 @@ public class GameManager : MonoBehaviour
 
     public void Victory()
     {
-        fingerControl.enabled = false;
         eventMusic.setParameterByNameWithLabel("Parameter", "Win");
         crowdEffect.setParameterByNameWithLabel("Parameter", "Win");
 
         round++;
         if (!fingerControl.LeftLoose()) leftWins++;
+        fingerControl.enabled = false;
         livesDeactivator.DeactivateLives();
     }
 
