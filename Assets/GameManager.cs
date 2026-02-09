@@ -56,15 +56,15 @@ public class GameManager : MonoBehaviour
 
             eventMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             eventMusic.setParameterByNameWithLabel("Parameter", "Play");
-            eventMusic.start();
+            //eventMusic.start();
 
             crowdEffect.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             crowdEffect.setParameterByNameWithLabel("Parameter", "Play");
-            crowdEffect.start();
+            //crowdEffect.start();
         }
         else if(name == "CharacterSelection")
         {
-            eventMusicSelection.start();
+            //eventMusicSelection.start();
         }
         else
         {
@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
             eventMusic.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             crowdEffect.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
 
-            crowdTittle.start();
+            //crowdTittle.start();
 
         }
     }
@@ -82,9 +82,9 @@ public class GameManager : MonoBehaviour
         crowdTittle.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
 
         eventMusic.setParameterByNameWithLabel("Parameter", "Play");
-        eventMusic.start();
+        //eventMusic.start();
         crowdEffect.setParameterByNameWithLabel("Parameter", "Play");
-        crowdEffect.start();
+        //crowdEffect.start();
 
         eventMusicSelection.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         RuntimeManager.PlayOneShot("event:/Selection End");
