@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     GameObject winAnim, roundAnim;
 
     FingerControl fingerControl;
+
+    LivesDeactivator livesDeactivator;
     
     EventInstance eventMusic, crowdEffect, eventMusicSelection, crowdTittle, countSound;
 
@@ -132,6 +134,10 @@ public class GameManager : MonoBehaviour
         fingerControl.enabled = false;
         eventMusic.setParameterByNameWithLabel("Parameter", "Win");
         crowdEffect.setParameterByNameWithLabel("Parameter", "Win");
+
+        round++;
+        if (!fingerControl.LeftLoose()) leftWins++;
+        livesDeactivator.DeactivateLives();
     }
 
     public void StartRound()
@@ -153,9 +159,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void IncreeseRound()
-    {
-        round++;
-        if (!fingerControl.LeftLoose()) leftWins++;
+    {        
         if(round >= totalRounds || leftWins > totalRounds / 2 || round - leftWins > totalRounds / 2)
         {
             round = 0;
@@ -167,4 +171,8 @@ public class GameManager : MonoBehaviour
     }
 
     public int GetRound() { return round; }
+    public int GetLeftWins() { return leftWins; }
+    public int GetRightWins() { return round - leftWins; }
+
+    public void SetLivesDeactivator(LivesDeactivator live) { livesDeactivator = live; }
 }
