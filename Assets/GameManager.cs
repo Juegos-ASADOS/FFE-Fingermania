@@ -53,12 +53,10 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(name);
         if (name == "Final")
         {   
-            eventMusicSelection.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            eventMusicSelection.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             RuntimeManager.PlayOneShot("event:/Selection End");
 
             eventMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-            eventMusic.setParameterByNameWithLabel("Parameter", "Play");
-            eventMusic.start();
 
             crowdEffect.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             crowdEffect.setParameterByNameWithLabel("Parameter", "Play");
@@ -85,11 +83,10 @@ public class GameManager : MonoBehaviour
 
         eventMusic.setParameterByNameWithLabel("Parameter", "Play");
         eventMusic.start();
-        crowdEffect.setParameterByNameWithLabel("Parameter", "Play");
-        crowdEffect.start();
+        //crowdEffect.setParameterByNameWithLabel("Parameter", "Play");
+        //crowdEffect.start();
 
         eventMusicSelection.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-        RuntimeManager.PlayOneShot("event:/Selection End");
     }
 
     public void SelectObject(GameObject ob)

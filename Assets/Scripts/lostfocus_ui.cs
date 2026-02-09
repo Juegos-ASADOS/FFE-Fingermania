@@ -58,6 +58,7 @@ public class lostfocus_ui : MonoBehaviour
 
     public void play_Sound(string ruta)
     {
-        RuntimeManager.PlayOneShot(ruta);
+        if(!tutorialObject.activeSelf)
+            RuntimeManager.PlayOneShot(ruta);
     }
 }

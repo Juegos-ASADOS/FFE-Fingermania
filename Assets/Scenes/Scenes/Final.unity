@@ -4793,6 +4793,7 @@ GameObject:
   - component: {fileID: 5332864048211512337}
   - component: {fileID: 7580982843726536408}
   - component: {fileID: 7580982843726536409}
+  - component: {fileID: 7580982843726536410}
   m_Layer: 0
   m_Name: Container
   m_TagString: Untagged
@@ -4874,6 +4875,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7e385ec72fb4374c80032cf64704c71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CountControler
+--- !u!114 &7580982843726536410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6338217530645701805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be517c78efda0ef4d8f0724edd44c6ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RoundSound
 --- !u!1001 &8331861043742010458
 PrefabInstance:
   m_ObjectHideFlags: 0
