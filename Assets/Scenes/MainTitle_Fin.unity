@@ -205,18 +205,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1975561963}
         m_TargetAssemblyTypeName: lostfocus_ui, Assembly-CSharp
-        m_MethodName: TutorialStart
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: CharacterSelection
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1975561963}
-        m_TargetAssemblyTypeName: lostfocus_ui, Assembly-CSharp
         m_MethodName: play_Sound
         m_Mode: 5
         m_Arguments:
@@ -225,6 +213,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: event:/Button Accept
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1975561963}
+        m_TargetAssemblyTypeName: lostfocus_ui, Assembly-CSharp
+        m_MethodName: TutorialStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: CharacterSelection
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &31073925
