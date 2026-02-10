@@ -52,9 +52,8 @@ public class GameManager : MonoBehaviour
         //para casos que cargar la escena pueda ser muy lento
         SceneManager.LoadScene(name);
         if (name == "Final")
-        {   
+        {
             eventMusicSelection.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-            RuntimeManager.PlayOneShot("event:/Selection End");
 
             eventMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
 
@@ -156,15 +155,18 @@ public class GameManager : MonoBehaviour
     }
 
     public void IncreeseRound()
-    {        
+    {
         if(round >= totalRounds || leftWins > totalRounds / 2 || round - leftWins > totalRounds / 2)
         {
             round = 0;
             leftWins = 0;
             Change_SceneAsync_name("CharacterSelection");        
         } 
-        else        
-            Change_SceneAsync_name("Final");        
+        else
+        {
+            Change_SceneAsync_name("Final");
+            StartCombatMusic();
+        }
     }
 
     public int GetRound() { return round; }

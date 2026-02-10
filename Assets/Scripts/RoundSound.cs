@@ -5,7 +5,6 @@ public class RoundSound : MonoBehaviour
 {
     public void Bell()
     {
-        RuntimeManager.PlayOneShot("event:/Bell");
-        GameManager.instance.StartCombatMusic();
+        //RuntimeManager.PlayOneShot("event:/Bell");
     }
 }

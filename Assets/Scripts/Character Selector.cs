@@ -331,6 +331,7 @@ public class CharacterSelector : MonoBehaviour
                 GameManager.instance.right_dedo_id = player_left_block;
                 //ir a la pelea
                 SceneManager.LoadScene("Final");
+                GameManager.instance.StartCombatMusic();
                 RuntimeManager.PlayOneShot("event:/Selection End");
             }
         }
