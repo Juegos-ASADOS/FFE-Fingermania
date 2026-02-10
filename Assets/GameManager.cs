@@ -41,10 +41,13 @@ public class GameManager : MonoBehaviour
         crowdTittle = RuntimeManager.CreateInstance("event:/Crowd Title");
         countSound = RuntimeManager.CreateInstance("event:/Cuenta UI");
 
-        crowdTittle.start();
-
         instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        crowdTittle.start();        
     }
 
     public void Change_SceneAsync_name(string name)
@@ -94,7 +97,9 @@ public class GameManager : MonoBehaviour
     }
     public void ExitGame()
     {
+#if !UNITY_WEBGL
         Application.Quit();
+#endif
     }
 
     public void StartCount()
