@@ -35,18 +35,19 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        instance = this;
+
+        DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
         eventMusic = RuntimeManager.CreateInstance("event:/music");
         crowdEffect = RuntimeManager.CreateInstance("event:/Crowd");
         eventMusicSelection = RuntimeManager.CreateInstance("event:/Selection Music");
         crowdTittle = RuntimeManager.CreateInstance("event:/Crowd Title");
         countSound = RuntimeManager.CreateInstance("event:/Cuenta UI");
 
-        instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
-
-    private void Start()
-    {
         crowdTittle.start();        
     }
 
@@ -75,7 +76,6 @@ public class GameManager : MonoBehaviour
             crowdEffect.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
 
             crowdTittle.start();
-
         }
     }
     // Add your game mananger members here
