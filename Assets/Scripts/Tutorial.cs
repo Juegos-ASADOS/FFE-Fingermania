@@ -1,3 +1,4 @@
+using FMODUnity;
 using UnityEngine;
 
 public class Tutorial : MonoBehaviour
@@ -8,5 +9,10 @@ public class Tutorial : MonoBehaviour
     public void EndTutorial()
     {
         ui.tutorialEnd = true;
+    }
+
+    public void StartTutorial()
+    {
+        RuntimeManager.PlayOneShot("event:/Controller Animation");
     }
 }
